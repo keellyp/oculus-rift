@@ -1,7 +1,44 @@
+.hero {
+  padding-bottom: 9.6rem;
+  section {
+    .hero__image {
+      @include background('../img/oculus_page1.jpg', center, cover);
+      @include size(100vw, 50vh);
+    }
+  }
+}
+
+.magic {
+  padding-bottom: 8rem;
+  section {
+    .magic__image {
+      @include background('../img/oculus_page2.jpg', 0%, cover);
+      @include size(100vw, 60vh);
+    }
+  }
+}
+
 .immersive {
-    background-image: url('../img/oculus_page3.jpg');
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 1000px;
+  section {
+    .immersive__image {
+      position: relative;
+      @include background('../img/img-sans-caillou-smooth4.png', center, cover);
+      @include size(100vw, 100vh);
+
+      .immersive__content {
+        position: absolute;
+        top: 0%;
+        left: 5%;
+      }
+    }
+  }
+}
+
+.gesture {
+  section {
+    .gesture__image {
+      @include background('../img/oculus_page5.jpg', center, cover);
+      @include size(100vw, 40vh);
+    }
+  }
 }

@@ -9,3 +9,16 @@ $medium-light: #e4e4e4;
 $medium: 768px;
 $large: 1024px;
 
+// Mixins
+@mixin background($url, $position, $size) {
+  background-image: url($url);
+  background-position: $position;
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-origin: center;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}

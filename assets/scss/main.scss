@@ -10,7 +10,9 @@
 html {
   font-size: 62.5%;
 }
-
+html, body{
+  overflow-x: hidden;
+}
 body {
   background-color: $dark;
   min-width: 32rem;
@@ -19,9 +21,4 @@ body {
 .container {
   width: 90%;
   margin: auto;
-}
-
-img {
-  width: 100vw;
-  height: auto;
 }
