@@ -4,13 +4,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.min.css">
-	<title>Dev - Oculus Rift</title>
+	<title>Oculus Rift</title>
 </head>
 <body>
 	@@include('views/header.html')
-	@@include('views/content.html')
+	<div class="container">
+		@@include('views/hero.html')
+	</div>
+	@@include('views/immersive.html')
+	<!-- @@include('views/content.html') -->
 	<script src="js/script.min.js"></script>
 </body>
 </html>

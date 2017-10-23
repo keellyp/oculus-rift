@@ -1,12 +1,11 @@
-$main-color : #cacaca;
-$second-color : #ff2171;
-$background : #000000;
+// Colors
+$dark: #000000;
+$deep-grey: #363636;
+$main-blue: #5485D4;
+$light: #ffffff;
+$medium-light: #e4e4e4;
+
+// Responsive
 $medium: 768px;
 $large: 1024px;
 
-@font-face
-{
-    font-family: 'PlayfairDisplay';
-    font-weight: 400;
-    src: url(../fonts/PlayfairDisplay-Regular.ttf);
-}

@@ -1,13 +1,27 @@
+// Import files
 @import "components/_reset.scss";
 @import "components/_variables.scss";
+@import "components/_fonts.scss";
+@import "components/_buttons.scss";
 @import "partials/_header.scss";
-@import "partials/_content.scss";
+@import "partials/_hero.scss";
 
+// Main
+html {
+  font-size: 62.5%;
+}
 
-body
-{
-    background-color: $background;
-    font-size: 16px;
-    color: white;
-    font-family: PlayfairDisplay;
+body {
+  background-color: $dark;
+  min-width: 32rem;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+img {
+  width: 100vw;
+  height: auto;
 }

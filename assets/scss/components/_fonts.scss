@@ -1,0 +1,46 @@
+@mixin font-face($font-family, $file-path, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+      src: url('../../fonts/#{$file-path}.eot');
+      src:
+        url('../../fonts/#{$file-path}.eot?#iefix') format('embedded-opentype'),
+        url('../../fonts/#{$file-path}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+@include font-face(Montserrat, Montserrat-ExtraBold, 900, normal);
+@include font-face(Montserrat, Montserrat-Black, 800, normal);
+@include font-face(Montserrat, Montserrat-Bold, 700, normal);
+@include font-face(Montserrat, Montserrat-SemiBold, 600, normal);
+@include font-face(Montserrat, Montserrat-Medium, 500, normal);
+@include font-face(Montserrat, Montserrat-Regular, 400, normal);
+@include font-face(Montserrat, Montserrat-Light, 300, normal);
+@include font-face(Montserrat, Montserrat-ExtraLight, 200, normal);
+@include font-face(Montserrat, Montserrat-Thin, 100, normal);
+
+// Typography
+body {
+  font-family: "Montserrat";
+  color: $medium-light;
+  font-weight: 300;
+  line-height: 2.1rem;
+  font-size: 1.6rem;
+}
+h1, h2 {
+  color: $light;
+}
+h1 {
+  font-weight: 800;
+  line-height: 4.4rem;
+  font-size: 4rem;
+  padding-bottom: 2.4rem;
+}
+
+h2 {
+  font-weight: 600;
+  line-height: 3.2rem;
+  font-size: 3.2rem;
+  padding-bottom: 1.6rem;
+}
