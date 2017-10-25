@@ -104,7 +104,7 @@ gulp.task('fileinclude', function() {
 });
 
 // Watch all my task
-gulp.task('watch', ['fileinclude', 'style', 'javascript', 'images', 'fonts'], () => {
+gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
   gulp.watch(`${config.scss}**/*.scss`, ['style'])
   gulp.watch(`${config.js}**/*.js`, ['javascript'])

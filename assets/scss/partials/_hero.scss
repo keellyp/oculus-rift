@@ -22,7 +22,7 @@
   section {
     .immersive__image {
       position: relative;
-      @include background('../img/img-sans-caillou-smooth4.png', center, cover);
+      @include background('../img/tortue.png', center, cover);
       @include size(100vw, 100vh);
 
       .immersive__content {
