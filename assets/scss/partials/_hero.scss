@@ -35,10 +35,32 @@
 }
 
 .gesture {
+  padding-bottom: 10rem;
   section {
     .gesture__image {
       @include background('../img/oculus_page5.jpg', center, cover);
       @include size(100vw, 40vh);
+    }
+  }
+}
+
+.conception {
+  padding-bottom:5rem;
+  section {
+    .conception__image {
+      @include background('../img/oculus_page6.jpg', center, cover);
+      @include size(100vw, 40vh);
+    }
+  }
+}
+
+.features {
+  padding-bottom: 2rem;
+  section {
+    .features__image {
+      @include background('../img/oculus_page7.png', center, cover);
+      @include size(100vw, 40vh);
+     
     }
   }
 }
