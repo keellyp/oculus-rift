@@ -5,7 +5,9 @@
   "repository": "https://github.com/keellyp/hetic-p2020-14",
   "author": "Kelly Phan",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "swiper": "^4.0.3"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
