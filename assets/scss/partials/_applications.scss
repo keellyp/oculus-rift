@@ -1,5 +1,6 @@
-.hero {
-  padding-bottom: 9.6rem;
+.applications {
+  padding: 10% 0 0 0;
+  background: red;
   section {
     .hero__image {
       @include background('../img/oculus_page1.jpg', center, cover);

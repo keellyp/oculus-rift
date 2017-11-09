@@ -1,0 +1,9 @@
+.magic {
+  padding-bottom: 8rem;
+  section {
+    .magic__image {
+      @include background('../img/oculus_page2.jpg', 0%, cover);
+      @include size(100vw, 60vh);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.features {
+  padding-bottom: 5rem;
+  section {
+    .features__image {
+      @include background('../img/oculus_page7.png', center, cover);
+      @include size(100vw, 40vh);
+     
+    }
+  }
+}
