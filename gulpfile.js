@@ -1,12 +1,13 @@
 // Variables
 const config = {
-  scss: "../assets/scss/",
-  js: "../assets/javascript/",
-  assets: "../assets/",
-  dist: "../dist/"
+  scss: "assets/scss/",
+  js: "assets/javascript/",
+  assets: "assets/",
+  dist: "dist/"
 }
 const gulp              = require('gulp'),
       // Tools dependencies
+      del               = require('del'),
       gulp_rename       = require('gulp-rename'),
       gulp_plumber      = require('gulp-plumber'),
       gulp_notify       = require('gulp-notify'),
@@ -27,7 +28,7 @@ const gulp              = require('gulp'),
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
   browserSync.init({
-    server: "../dist/"
+    server: "dist/"
   })
   gulp.watch(`${config.dist}**/*.html`).on('change', browserSync.reload);
   gulp.watch(`${config.scss}*.scss`, ['style']);
@@ -42,6 +43,16 @@ gulp.task('check-scripts', ['javascript'], (done) => {
 
 // Default task
 gulp.task('default', ['serve', 'watch'], () => {})
+
+// Build task
+gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {})
+
+// Clean dist 
+gulp.task('clean', () => {
+  del([config.dist], {force: true, dryRun: true}).then(paths => {
+    console.log('Files and folders that would be deleted:\n', paths.join('\n'));
+  });
+});
 
 // CSS function
 gulp.task('style', () => {

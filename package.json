@@ -6,6 +6,7 @@
   "author": "Kelly Phan",
   "license": "MIT",
   "dependencies": {
+    "del": "^3.0.0",
     "swiper": "^4.0.3"
   },
   "devDependencies": {
