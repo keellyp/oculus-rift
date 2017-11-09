@@ -1,9 +1,0 @@
-.conception {
-  padding-bottom:5rem;
-  section {
-    .conception__image {
-      @include background('../img/oculus_page6.jpg', center, cover);
-      @include size(100vw, 40vh);
-    }
-  }
-}

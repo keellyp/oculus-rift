@@ -1,9 +1,0 @@
-.gesture {
-  padding-bottom: 10rem;
-  section {
-    .gesture__image {
-      @include background('../img/oculus_page5.jpg', center, cover);
-      @include size(100vw, 40vh);
-    }
-  }
-}
