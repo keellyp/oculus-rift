@@ -1,0 +1,10 @@
+.applications {
+  padding: 10% 0 0 0;
+  background: red;
+  section {
+    .hero__image {
+      @include background('../img/oculus_page1.jpg', center, cover);
+      @include size(100vw, 50vh);
+    }
+  }
+}
