@@ -1,10 +1,10 @@
 .hero {
   padding-bottom: $padding-sections;
-  
   .grid {
     display: grid;
-    place-items: center;
 
+    place-items: center;
+    
     .hero__image {
       @include size(100vw, 50vh);
 
@@ -12,12 +12,10 @@
         @include background('../img/welcome-background.jpeg', 50%, cover);
         grid-area: 1/1;
       }
-
       &--eyes {
-        grid-area: 1/1;
         @include background('../img/welcome-eyes.png', 50%, cover);
+        grid-area: 1/1;
       }
-
     }
   }
 }

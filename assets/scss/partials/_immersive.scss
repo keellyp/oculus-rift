@@ -1,16 +1,18 @@
 .immersive {
-  padding-bottom: $padding-sections;
   position: relative;
+
+  padding-bottom: $padding-sections;
 
   .immersive__grid {
     display: grid;
+
     place-items: center;
 
     .immersive__image {
       @include size(100vw, 70rem);
 
       &--background {
-        @include background('../img/immersive-background.png', 20%, cover);
+        @include background('../img/tortue1.png', 20%, cover);
         grid-area: 1/1;
       }
       &--turtle {
@@ -20,16 +22,19 @@
     }
   }
   .immersive-content {
-    height: 110%;
     position: absolute;
     top: 0%;
     left: 5%;
+
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
+    justify-content: space-around;
+
+    height: 110%;
 
     h3 {
       padding: $padding-bloc 0;
+
       text-align: center;
 
       span {

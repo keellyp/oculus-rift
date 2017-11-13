@@ -1,8 +1,8 @@
 // Colors
-$dark: #000000;
+$dark: #000;
 $deep-grey: #363636;
-$main-blue: #3E67D7;
-$light: #ffffff;
+$main-blue: #3e67d7;
+$light: #fff;
 $medium-light: #e4e4e4;
 
 // Responsive
@@ -12,9 +12,9 @@ $large: 1024px;
 // Mixins
 @mixin background($url, $position, $size) {
   background-image: url($url);
+  background-repeat: no-repeat;
   background-position: $position;
   background-size: $size;
-  background-repeat: no-repeat;
 }
 
 @mixin size($width, $height) {

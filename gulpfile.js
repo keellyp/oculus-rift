@@ -93,7 +93,7 @@ gulp.task('javascript', () => {
 // Minifies images
 gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
-    .pipe(gulp_imagemin())
+    // .pipe(gulp_imagemin())
     .pipe(gulp.dest(`${config.dist}img`))
     .pipe(gulp_notify('minified !'))
 })
