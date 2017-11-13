@@ -1,9 +1,31 @@
+// .hero {
+//   padding-bottom: 9.6rem;
+//   section {
+//     .hero__image {
+//       @include background('../img/welcome-background.jpeg', center, cover);
+//       @include size(100vw, 100vh);
+//     }
+//   }
+// }
+
 .hero {
-  padding-bottom: 9.6rem;
-  section {
+  .grid {
+    display: grid;
+    place-items: center;
+
     .hero__image {
-      @include background('../img/oculus_page1.jpg', center, cover);
       @include size(100vw, 50vh);
+
+      &--background {
+        @include background('../img/welcome-background.jpeg', 50%, cover);
+        grid-area: 1/1;
+      }
+
+      &--eyes {
+        grid-area: 1/1;
+        @include background('../img/welcome-eyes.png', 50%, cover);
+      }
+
     }
   }
 }
