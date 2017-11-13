@@ -1,0 +1,38 @@
+.footer {
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .footer__copyright {
+      width: 100%;
+      p {
+        text-align: center;
+        width: 100%;
+        font-size:1.2rem;
+        padding: 0 5%;
+        margin: 0 auto;
+      }
+    }
+    .footer__links
+    {
+      width: 100%;
+      text-align: center;
+    }
+    .footer__social
+    {
+      width: 100%;
+      text-align: center;
+      a 
+      {
+        text-decoration: none;
+        img 
+        {
+          width: 16px;
+          height: 16px;
+          margin: 24px 10px 36px 10px;
+        }
+      }
+    }
+  }
+}
