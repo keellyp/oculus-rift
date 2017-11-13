@@ -1,14 +1,6 @@
-// .hero {
-//   padding-bottom: 9.6rem;
-//   section {
-//     .hero__image {
-//       @include background('../img/welcome-background.jpeg', center, cover);
-//       @include size(100vw, 100vh);
-//     }
-//   }
-// }
-
 .hero {
+  padding-bottom: $padding-sections;
+  
   .grid {
     display: grid;
     place-items: center;

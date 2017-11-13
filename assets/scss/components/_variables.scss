@@ -1,7 +1,7 @@
 // Colors
 $dark: #000000;
 $deep-grey: #363636;
-$main-blue: #5485D4;
+$main-blue: #3E67D7;
 $light: #ffffff;
 $medium-light: #e4e4e4;
 
@@ -15,10 +15,14 @@ $large: 1024px;
   background-position: $position;
   background-size: $size;
   background-repeat: no-repeat;
-  background-origin: center;
 }
 
 @mixin size($width, $height) {
   width: $width;
   height: $height;
 }
+
+// Variables
+
+$padding-sections: 9.6rem;
+$padding-bloc: 2.4rem; 
