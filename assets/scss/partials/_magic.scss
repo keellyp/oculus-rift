@@ -1,5 +1,5 @@
 .magic {
-  padding-bottom: $padding-sections;
+  
   .magic__image {
     @include background('../img/magic-background.jpg', 0%, cover);
     @include size(100vw, 34rem);

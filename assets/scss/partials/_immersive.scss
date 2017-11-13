@@ -1,14 +1,39 @@
 .immersive {
-  section {
-    .immersive__image {
-      position: relative;
-      @include background('../img/tortue.png', center, cover);
-      @include size(100vw, 100vh);
+  padding-bottom: $padding-sections;
+  position: relative;
 
-      .immersive__content {
-        position: absolute;
-        top: 0%;
-        left: 5%;
+  .immersive__grid {
+    display: grid;
+    place-items: center;
+
+    .immersive__image {
+      @include size(100vw, 70rem);
+
+      &--background {
+        @include background('../img/immersive-background.png', 20%, cover);
+        grid-area: 1/1;
+      }
+      &--turtle {
+        grid-area: 1/1;
+        @include background('../img/immersive-turtle.png', 30%, cover);
+      }
+    }
+  }
+  .immersive-content {
+    height: 110%;
+    position: absolute;
+    top: 0%;
+    left: 5%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    h3 {
+      padding: $padding-bloc 0;
+      text-align: center;
+
+      span {
+        font-weight: 500;
       }
     }
   }
