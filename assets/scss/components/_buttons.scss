@@ -1,15 +1,17 @@
 .btn--buy {
-  width: 12.8rem;
   height: 4rem;
-  background-color: $main-blue;
-  border-radius: 40px;
   margin: 1.6rem 0;
+  padding: 0 2rem;
+
+  border-radius: 40px;
+  background-color: $main-blue;
 }
 .btn--demo {
   width: auto;
   height: 4rem;
-  padding: 0 20px;
-  background-color: $main-blue;
-  border-radius: 40px;
   margin: 1.6rem 0;
+  padding: 0 20px;
+
+  border-radius: 40px;
+  background-color: $main-blue;
 }

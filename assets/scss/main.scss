@@ -1,37 +1,41 @@
 // Import components stylesheet
-@import "components/_reset.scss";
-@import "components/_variables.scss";
-@import "components/_fonts.scss";
-@import "components/_buttons.scss";
-
+@import 'components/_reset.scss';
+@import 'components/_variables.scss';
+@import 'components/_fonts.scss';
+@import 'components/_buttons.scss';
 // Import partials stylesheet
-@import "partials/_header.scss";
-@import "partials/_hero.scss";
-@import "partials/_magic.scss";
-@import "partials/_immersive.scss";
-@import "partials/_gesture.scss";
-@import "partials/_conception.scss";
-@import "partials/_features.scss";
-@import "partials/_accessories.scss";
-@import "partials/_applications.scss";
-@import "partials/_stand.scss";
-@import "partials/_footer.scss";
-
+@import 'partials/_header.scss';
+@import 'partials/_hero.scss';
+@import 'partials/_magic.scss';
+@import 'partials/_immersive.scss';
+@import 'partials/_gesture.scss';
+@import 'partials/_conception.scss';
+@import 'partials/_accessories.scss';
+@import 'partials/_applications.scss';
+@import 'partials/_stand.scss';
+@import 'partials/_footer.scss';
 // Main
 html {
   font-size: 62.5%;
 }
 
-html, body{
+html,
+body {
   overflow-x: hidden;
 }
 
 body {
-  background-color: $dark;
   min-width: 32rem;
+
+  background-color: $dark;
 }
 
 .container {
   width: 90%;
   margin: auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }

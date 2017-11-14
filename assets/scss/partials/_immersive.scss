@@ -1,7 +1,7 @@
 .immersive {
   position: relative;
 
-  padding-bottom: $padding-sections;
+  padding: $sections-space 0;
 
   .immersive__grid {
     display: grid;
@@ -33,7 +33,7 @@
     height: 110%;
 
     h3 {
-      padding: $padding-bloc 0;
+      padding: $blocs-space 0;
 
       text-align: center;
 

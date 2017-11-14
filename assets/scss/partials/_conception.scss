@@ -1,9 +1,15 @@
 .conception {
-  padding-bottom:5rem;
-  section {
-    .conception__image {
-      @include background('../img/oculus_page6.jpg', center, cover);
-      @include size(100vw, 40vh);
+  padding-bottom: $sections-space;
+
+  .conception__image {
+    margin: $normal-space 0;
+
+    @include background('../img/oculus_détouré.png', left, cover);
+    @include size(150%, 40vh);
+  }
+  .conception__features {
+    h3 {
+      text-align: center;
     }
   }
 }

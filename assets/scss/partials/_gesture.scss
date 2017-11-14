@@ -1,9 +1,22 @@
 .gesture {
-  padding-bottom: 10rem;
-  section {
+  padding-bottom: $sections-space;
+  .gesture__images {
+    display: grid;
+
+    padding: $sections-space 0;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
     .gesture__image {
-      @include background('../img/oculus_page5.jpg', center, cover);
-      @include size(100vw, 40vh);
+      
+      &--left {
+        transform: translateY(-5rem);
+      }
+
+      &--right {
+        transform: translateY(5rem);
+      }
     }
+
   }
 }
