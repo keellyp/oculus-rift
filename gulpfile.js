@@ -21,9 +21,13 @@ const gulp              = require('gulp'),
       gulp_autoprefixer = require('gulp-autoprefixer'),
       gulp_cssnano      = require('gulp-cssnano'),
       // Javascript dependencies
-      gulp_concat       = require( 'gulp-concat' ),
-      gulp_uglify       = require('gulp-uglify'),
-      gulp_babel        = require('gulp-babel')
+      browserify = require('browserify'),
+      babelify = require('babelify'),
+      buffer = require('vinyl-buffer'),
+      source = require('vinyl-source-stream'),
+      es2015 = require('babel-preset-es2015'),
+      gulp_uglify=require('gulp-uglify')
+
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
@@ -77,17 +81,18 @@ gulp.task('style', () => {
 
 // JS function
 gulp.task('javascript', () => {
-  return gulp.src(`${config.js}*.js`)
-    .pipe(gulp_plumber({
-      errorHandler: gulp_notify.onError('JS Error <%= error.message %>')
+  return (browserify(`${config.js}script.js`, { debug: true }).transform(babelify, {presets:[es2015]}).bundle())
+    .on('error', gulp_notify.onError(function (error) {
+        return "Message to the notifier: " + error.message;
     }))
+    .pipe(source('script.js'))
+    .pipe(buffer())
     .pipe(gulp_sourcemaps.init())
-    .pipe(gulp_concat('script.js'))
-    .pipe(gulp_babel({presets: ["babel-preset-es2015"].map(require.resolve)}))
     .pipe(gulp_uglify())
     .pipe(gulp_sourcemaps.write())
     .pipe(gulp_rename('script.min.js'))
     .pipe(gulp.dest(`${config.dist}js`))
+    .pipe(gulp_notify('JS compiled'));
 })
 
 // Minifies images
