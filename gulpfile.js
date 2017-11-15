@@ -5,29 +5,32 @@ const config = {
   assets: "assets/",
   dist: "dist/"
 }
-const gulp              = require('gulp'),
-      // Tools dependencies
-      del               = require('del'),
-      gulp_rename       = require('gulp-rename'),
-      gulp_plumber      = require('gulp-plumber'),
-      gulp_notify       = require('gulp-notify'),
-      gulp_sourcemaps   = require('gulp-sourcemaps'),
-      browserSync       = require('browser-sync').create(),
-      gulp_fileinclude  = require('gulp-file-include'),
-      // Image depedency
-      gulp_imagemin     = require('gulp-imagemin'),
-      // Style dependencies
-      gulp_sass         = require('gulp-sass'),
-      gulp_autoprefixer = require('gulp-autoprefixer'),
-      gulp_cssnano      = require('gulp-cssnano'),
-      // Javascript dependencies
-      browserify = require('browserify'),
-      babelify = require('babelify'),
-      buffer = require('vinyl-buffer'),
-      source = require('vinyl-source-stream'),
-      es2015 = require('babel-preset-es2015'),
-      gulp_uglify=require('gulp-uglify')
+const gulp          = require('gulp'),
+  // Tools dependencies
+  del               = require('del'),
+  gulp_rename       = require('gulp-rename'),
+  gulp_plumber      = require('gulp-plumber'),
+  gulp_notify       = require('gulp-notify'),
+  gulp_sourcemaps   = require('gulp-sourcemaps'),
+  browserSync       = require('browser-sync').create(),
+  gulp_fileinclude  = require('gulp-file-include'),
+  gulp_if           = require('gulp-if'),
+  // Image depedency
+  gulp_imagemin     = require('gulp-imagemin'),
+  // Style dependencies
+  gulp_sass         = require('gulp-sass'),
+  gulp_autoprefixer = require('gulp-autoprefixer'),
+  gulp_cssnano      = require('gulp-cssnano'),
+  gulp_concatcss    = require('gulp-concat-css');
+  // Javascript dependencies
+  browserify        = require('browserify'),
+  babelify          = require('babelify'),
+  buffer            = require('vinyl-buffer'),
+  source            = require('vinyl-source-stream'),
+  es2015            = require('babel-preset-es2015'),
+  gulp_uglify       = require('gulp-uglify')
 
+  const isProd = process.env.NODE_ENV === 'prod'
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
@@ -53,7 +56,10 @@ gulp.task('build', ['clean', 'fileinclude', 'style', 'libraries', 'javascript', 
 
 // Clean dist 
 gulp.task('clean', () => {
-  del([config.dist], {force: true, dryRun: true}).then(paths => {
+  del([config.dist], {
+    force: true,
+    dryRun: true
+  }).then(paths => {
     console.log('Files and folders that would be deleted:\n', paths.join('\n'));
   });
 });
@@ -61,71 +67,74 @@ gulp.task('clean', () => {
 // CSS function
 gulp.task('style', () => {
   return gulp.src(`${config.styles}main.scss`)
-    .pipe(gulp_plumber({
+    .pipe(gulp_if(!isProd, gulp_plumber({
       errorHandler: gulp_notify.onError('SASS Error <%= error.message %>')
-    }))
-    .pipe(gulp_sourcemaps.init())
+    })) )
+    .pipe(gulp_if(!isProd, gulp_sourcemaps.init()))
     .pipe(gulp_sass({
       outputStyle: 'compressed'
     }).on('error', gulp_sass.logError))
-    .pipe(gulp_autoprefixer({
+    .pipe(gulp_if(isProd, gulp_autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
-    }))
-    .pipe(gulp_cssnano())
-    .pipe(gulp_sourcemaps.write())
+    })))
+    .pipe(gulp_if(isProd, gulp_cssnano()))
+    .pipe(gulp_if(!isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('style.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
+    .pipe(gulp_if(!isProd, gulp_notify('SCSS done')))
 });
 
 // Minify css libraries
 gulp.task('libraries', () => {
   return gulp.src(`${config.styles}libraries/*.css`)
-  .pipe(gulp_plumber({errorHandler: gulp_notify.onError('Libraries error  <%= error.message %>')}))
-  .pipe(gulp_sourcemaps.init())
-  .pipe(gulp_cssnano())
-  .pipe(gulp_sourcemaps.write())
-  .pipe(gulp_autoprefixer({
-    browsers: ['last 2 versions'],
-    cascade: false
-  }))
-  .pipe(gulp_rename('library.min.css'))
-  .pipe(gulp.dest(`${config.dist}css`))
-})
+    .pipe(gulp_if(!isProd, gulp_plumber({
+      errorHandler: gulp_notify.onError('Libraries Error <%= error.message %>')
+    })) )
+    .pipe(gulp_if(isProd, gulp_concatcss('library.css')))
+    .pipe(gulp_if(isProd, gulp_cssnano()))
+    .pipe(gulp_rename('library.min.css'))
+    .pipe(gulp.dest(`${config.dist}css`))
+    .pipe(gulp_if(!isProd, gulp_notify('Libraries done')))
+});
 
 // JS function
 gulp.task('javascript', () => {
-  return (browserify(`${config.js}script.js`, { debug: true }).transform(babelify, {presets:[es2015]}).bundle())
+  return (browserify(`${config.js}script.js`, {
+      debug: true
+    }).transform(babelify, {
+      presets: [es2015]
+    }).bundle())
     .on('error', gulp_notify.onError(function (error) {
-        return "Message to the notifier: " + error.message;
+      return "Message to the notifier: " + error.message;
     }))
     .pipe(source('script.js'))
     .pipe(buffer())
-    .pipe(gulp_sourcemaps.init())
+    .pipe(gulp_if(!isProd, gulp_sourcemaps.init()))
     .pipe(gulp_uglify())
-    .pipe(gulp_sourcemaps.write())
+    .pipe(gulp_if(!isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('script.min.js'))
     .pipe(gulp.dest(`${config.dist}js`))
-    .pipe(gulp_notify('JS compiled'));
-})
+    .pipe(gulp_if(!isProd, gulp_notify('JS done')))
+});
 
 // Minifies images
 gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
-    .pipe(gulp_imagemin())
+    .pipe(gulp_if(isProd, gulp_imagemin()))
     .pipe(gulp.dest(`${config.dist}img`))
-    .pipe(gulp_notify('minified !'))
-})
+    .pipe(gulp_if(!isProd, gulp_notify('Images done')))
+});
 
 // Replace font into dist folder
 gulp.task('fonts', () => {
   return gulp.src(`${config.assets}fonts/*`)
-    .pipe( gulp.dest(`${config.dist}fonts`))
-})
+    .pipe(gulp.dest(`${config.dist}fonts`))
+});
 
 // Include HTML files into dist folder under the name of index.html 
-gulp.task('fileinclude', function() {
+gulp.task('fileinclude', function () {
   gulp.src([`${config.assets}/index.html`])
     .pipe(gulp_fileinclude({
       prefix: '@@',
