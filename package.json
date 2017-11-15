@@ -5,6 +5,10 @@
   "repository": "https://github.com/keellyp/hetic-p2020-14",
   "author": "Kelly Phan",
   "license": "MIT",
+  "scripts": {
+    "dev": "gulp",
+    "build": "gulp build"
+  },
   "dependencies": {
     "swiper": "^4.0.6"
   },

@@ -30,7 +30,7 @@ const gulp          = require('gulp'),
   es2015            = require('babel-preset-es2015'),
   gulp_uglify       = require('gulp-uglify')
 
-  const isProd = process.env.NODE_ENV === 'prod'
+  const isProd = process.env.NODE_ENV === 'production';
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
