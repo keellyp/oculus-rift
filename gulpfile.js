@@ -8,6 +8,7 @@ const config = {
 }
 const gulp          = require('gulp'),
   // Tools dependencies
+  gulp_util         = require('gulp-util');
   del               = require('del'),
   gulp_rename       = require('gulp-rename'),
   gulp_plumber      = require('gulp-plumber'),
@@ -52,7 +53,7 @@ gulp.task('check-scripts', ['javascript'], (done) => {
 gulp.task('default', ['serve', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['clean', 'fileinclude', 'style', 'libraries', 'javascript', 'fonts', 'images'], () => {})
+gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {})
 
 // Clean dist 
 gulp.task('clean', () => {
@@ -70,7 +71,8 @@ gulp.task('style', () => {
     .pipe(gulp_plumber({
       errorHandler: gulp_notify.onError('SASS Error <%= error.message %>')
     }))
-    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
+    .pipe(!config.isProd ? gulp_sourcemaps.init() : gulp_util.noop())
+    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
     .pipe(gulp_sass({
       outputStyle: 'compressed'
     }).on('error', gulp_sass.logError))
@@ -78,25 +80,14 @@ gulp.task('style', () => {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(gulp_if(config.isProd, gulp_cssnano()))
-    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
+    .pipe(config.isProd ? gulp_cssnano() : gulp_util.noop())
+    // .pipe(gulp_if(config.isProd, gulp_cssnano()))
+    .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
+    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('style.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
     .pipe(gulp_notify('SCSS done'))
-});
-
-// Minify css libraries
-gulp.task('libraries', () => {
-  return gulp.src(`${config.styles}libraries/*.css`)
-    .pipe(gulp_plumber({
-      errorHandler: gulp_notify.onError('Libraries Error <%= error.message %>')
-    }))
-    .pipe(gulp_if(config.isProd, gulp_concatcss('library.css')))
-    .pipe(gulp_if(config.isProd, gulp_cssnano()))
-    .pipe(gulp_rename('library.min.css'))
-    .pipe(gulp.dest(`${config.dist}css`))
-    .pipe(gulp_notify('Libraries done'))
 });
 
 // JS function
@@ -111,9 +102,12 @@ gulp.task('javascript', () => {
     }))
     .pipe(source('script.js'))
     .pipe(buffer())
-    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
-    .pipe(gulp_uglify())
-    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
+    .pipe(!config.isProd ? gulp_sourcemaps.init() : gulp_util.noop())
+    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
+    .pipe(config.isProd ? gulp_uglify() : gulp_util.noop())
+    // .pipe(gulp_uglify())
+    .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
+    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('script.min.js'))
     .pipe(gulp.dest(`${config.dist}js`))
     .pipe(gulp_notify('JS done'))
@@ -122,7 +116,8 @@ gulp.task('javascript', () => {
 // Minifies images
 gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
-    .pipe(gulp_if(config.isProd, gulp_imagemin()))
+    .pipe(config.isProd ? gulp_imagemin() : gulp_util.noop())
+    // .pipe(gulp_if(config.isProd, gulp_imagemin()))
     .pipe(gulp.dest(`${config.dist}img`))
     .pipe(gulp_notify('Images done'))
 });
@@ -147,7 +142,6 @@ gulp.task('fileinclude', function () {
 gulp.task('watch', ['fileinclude', 'style', 'libraries', 'javascript', 'fonts', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
   gulp.watch(`${config.styles}**/*.scss`, ['style'])
-  gulp.watch(`${config.styles}libraries/*.css`, ['libraries'])
   gulp.watch(`${config.js}**/*.js`, ['javascript'])
   gulp.watch(`${config.assets}images/*`, ['images'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])
