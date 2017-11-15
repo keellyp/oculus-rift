@@ -79,6 +79,21 @@ gulp.task('style', () => {
     .pipe(browserSync.stream());
 });
 
+// Minify css libraries
+gulp.task('libraries', () => {
+  return gulp.src(`${config.scss}libraries/*.css`)
+  .pipe(gulp_plumber({errorHandler: gulp_notify.onError('Libraries error  <%= error.message %>')}))
+  .pipe(gulp_sourcemaps.init())
+  .pipe(gulp_cssnano())
+  .pipe(gulp_sourcemaps.write())
+  .pipe(gulp_autoprefixer({
+    browsers: ['last 2 versions'],
+    cascade: false
+  }))
+  .pipe(gulp_rename('library.min.css'))
+  .pipe(gulp.dest(`${config.dist}css`))
+})
+
 // JS function
 gulp.task('javascript', () => {
   return (browserify(`${config.js}script.js`, { debug: true }).transform(babelify, {presets:[es2015]}).bundle())
@@ -98,7 +113,7 @@ gulp.task('javascript', () => {
 // Minifies images
 gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
-    // .pipe(gulp_imagemin())
+    .pipe(gulp_imagemin())
     .pipe(gulp.dest(`${config.dist}img`))
     .pipe(gulp_notify('minified !'))
 })
@@ -120,9 +135,10 @@ gulp.task('fileinclude', function() {
 });
 
 // Watch all my task
-gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts'], () => {
+gulp.task('watch', ['fileinclude', 'style', 'libraries', 'javascript', 'fonts', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
   gulp.watch(`${config.scss}**/*.scss`, ['style'])
+  gulp.watch(`${config.scss}libraries/*.css`, ['libraries'])
   gulp.watch(`${config.js}**/*.js`, ['javascript'])
   gulp.watch(`${config.assets}images/*`, ['images'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])

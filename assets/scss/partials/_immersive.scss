@@ -12,7 +12,7 @@
       @include size(100vw, 70rem);
 
       &--background {
-        @include background('../img/tortue1.png', 20%, cover);
+        @include background('../img/immersive-background.png', 20%, cover);
         grid-area: 1/1;
       }
       &--turtle {
