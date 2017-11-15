@@ -3,7 +3,8 @@ const config = {
   styles: "assets/styles/",
   js: "assets/javascript/",
   assets: "assets/",
-  dist: "dist/"
+  dist: "dist/",
+  isProd: process.env.NODE_ENV === 'production'
 }
 const gulp          = require('gulp'),
   // Tools dependencies
@@ -30,7 +31,6 @@ const gulp          = require('gulp'),
   es2015            = require('babel-preset-es2015'),
   gulp_uglify       = require('gulp-uglify')
 
-  const isProd = process.env.NODE_ENV === 'production';
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
@@ -67,36 +67,36 @@ gulp.task('clean', () => {
 // CSS function
 gulp.task('style', () => {
   return gulp.src(`${config.styles}main.scss`)
-    .pipe(gulp_if(!isProd, gulp_plumber({
+    .pipe(gulp_plumber({
       errorHandler: gulp_notify.onError('SASS Error <%= error.message %>')
-    })) )
-    .pipe(gulp_if(!isProd, gulp_sourcemaps.init()))
+    }))
+    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
     .pipe(gulp_sass({
       outputStyle: 'compressed'
     }).on('error', gulp_sass.logError))
-    .pipe(gulp_if(isProd, gulp_autoprefixer({
+    .pipe(gulp_autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
-    })))
-    .pipe(gulp_if(isProd, gulp_cssnano()))
-    .pipe(gulp_if(!isProd, gulp_sourcemaps.write()))
+    }))
+    .pipe(gulp_if(config.isProd, gulp_cssnano()))
+    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('style.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
-    .pipe(gulp_if(!isProd, gulp_notify('SCSS done')))
+    .pipe(gulp_notify('SCSS done'))
 });
 
 // Minify css libraries
 gulp.task('libraries', () => {
   return gulp.src(`${config.styles}libraries/*.css`)
-    .pipe(gulp_if(!isProd, gulp_plumber({
+    .pipe(gulp_plumber({
       errorHandler: gulp_notify.onError('Libraries Error <%= error.message %>')
-    })) )
-    .pipe(gulp_if(isProd, gulp_concatcss('library.css')))
-    .pipe(gulp_if(isProd, gulp_cssnano()))
+    }))
+    .pipe(gulp_if(config.isProd, gulp_concatcss('library.css')))
+    .pipe(gulp_if(config.isProd, gulp_cssnano()))
     .pipe(gulp_rename('library.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
-    .pipe(gulp_if(!isProd, gulp_notify('Libraries done')))
+    .pipe(gulp_notify('Libraries done'))
 });
 
 // JS function
@@ -111,20 +111,20 @@ gulp.task('javascript', () => {
     }))
     .pipe(source('script.js'))
     .pipe(buffer())
-    .pipe(gulp_if(!isProd, gulp_sourcemaps.init()))
+    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
     .pipe(gulp_uglify())
-    .pipe(gulp_if(!isProd, gulp_sourcemaps.write()))
+    .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('script.min.js'))
     .pipe(gulp.dest(`${config.dist}js`))
-    .pipe(gulp_if(!isProd, gulp_notify('JS done')))
+    .pipe(gulp_notify('JS done'))
 });
 
 // Minifies images
 gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
-    .pipe(gulp_if(isProd, gulp_imagemin()))
+    .pipe(gulp_if(config.isProd, gulp_imagemin()))
     .pipe(gulp.dest(`${config.dist}img`))
-    .pipe(gulp_if(!isProd, gulp_notify('Images done')))
+    .pipe(gulp_notify('Images done'))
 });
 
 // Replace font into dist folder
