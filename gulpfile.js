@@ -1,6 +1,6 @@
 // Variables
 const config = {
-  scss: "assets/scss/",
+  styles: "assets/styles/",
   js: "assets/javascript/",
   assets: "assets/",
   dist: "dist/"
@@ -35,7 +35,7 @@ gulp.task('serve', ['style'], () => {
     server: "dist/"
   })
   gulp.watch(`${config.dist}**/*.html`).on('change', browserSync.reload);
-  gulp.watch(`${config.scss}*.scss`, ['style']);
+  gulp.watch(`${config.styles}*.scss`, ['style']);
   gulp.watch(`${config.js}*.js`, ['check-scripts']);
 })
 
@@ -49,7 +49,7 @@ gulp.task('check-scripts', ['javascript'], (done) => {
 gulp.task('default', ['serve', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {})
+gulp.task('build', ['clean', 'fileinclude', 'style', 'libraries', 'javascript', 'fonts', 'images'], () => {})
 
 // Clean dist 
 gulp.task('clean', () => {
@@ -60,7 +60,7 @@ gulp.task('clean', () => {
 
 // CSS function
 gulp.task('style', () => {
-  return gulp.src(`${config.scss}main.scss`)
+  return gulp.src(`${config.styles}main.scss`)
     .pipe(gulp_plumber({
       errorHandler: gulp_notify.onError('SASS Error <%= error.message %>')
     }))
@@ -81,7 +81,7 @@ gulp.task('style', () => {
 
 // Minify css libraries
 gulp.task('libraries', () => {
-  return gulp.src(`${config.scss}libraries/*.css`)
+  return gulp.src(`${config.styles}libraries/*.css`)
   .pipe(gulp_plumber({errorHandler: gulp_notify.onError('Libraries error  <%= error.message %>')}))
   .pipe(gulp_sourcemaps.init())
   .pipe(gulp_cssnano())
@@ -137,8 +137,8 @@ gulp.task('fileinclude', function() {
 // Watch all my task
 gulp.task('watch', ['fileinclude', 'style', 'libraries', 'javascript', 'fonts', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
-  gulp.watch(`${config.scss}**/*.scss`, ['style'])
-  gulp.watch(`${config.scss}libraries/*.css`, ['libraries'])
+  gulp.watch(`${config.styles}**/*.scss`, ['style'])
+  gulp.watch(`${config.styles}libraries/*.css`, ['libraries'])
   gulp.watch(`${config.js}**/*.js`, ['javascript'])
   gulp.watch(`${config.assets}images/*`, ['images'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])
