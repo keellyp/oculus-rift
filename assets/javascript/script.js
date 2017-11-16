@@ -1,3 +1,1 @@
-import './slider';
-
-console.log('script.js')
+import './slider'
