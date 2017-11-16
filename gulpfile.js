@@ -70,7 +70,6 @@ gulp.task('style', () => {
       errorHandler: gulp_notify.onError('SASS Error <%= error.message %>')
     }))
     .pipe(!config.isProd ? gulp_sourcemaps.init() : gulp_util.noop())
-    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
     .pipe(gulp_sass({
       outputStyle: 'compressed'
     }).on('error', gulp_sass.logError))
@@ -78,14 +77,12 @@ gulp.task('style', () => {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(config.isProd ? gulp_cssnano() : gulp_util.noop())
-    // .pipe(gulp_if(config.isProd, gulp_cssnano()))
+    .pipe(!config.isProd ? gulp_cssnano() : gulp_util.noop())
     .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
-    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('style.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
-    .pipe(gulp_notify('SCSS done'))
+    .pipe(!config.isProd ? gulp_notify('SCSS for dev done') : gulp_util.noop())
 })
 
 // JS function
@@ -101,21 +98,17 @@ gulp.task('javascript', () => {
     .pipe(source('script.js'))
     .pipe(buffer())
     .pipe(!config.isProd ? gulp_sourcemaps.init() : gulp_util.noop())
-    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.init()))
-    .pipe(config.isProd ? gulp_uglify() : gulp_util.noop())
-    // .pipe(gulp_uglify())
+    .pipe(!config.isProd ? gulp_uglify() : gulp_util.noop())
     .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
-    // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('script.min.js'))
     .pipe(gulp.dest(`${config.dist}js`))
-    .pipe(gulp_notify('JS done'))
+    .pipe(!config.isProd ? gulp_notify('JS for dev done') : gulp_util.noop())
 })
 
 // Minifies images
 gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
     .pipe(config.isProd ? gulp_imagemin() : gulp_util.noop())
-    // .pipe(gulp_if(config.isProd, gulp_imagemin()))
     .pipe(gulp.dest(`${config.dist}img`))
     .pipe(gulp_notify('Images done'))
 })
@@ -137,7 +130,7 @@ gulp.task('fileinclude', function () {
 })
 
 // Watch all my task
-gulp.task('watch', ['fileinclude', 'style', 'libraries', 'javascript', 'fonts', 'images'], () => {
+gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
   gulp.watch(`${config.styles}**/*.scss`, ['style'])
   gulp.watch(`${config.js}**/*.js`, ['javascript'])
