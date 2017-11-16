@@ -1,37 +1,30 @@
 // Variables
 const config = {
-<<<<<<< HEAD
-  styles: "assets/styles/",
-  js: "assets/javascript/",
-  assets: "assets/",
-  dist: "dist/",
-  isProd: process.env.NODE_ENV === 'production'
-=======
   styles: 'assets/styles/',
   js: 'assets/javascript/',
   assets: 'assets/',
-  dist: 'dist/'
->>>>>>> dev
+  dist: 'dist/',
+  isProd: process.env.NODE_ENV === 'production'
 }
 const gulp          = require('gulp'),
   // Tools dependencies
-  gulp_util         = require('gulp-util');
-  del               = require('del'),
-  gulp_rename       = require('gulp-rename'),
-  gulp_plumber      = require('gulp-plumber'),
-  gulp_notify       = require('gulp-notify'),
-  gulp_sourcemaps   = require('gulp-sourcemaps'),
-  browserSync       = require('browser-sync').create(),
-  gulp_fileinclude  = require('gulp-file-include'),
-  gulp_if           = require('gulp-if'),
-  // Image depedency
-  gulp_imagemin     = require('gulp-imagemin'),
-  // Style dependencies
-  gulp_sass         = require('gulp-sass'),
-  gulp_autoprefixer = require('gulp-autoprefixer'),
-  gulp_cssnano      = require('gulp-cssnano'),
-  gulp_concatcss    = require('gulp-concat-css')
-  // Javascript dependencies
+  gulp_util         = require('gulp-util')
+del               = require('del'),
+gulp_rename       = require('gulp-rename'),
+gulp_plumber      = require('gulp-plumber'),
+gulp_notify       = require('gulp-notify'),
+gulp_sourcemaps   = require('gulp-sourcemaps'),
+browserSync       = require('browser-sync').create(),
+gulp_fileinclude  = require('gulp-file-include'),
+gulp_if           = require('gulp-if'),
+// Image depedency
+gulp_imagemin     = require('gulp-imagemin'),
+// Style dependencies
+gulp_sass         = require('gulp-sass'),
+gulp_autoprefixer = require('gulp-autoprefixer'),
+gulp_cssnano      = require('gulp-cssnano'),
+gulp_concatcss    = require('gulp-concat-css')
+// Javascript dependencies
 browserify        = require('browserify'),
 babelify          = require('babelify'),
 buffer            = require('vinyl-buffer'),
@@ -39,10 +32,6 @@ source            = require('vinyl-source-stream'),
 es2015            = require('babel-preset-es2015'),
 gulp_uglify       = require('gulp-uglify')
 
-<<<<<<< HEAD
-=======
-const isProd = process.env.NODE_ENV === 'prod'
->>>>>>> dev
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
@@ -96,26 +85,8 @@ gulp.task('style', () => {
     .pipe(gulp_rename('style.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
-<<<<<<< HEAD
     .pipe(gulp_notify('SCSS done'))
-});
-=======
-    .pipe(gulp_if(!isProd, gulp_notify('SCSS done')))
 })
-
-// Minify css libraries
-gulp.task('libraries', () => {
-  return gulp.src(`${config.styles}libraries/*.css`)
-    .pipe(gulp_if(!isProd, gulp_plumber({
-      errorHandler: gulp_notify.onError('Libraries Error <%= error.message %>')
-    })) )
-    .pipe(gulp_if(isProd, gulp_concatcss('library.css')))
-    .pipe(gulp_if(isProd, gulp_cssnano()))
-    .pipe(gulp_rename('library.min.css'))
-    .pipe(gulp.dest(`${config.dist}css`))
-    .pipe(gulp_if(!isProd, gulp_notify('Libraries done')))
-})
->>>>>>> dev
 
 // JS function
 gulp.task('javascript', () => {
@@ -137,13 +108,8 @@ gulp.task('javascript', () => {
     // .pipe(gulp_if(!config.isProd, gulp_sourcemaps.write()))
     .pipe(gulp_rename('script.min.js'))
     .pipe(gulp.dest(`${config.dist}js`))
-<<<<<<< HEAD
     .pipe(gulp_notify('JS done'))
-});
-=======
-    .pipe(gulp_if(!isProd, gulp_notify('JS done')))
 })
->>>>>>> dev
 
 // Minifies images
 gulp.task('images', () => {
@@ -151,13 +117,8 @@ gulp.task('images', () => {
     .pipe(config.isProd ? gulp_imagemin() : gulp_util.noop())
     // .pipe(gulp_if(config.isProd, gulp_imagemin()))
     .pipe(gulp.dest(`${config.dist}img`))
-<<<<<<< HEAD
     .pipe(gulp_notify('Images done'))
-});
-=======
-    .pipe(gulp_if(!isProd, gulp_notify('Images done')))
 })
->>>>>>> dev
 
 // Replace font into dist folder
 gulp.task('fonts', () => {
