@@ -23,6 +23,8 @@ module.exports = {
         "semi": [
             "error",
             "never"
-        ]
+        ], 
+        "no-extra-semi": 1,
+        "no-undef": 0
     }
 };

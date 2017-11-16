@@ -1,9 +1,9 @@
 // Variables
 const config = {
-  styles: "assets/styles/",
-  js: "assets/javascript/",
-  assets: "assets/",
-  dist: "dist/"
+  styles: 'assets/styles/',
+  js: 'assets/javascript/',
+  assets: 'assets/',
+  dist: 'dist/'
 }
 const gulp          = require('gulp'),
   // Tools dependencies
@@ -21,25 +21,25 @@ const gulp          = require('gulp'),
   gulp_sass         = require('gulp-sass'),
   gulp_autoprefixer = require('gulp-autoprefixer'),
   gulp_cssnano      = require('gulp-cssnano'),
-  gulp_concatcss    = require('gulp-concat-css');
+  gulp_concatcss    = require('gulp-concat-css')
   // Javascript dependencies
-  browserify        = require('browserify'),
-  babelify          = require('babelify'),
-  buffer            = require('vinyl-buffer'),
-  source            = require('vinyl-source-stream'),
-  es2015            = require('babel-preset-es2015'),
-  gulp_uglify       = require('gulp-uglify')
+browserify        = require('browserify'),
+babelify          = require('babelify'),
+buffer            = require('vinyl-buffer'),
+source            = require('vinyl-source-stream'),
+es2015            = require('babel-preset-es2015'),
+gulp_uglify       = require('gulp-uglify')
 
-  const isProd = process.env.NODE_ENV === 'prod'
+const isProd = process.env.NODE_ENV === 'prod'
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
   browserSync.init({
-    server: "dist/"
+    server: 'dist/'
   })
-  gulp.watch(`${config.dist}**/*.html`).on('change', browserSync.reload);
-  gulp.watch(`${config.styles}*.scss`, ['style']);
-  gulp.watch(`${config.js}*.js`, ['check-scripts']);
+  gulp.watch(`${config.dist}**/*.html`).on('change', browserSync.reload)
+  gulp.watch(`${config.styles}*.scss`, ['style'])
+  gulp.watch(`${config.js}*.js`, ['check-scripts'])
 })
 
 // Ensure that 'javascript' task is complete before reload
@@ -59,10 +59,8 @@ gulp.task('clean', () => {
   del([config.dist], {
     force: true,
     dryRun: true
-  }).then(paths => {
-    console.log('Files and folders that would be deleted:\n', paths.join('\n'));
-  });
-});
+  })
+})
 
 // CSS function
 gulp.task('style', () => {
@@ -84,7 +82,7 @@ gulp.task('style', () => {
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
     .pipe(gulp_if(!isProd, gulp_notify('SCSS done')))
-});
+})
 
 // Minify css libraries
 gulp.task('libraries', () => {
@@ -97,17 +95,17 @@ gulp.task('libraries', () => {
     .pipe(gulp_rename('library.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(gulp_if(!isProd, gulp_notify('Libraries done')))
-});
+})
 
 // JS function
 gulp.task('javascript', () => {
   return (browserify(`${config.js}script.js`, {
-      debug: true
-    }).transform(babelify, {
-      presets: [es2015]
-    }).bundle())
+    debug: true
+  }).transform(babelify, {
+    presets: [es2015]
+  }).bundle())
     .on('error', gulp_notify.onError(function (error) {
-      return "Message to the notifier: " + error.message;
+      return 'Message to the notifier: ' + error.message
     }))
     .pipe(source('script.js'))
     .pipe(buffer())
@@ -117,7 +115,7 @@ gulp.task('javascript', () => {
     .pipe(gulp_rename('script.min.js'))
     .pipe(gulp.dest(`${config.dist}js`))
     .pipe(gulp_if(!isProd, gulp_notify('JS done')))
-});
+})
 
 // Minifies images
 gulp.task('images', () => {
@@ -125,13 +123,13 @@ gulp.task('images', () => {
     .pipe(gulp_if(isProd, gulp_imagemin()))
     .pipe(gulp.dest(`${config.dist}img`))
     .pipe(gulp_if(!isProd, gulp_notify('Images done')))
-});
+})
 
 // Replace font into dist folder
 gulp.task('fonts', () => {
   return gulp.src(`${config.assets}fonts/*`)
     .pipe(gulp.dest(`${config.dist}fonts`))
-});
+})
 
 // Include HTML files into dist folder under the name of index.html 
 gulp.task('fileinclude', function () {
@@ -140,8 +138,8 @@ gulp.task('fileinclude', function () {
       prefix: '@@',
       basepath: '@file'
     }))
-    .pipe(gulp.dest(`${config.dist}`));
-});
+    .pipe(gulp.dest(`${config.dist}`))
+})
 
 // Watch all my task
 gulp.task('watch', ['fileinclude', 'style', 'libraries', 'javascript', 'fonts', 'images'], () => {
