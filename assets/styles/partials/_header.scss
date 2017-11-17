@@ -1,0 +1,25 @@
+.menu {
+  background-color: $dark;
+}
+
+.menu__container {
+  display: flex;
+  align-items: center;
+  height: 4.8rem;
+}
+
+.menu__icon {
+  flex: 1;
+  height: 1.6rem;
+
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+  img {
+    width: auto;
+    height: 100%;
+  }
+}

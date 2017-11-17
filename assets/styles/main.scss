@@ -8,7 +8,7 @@
 @import 'components/_buttons.scss';
 
 // Import partials stylesheet
-@import 'partials/_menu.scss';
+@import 'partials/_header.scss';
 @import 'partials/_hero.scss';
 @import 'partials/_magic.scss';
 @import 'partials/_immersive.scss';
@@ -30,7 +30,6 @@ body {
 
 body {
   min-width: 32rem;
-
   background-color: $dark;
 }
 

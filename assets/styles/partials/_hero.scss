@@ -4,29 +4,17 @@
     display: grid;
 
     place-items: center;
-
+    
     .hero__image {
       @include size(100vw, 50vh);
 
       &--background {
-        @include background('../img/welcome-background-small.jpg', 50%, cover);
+        @include background('../img/welcome-background.jpeg', 50%, cover);
         grid-area: 1/1;
-        @include responsive(tablet) {
-          @include background('../img/welcome-background-medium.jpg', 50%, cover);
-        }
-        @include responsive(desktop) {
-          @include background('../img/welcome-background-large.jpg', 50%, cover);
-        }
       }
       &--eyes {
-        @include background('../img/welcome-eyes-small.png', 50%, cover);
+        @include background('../img/welcome-eyes.png', 50%, cover);
         grid-area: 1/1;
-        @include responsive(tablet) {
-          @include background('../img/welcome-eyes-medium.png', 50%, cover);
-        }
-        @include responsive(desktop) {
-          @include background('../img/welcome-eyes-large.png', 50%, cover);
-        }
       }
     }
   }
