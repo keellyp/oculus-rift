@@ -4,7 +4,7 @@
     display: grid;
 
     place-items: center;
-    
+
     .hero__image {
       @include size(100vw, 50vh);
 
@@ -13,8 +13,14 @@
         grid-area: 1/1;
       }
       &--eyes {
-        @include background('../img/welcome-eyes.png', 50%, cover);
+        @include background('../img/welcome-eyes-small.png', 50%, cover);
         grid-area: 1/1;
+        @include responsive(tablet) {
+          @include background('../img/welcome-eyes-large.png', 50%, cover);
+        }
+        @include responsive(desktop) {
+          @include background('../img/welcome-eyes-large.png', 50%, cover);
+        }
       }
     }
   }

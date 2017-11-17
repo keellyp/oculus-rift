@@ -1,13 +1,9 @@
 // Colors
-$dark: #000;
+$dark: #000000;
 $deep-grey: #363636;
 $main-blue: #3e67d7;
-$light: #fff;
+$light: #ffffff;
 $medium-light: #e4e4e4;
-
-// Responsive
-$medium: 768px;
-$large: 1024px;
 
 // Mixins
 @mixin background($url, $position, $size) {
@@ -22,8 +18,22 @@ $large: 1024px;
   height: $height;
 }
 
+@mixin responsive($point) {
+  @if $point == tablet {
+    @media (min-width: 76.9em) {
+      @content;
+    }
+  }
+  @else if $point == desktop {
+    @media (min-width: 96em) {
+      @content;
+    }
+  }
+}
+
 // Variables
 $normal-space: 4.2rem;
 $sections-space: 9.6rem;
-$blocs-space: 3.2rem; 
+$blocs-space: 3.2rem;
 $space: 2.4rem;
+

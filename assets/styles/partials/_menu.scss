@@ -1,0 +1,22 @@
+.menu__bloc {
+  display: flex;
+
+  height: 4.8rem;
+
+  background-color: $dark;
+
+  align-items: center;
+
+
+  .menu__logo,
+  .menu__burger {
+    flex: 1;
+
+    height: 2.4rem;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}

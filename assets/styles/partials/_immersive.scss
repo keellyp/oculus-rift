@@ -12,9 +12,17 @@
       @include size(100vw, 70rem);
 
       &--background {
-        @include background('../img/immersive-background.png', 20%, cover);
         grid-area: 1/1;
+        @include background('../img/immersive-background-small.png', 20%, cover);
+
+        @include responsive(tablet) {
+          @include background('../img/immersive-background-medium.png', 20%, cover);
+        }
+        @include responsive(desktop) {
+          @include background('../img/immersive-background-large.png', 20%, cover);
+        }
       }
+
       &--turtle {
         grid-area: 1/1;
         @include background('../img/immersive-turtle.png', 30%, cover);
