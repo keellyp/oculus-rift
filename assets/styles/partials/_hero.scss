@@ -1,21 +1,28 @@
 .hero {
   padding-bottom: $sections-space;
-  .grid {
-    display: grid;
+}
 
-    place-items: center;
-    
-    .hero__image {
-      @include size(100vw, 50vh);
+.hero__containerImages {
+  display: grid;
+  place-items: center;
+}
 
-      &--background {
-        @include background('../img/welcome-background.jpeg', 50%, cover);
-        grid-area: 1/1;
-      }
-      &--eyes {
-        @include background('../img/welcome-eyes.png', 50%, cover);
-        grid-area: 1/1;
-      }
+.hero__image {
+  @include size(100vw, 50vh);
+
+  &--background {
+    @include background('../img/welcome-background-small.jpg', 50%, cover);
+    @include responsive(tablet) {
+      background-image: url('../img/welcome-background-medium.jpg');
     }
+    @include responsive(desktop) {
+      background-image: url('../img/welcome-background-large.jpg');
+    }
+    grid-area: 1/1;
+  }
+
+  &--eyes {
+    @include background('../img/welcome-eyes.png', 50%, cover);
+    grid-area: 1/1;
   }
 }

@@ -1,12 +1,17 @@
 .immersive {
-  @include background('../img/immersive-background-large.png', 20%, cover);
+  @include background('../img/immersive-background-small.png', 20%, cover);
+  @include responsive(tablet) {
+    background-image: url('../img/immersive-background-medium.jpg');
+  }
+  @include responsive(desktop) {
+    background-image: url('../img/immersive-background-large.jpg');
+  }
   @include size(100vw, 100vh);
-
   display: grid;
-  grid-template-rows: 35% 40% 15% 10%;
-  grid-template-areas: 'title' 'turtle' 'content' 'slogan';
-  grid-gap: 3.2rem;
+  grid-template-rows: 30% 50% auto;
+  grid-template-areas: 'title' 'turtle' 'content';
 }
+
 .immersive__title {
   align-self: end;
   grid-area: title;
@@ -15,9 +20,9 @@
 
 .immersive__turtle {
   @include background('../img/immersive-turtle.png', 100%, contain);
-
+  align-self: end;
   grid-area: turtle;
-  height: 30rem;
+  height: 75%;
 }
 
 .immersive__content {
@@ -25,8 +30,7 @@
 }
 
 .immersive__slogan {
-  align-self: end;
-  grid-area: slogan;
+  padding: $blocs-space;
   text-align: center;
 
   span {

@@ -1,42 +1,43 @@
 .applications {
-  padding: 10% 0 5% 0;
-  section {
-    .hero__image {
-      @include background('../img/oculus_page1.jpg', center, cover);
-      @include size(100vw, 50vh);
-    }
-    .applications__images__wrapper {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      .applications__image {
-        height: 219px;
-        background: green;
-      }
-      .applications__image1 {
-        width: 60%;
-        @include background('../img/applications-image-1.jpg', center, cover);
-      }
-      .applications__image2 {
-        width: 40%;
-        @include background('../img/applications-image-2.jpg', center, cover);
-      }
-      .applications__image3 {
-        width: 40%;
-        @include background('../img/applications-image-3.jpg', center, cover);
-      }
-      .applications__image4 {
-        width: 60%;
-        @include background('../img/applications-image-4.jpg', center, cover);
-      }
-      .applications__image5 {
-        width: 60%;
-        @include background('../img/applications-image-5.jpg', center, cover);
-      }
-      .applications__image6 {
-        width: 40%;
-        @include background('../img/applications-image-6.jpg', center, cover);
-      }
-    }
+  padding-top: $sections-space;
+}
+
+.applications__images__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .applications__image {
+    height: 219px;
+    background: green;
+  }
+  .applications__image1 {
+    @include background('../img/applications-image-1.jpg', center, cover);
+
+    width: 60%;
+  }
+  .applications__image2 {
+    @include background('../img/applications-image-2.jpg', center, cover);
+
+    width: 40%;
+  }
+  .applications__image3 {
+    @include background('../img/applications-image-3.jpg', center, cover);
+
+    width: 40%;
+  }
+  .applications__image4 {
+    @include background('../img/applications-image-4.jpg', center, cover);
+
+    width: 60%;
+  }
+  .applications__image5 {
+    @include background('../img/applications-image-5.jpg', center, cover);
+
+    width: 60%;
+  }
+  .applications__image6 {
+    @include background('../img/applications-image-6.jpg', center, cover);
+
+    width: 40%;
   }
 }

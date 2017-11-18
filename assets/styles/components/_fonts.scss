@@ -4,59 +4,55 @@
     font-weight: $font-weight;
     font-style: $font-style;
 
-      src: url('../fonts/#{$file-path}.eot');
-      src:
-        url('../fonts/#{$file-path}.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/#{$file-path}.ttf') format('truetype');
+    src: url('../fonts/#{$file-path}.eot');
+    src: url('../fonts/#{$file-path}.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/#{$file-path}.ttf') format('truetype');
   }
 }
-
-@include font-face(Montserrat, Montserrat-ExtraBold, 900, normal);
 @include font-face(Montserrat, Montserrat-Black, 800, normal);
-@include font-face(Montserrat, Montserrat-Bold, 700, normal);
 @include font-face(Montserrat, Montserrat-SemiBold, 600, normal);
 @include font-face(Montserrat, Montserrat-Medium, 500, normal);
 @include font-face(Montserrat, Montserrat-Regular, 400, normal);
 @include font-face(Montserrat, Montserrat-Light, 300, normal);
-@include font-face(Montserrat, Montserrat-ExtraLight, 200, normal);
-@include font-face(Montserrat, Montserrat-Thin, 100, normal);
+
 
 // Typography
 body {
+  line-height: 2.1rem;
+  color: $medium-light;
   font-family: 'Montserrat';
   font-size: 1.6rem;
   font-weight: 300;
-  line-height: 2.1rem;
-
-  color: $medium-light;
 }
-h1, h2, h3 {
+h1,
+h2,
+h3,
+h4 {
   color: $light;
 }
 h1 {
+  padding-bottom: 2.4rem;
+  line-height: 4.4rem;
   font-size: 4rem;
   font-weight: 800;
-  line-height: 4.4rem;
-
-  padding-bottom: 2.4rem;
 }
 
 h2 {
+  padding-bottom: 1.6rem;
+  line-height: 3.6rem;
   font-size: 3.2rem;
   font-weight: 600;
-  line-height: 3.6rem;
-
-  padding-bottom: 1.6rem;
 }
 
 h3 {
+  line-height: 3.8rem;
   font-size: 3.2rem;
   font-weight: 300;
-  line-height: 3.8rem;
 }
 
 h4 {
-  font-size: 1.6rem;
-  font-weight: 900;
+  padding: 1.6rem;
   line-height: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 800;
 }
