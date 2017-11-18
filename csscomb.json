@@ -13,9 +13,7 @@
       "$variable",
       "$extend",
       "$include",
-      "$include @media"
-    ],
-    [
+      "$include @media",
       "box-sizing",
       "position",
       "top",
@@ -39,6 +37,9 @@
       "flex-shrink",
       "flex-wrap",
       "justify-content",
+      "justify-items",
+      "justify-self",
+      "place-items",
       "grid",
       "grid-area",
       "grid-template",
