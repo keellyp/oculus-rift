@@ -6,32 +6,34 @@ const config = {
   dist: 'dist/',
   isProd: process.env.NODE_ENV === 'production'
 }
-const gulp          = require('gulp'),
-  // Tools dependencies
-  gulp_util         = require('gulp-util')
-del               = require('del'),
-gulp_rename       = require('gulp-rename'),
-gulp_plumber      = require('gulp-plumber'),
-gulp_notify       = require('gulp-notify'),
-gulp_sourcemaps   = require('gulp-sourcemaps'),
-browserSync       = require('browser-sync').create(),
-gulp_fileinclude  = require('gulp-file-include'),
-gulp_if           = require('gulp-if'),
-// Image depedency
-gulp_imagemin     = require('gulp-imagemin'),
-// Style dependencies
-gulp_sass         = require('gulp-sass'),
-gulp_autoprefixer = require('gulp-autoprefixer'),
-gulp_cssnano      = require('gulp-cssnano'),
-gulp_concatcss    = require('gulp-concat-css')
-// Javascript dependencies
-browserify        = require('browserify'),
-babelify          = require('babelify'),
-buffer            = require('vinyl-buffer'),
-source            = require('vinyl-source-stream'),
-es2015            = require('babel-preset-es2015'),
-gulp_uglify       = require('gulp-uglify')
 
+/*eslint-disable*/
+const gulp = require('gulp'),
+  // Tools dependencies
+  gulp_util = require('gulp-util'),
+  critical = require('critical'),
+  del = require('del'),
+  gulp_rename = require('gulp-rename'),
+  gulp_plumber = require('gulp-plumber'),
+  gulp_notify = require('gulp-notify'),
+  gulp_sourcemaps = require('gulp-sourcemaps'),
+  browserSync = require('browser-sync').create(),
+  gulp_fileinclude = require('gulp-file-include'),
+  // Image depedency
+  gulp_imagemin = require('gulp-imagemin'),
+  // Style dependencies
+  gulp_sass = require('gulp-sass'),
+  gulp_autoprefixer = require('gulp-autoprefixer'),
+  gulp_cssnano = require('gulp-cssnano'),
+  gulp_concatcss = require('gulp-concat-css')
+// Javascript dependencies
+browserify = require('browserify'),
+  babelify = require('babelify'),
+  buffer = require('vinyl-buffer'),
+  source = require('vinyl-source-stream'),
+  es2015 = require('babel-preset-es2015'),
+  gulp_uglify = require('gulp-uglify')
+/*es-lint enable */
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
 gulp.task('serve', ['style'], () => {
@@ -88,10 +90,10 @@ gulp.task('style', () => {
 // JS function
 gulp.task('javascript', () => {
   return (browserify(`${config.js}script.js`, {
-    debug: true
-  }).transform(babelify, {
-    presets: [es2015]
-  }).bundle())
+      debug: true
+    }).transform(babelify, {
+      presets: [es2015]
+    }).bundle())
     .on('error', gulp_notify.onError(function (error) {
       return 'Message to the notifier: ' + error.message
     }))
@@ -121,13 +123,29 @@ gulp.task('fonts', () => {
 
 // Include HTML files into dist folder under the name of index.html 
 gulp.task('fileinclude', function () {
-  gulp.src([`${config.assets}/index.html`])
+  gulp.src(`${config.assets}/index.html`)
     .pipe(gulp_fileinclude({
       prefix: '@@',
       basepath: '@file'
     }))
     .pipe(gulp.dest(`${config.dist}`))
 })
+
+
+// Generate & Inline Critical-path CSS
+gulp.task('critical', ['build'], function (cb) {
+  critical.generate({
+      inline: true,
+      base: 'dist/',
+      src: 'index.html',
+      dest: 'index-critical.html',
+      css: 'dist/css/style.min.css',
+      minify: true,
+      width: 6000,
+      height: 10000,
+      extract: true
+  });
+});
 
 // Watch all my task
 gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {
