@@ -1,0 +1,18 @@
+.landing {
+    background-color: $light;
+    height: 780vh;
+
+    .set-height {
+        display: block;
+    }
+    
+    .v0 {
+        position: fixed;
+        width: 80%;
+        top:4.8rem;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+   
+}
