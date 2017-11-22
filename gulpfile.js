@@ -11,7 +11,6 @@ const config = {
 const gulp = require('gulp'),
   // Tools dependencies
   gulp_util = require('gulp-util'),
-  critical = require('critical'),
   del = require('del'),
   gulp_rename = require('gulp-rename'),
   gulp_plumber = require('gulp-plumber'),
@@ -130,22 +129,6 @@ gulp.task('fileinclude', function () {
     }))
     .pipe(gulp.dest(`${config.dist}`))
 })
-
-
-// Generate & Inline Critical-path CSS
-gulp.task('critical', ['build'], function (cb) {
-  critical.generate({
-      inline: true,
-      base: 'dist/',
-      src: 'index.html',
-      dest: 'index-critical.html',
-      css: 'dist/css/style.min.css',
-      minify: true,
-      width: 6000,
-      height: 10000,
-      extract: true
-  });
-});
 
 // Watch all my task
 gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {
