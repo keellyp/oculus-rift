@@ -7,3 +7,52 @@
 
   will-change: transform;
 }
+
+.magic {
+
+  @include responsive($sm) {
+
+    .magic__image {
+      transform: translateX(20rem);
+    }
+
+  }
+
+  @include responsive($md) {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .magic__content {
+      margin-left: $normal-space;
+      h2 {
+        font-size: 4rem;
+      }
+    }
+
+    .magic__image {
+      transform: translateX(-$normal-space);
+      @include size(100vw, 50rem);
+      
+    }
+  }
+
+  @include responsive($lg) {
+    .magic__image {
+      transform: translateX(0);
+      @include size(100vw, 40em);
+    }
+
+    .magic__content {
+      margin-left: $sections-space;
+      h2 {
+        font-size: 5rem;
+        padding-bottom: 4rem;
+        width: 40rem;
+        line-height: 6rem;
+      }
+      p {
+        width: 37rem;
+      }
+    }
+  }
+}
