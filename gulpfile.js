@@ -8,30 +8,31 @@ const config = {
 }
 
 /*eslint-disable*/
-const gulp = require('gulp'),
+const gulp          = require('gulp'),
   // Tools dependencies
-  gulp_util = require('gulp-util'),
-  del = require('del'),
-  gulp_rename = require('gulp-rename'),
-  gulp_plumber = require('gulp-plumber'),
-  gulp_notify = require('gulp-notify'),
-  gulp_sourcemaps = require('gulp-sourcemaps'),
-  browserSync = require('browser-sync').create(),
-  gulp_fileinclude = require('gulp-file-include'),
+  gulp_util         = require('gulp-util'),
+  del               = require('del'),
+  gulp_rename       = require('gulp-rename'),
+  gulp_plumber      = require('gulp-plumber'),
+  gulp_notify       = require('gulp-notify'),
+  gulp_sourcemaps   = require('gulp-sourcemaps'),
+  browserSync       = require('browser-sync').create(),
+  gulp_fileinclude  = require('gulp-file-include'),
   // Image depedency
-  gulp_imagemin = require('gulp-imagemin'),
+  gulp_imagemin     = require('gulp-imagemin'),
   // Style dependencies
-  gulp_sass = require('gulp-sass'),
+  gulp_sass         = require('gulp-sass'),
   gulp_autoprefixer = require('gulp-autoprefixer'),
-  gulp_cssnano = require('gulp-cssnano'),
-  gulp_concatcss = require('gulp-concat-css')
-// Javascript dependencies
-browserify = require('browserify'),
-  babelify = require('babelify'),
-  buffer = require('vinyl-buffer'),
-  source = require('vinyl-source-stream'),
-  es2015 = require('babel-preset-es2015'),
-  gulp_uglify = require('gulp-uglify')
+  gulp_cssnano      = require('gulp-cssnano'),
+  gulp_concatcss    = require('gulp-concat-css'),
+  gulp_purify       = require('gulp-purifycss'),
+  // Javascript dependencies
+  browserify        = require('browserify'),
+  babelify          = require('babelify'),
+  buffer            = require('vinyl-buffer'),
+  source            = require('vinyl-source-stream'),
+  es2015            = require('babel-preset-es2015'),
+  gulp_uglify       = require('gulp-uglify')
 /*es-lint enable */
 
 // BrowserSync http://localhost:3000/ : static server + watching HTML, SCSS, JS files
@@ -81,6 +82,7 @@ gulp.task('style', () => {
     .pipe(!config.isProd ? gulp_cssnano() : gulp_util.noop())
     .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
     .pipe(gulp_rename('style.min.css'))
+    .pipe(config.isProd ? gulp_purify(['style.min.css']) : gulp_util.noop())
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
     .pipe(!config.isProd ? gulp_notify('SCSS for dev done') : gulp_util.noop())
@@ -102,6 +104,7 @@ gulp.task('javascript', () => {
     .pipe(!config.isProd ? gulp_uglify() : gulp_util.noop())
     .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
     .pipe(gulp_rename('script.min.js'))
+    .pipe(config.isProd ? gulp_purify(['script.min.js']) : gulp_util.noop())
     .pipe(gulp.dest(`${config.dist}js`))
     .pipe(!config.isProd ? gulp_notify('JS for dev done') : gulp_util.noop())
 })
