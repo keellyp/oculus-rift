@@ -1,6 +1,5 @@
 .landing {
     display:none;
-
     @include responsive($md) {
         display: block;
 
@@ -10,17 +9,14 @@
 
         .set-height {
             display: block;
+            width: 100%;
+            
         }
     
         .v0 {
             position: fixed;
             top:4.8rem;
-            top: 50%;
-            left: 50%;
-
-            width: 80%;
-
-            transform: translate(-50%, -50%);
+            width: 100%;
         }
     } 
 }
