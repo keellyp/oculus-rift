@@ -25,7 +25,6 @@ const gulp          = require('gulp'),
   gulp_autoprefixer = require('gulp-autoprefixer'),
   gulp_cssnano      = require('gulp-cssnano'),
   gulp_concatcss    = require('gulp-concat-css'),
-  gulp_purify       = require('gulp-purifycss'),
   // Javascript dependencies
   browserify        = require('browserify'),
   babelify          = require('babelify'),
@@ -55,7 +54,7 @@ gulp.task('check-scripts', ['javascript'], (done) => {
 gulp.task('default', ['serve', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {})
+gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images'], () => {})
 
 // Clean dist 
 gulp.task('clean', () => {
@@ -79,10 +78,9 @@ gulp.task('style', () => {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(!config.isProd ? gulp_cssnano() : gulp_util.noop())
+    .pipe(config.isProd ? gulp_cssnano() : gulp_util.noop())
     .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
     .pipe(gulp_rename('style.min.css'))
-    .pipe(config.isProd ? gulp_purify(['style.min.css']) : gulp_util.noop())
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
     .pipe(!config.isProd ? gulp_notify('SCSS for dev done') : gulp_util.noop())
@@ -101,10 +99,9 @@ gulp.task('javascript', () => {
     .pipe(source('script.js'))
     .pipe(buffer())
     .pipe(!config.isProd ? gulp_sourcemaps.init() : gulp_util.noop())
-    .pipe(!config.isProd ? gulp_uglify() : gulp_util.noop())
+    .pipe(config.isProd ? gulp_uglify() : gulp_util.noop())
     .pipe(!config.isProd ? gulp_sourcemaps.write() : gulp_util.noop())
     .pipe(gulp_rename('script.min.js'))
-    .pipe(config.isProd ? gulp_purify(['script.min.js']) : gulp_util.noop())
     .pipe(gulp.dest(`${config.dist}js`))
     .pipe(!config.isProd ? gulp_notify('JS for dev done') : gulp_util.noop())
 })
@@ -115,6 +112,12 @@ gulp.task('images', () => {
     .pipe(config.isProd ? gulp_imagemin() : gulp_util.noop())
     .pipe(gulp.dest(`${config.dist}img`))
     .pipe(gulp_notify('Images done'))
+})
+
+// Replace videos into dist folder
+gulp.task('videos', () => {
+  return gulp.src(`${config.assets}videos/*`)
+    .pipe(gulp.dest(`${config.dist}videos`))
 })
 
 // Replace font into dist folder
@@ -139,5 +142,6 @@ gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], ()
   gulp.watch(`${config.styles}**/*.scss`, ['style'])
   gulp.watch(`${config.js}**/*.js`, ['javascript'])
   gulp.watch(`${config.assets}images/*`, ['images'])
+  gulp.watch(`${config.assets}videos/*`, ['videos'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])
 })
