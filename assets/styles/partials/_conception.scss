@@ -1,31 +1,13 @@
 .conception {
   padding-bottom: $sections-space;
-
-  @include responsive($lg){
-    .conception__container {
-      margin-left: $sections-space;
-
-      h2 {
-        font-size: 5rem;
-        width: 65rem;
-        line-height: 6rem;
-        padding-bottom: 5rem;
-      }
-
-      p {
-        width: 45rem;
-      }
-    }
-  }
+  margin-left: $space;
+  
 }
 
 .conception__image {
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    transform: translateY(-15rem);
-    justify-content: center;   
-    
+  width: 100%;
+  height: 60vh;
+  margin-left: -$space;
 }
 
 .partie1, .partie2, .partie3, .partie4, .partie5, .partie6, .partie7, .partie8, .partie9 {
@@ -40,5 +22,36 @@
 
   h3 {
     text-align: center;
+  }
+}
+
+@include responsive($lg) {
+
+  .conception {
+    margin-left: $sections-space;
+    padding-bottom: 20rem;
+
+    h2 {
+      font-size: 5rem;
+      padding-bottom: 4rem;
+      width: 70rem;
+      line-height: 6rem;
+    }
+  
+    p {
+      width: 45rem;
+    }
+  }
+  .conception__image {
+    width: 100%;
+    transform: translate(25rem, -15rem);
+  
+    img {
+      margin-right: 7rem;
+    }
+    
+  }
+  .conception__features {
+    display: none;
   }
 }

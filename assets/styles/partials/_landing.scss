@@ -2,9 +2,9 @@
     display:none;
     @include responsive($md) {
         display: block;
-
-        height: 760vh;
-
+        z-index: 1;
+        position: relative;
+        height: 700vh;
         background-color: $light;
 
         .set-height {
@@ -17,6 +17,7 @@
             position: fixed;
             top:4.8rem;
             width: 100%;
+            left:-0.5px;
         }
     } 
 }

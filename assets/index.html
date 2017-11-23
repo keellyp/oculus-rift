@@ -139,19 +139,22 @@
 </head>
 
 <body>
+    @@include('views/header.html')
+    @@include('views/landing.html')
   
-  @@include('views/header.html')
-  @@include('views/landing.html')
-  @@include('views/hero.html')
-  @@include('views/magic.html') 
-  @@include('views/immersive.html') 
-  @@include('views/gesture.html') 
-  @@include('views/conception.html') 
-  @@include('views/accessories.html') 
-  @@include('views/applications.html') 
-  @@include('views/stand.html') 
-  @@include('views/footer.html')
-  
+   <div class="main__container">
+    
+    @@include('views/hero.html')
+    @@include('views/magic.html') 
+    @@include('views/immersive.html')
+    @@include('views/gesture.html') 
+    @@include('views/conception.html') 
+    @@include('views/accessories.html') 
+    @@include('views/applications.html') 
+    @@include('views/stand.html') 
+    @@include('views/footer.html')
+
+  </div>
 </body>
 
 </html>
