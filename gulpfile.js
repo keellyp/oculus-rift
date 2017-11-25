@@ -111,7 +111,6 @@ gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
     .pipe(config.isProd ? gulp_imagemin() : gulp_util.noop())
     .pipe(gulp.dest(`${config.dist}img`))
-    .pipe(gulp_notify('Images done'))
 })
 
 // Replace videos into dist folder

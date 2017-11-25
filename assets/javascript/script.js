@@ -1,7 +1,7 @@
 // Slider.js
-import SwiperSlider from './slider'
-const slider = new SwiperSlider()
-slider.init()
+// import SwiperSlider from './slider'
+// const slider = new SwiperSlider()
+// slider.init()
 
 // Scroll.js
 import RevealOnSroll from './scroll'
@@ -16,4 +16,6 @@ hero.translate()
 hero.accelerometer()
 
 // Landing
-import './landing'
+// import './landing'
+
+require('./set-image')
