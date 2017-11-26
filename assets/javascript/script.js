@@ -15,6 +15,12 @@ const hero = new Hero()
 hero.translate()
 hero.accelerometer()
 
+// Menu.js
+
+import Menu from './menu'
+const menu = new Menu()
+menu.show()
+
 // Landing
 import OculusAnim from './landing'
 const oculus = new OculusAnim()
