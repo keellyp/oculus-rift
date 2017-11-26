@@ -1,5 +1,5 @@
-class OculusAnim {
-  
+export default class OculusAnim {
+  // Play the video on scroll
   anim() {
     const $oculusIntro = document.querySelector('.oculusIntro')
     const $scrollBox = $oculusIntro.querySelector('.oculusScrollbox')
@@ -30,4 +30,3 @@ class OculusAnim {
     })
   }
 }
-export default OculusAnim

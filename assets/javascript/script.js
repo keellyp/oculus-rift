@@ -24,8 +24,8 @@ oculus.anim()
 require('./set-image')
 
 //Loading 
-import Loader from './loading';
-const loadingPage = new Loader();
+import Loader from './loading'
+const loadingPage = new Loader()
 
 loadingPage.on('progress', value => {
   document.querySelector('.loading__percent').innerHTML = `${value}%`
@@ -33,20 +33,20 @@ loadingPage.on('progress', value => {
   const caption = document.querySelector('.loading__caption')
   switch (value) {
   case 0:
-    caption.innerHTML = `Génération de l'espace virtuel...`
-    break;
+    caption.innerHTML = 'Génération de l\'espace virtuel...'
+    break
   case 40:
-    caption.innerHTML = `Ajout de l'environnement et des décors`
-    break;
+    caption.innerHTML = 'Ajout de l\'environnement et des décors'
+    break
   case 80:
-    caption.innerHTML = `C'est bientôt terminé`
-    break;
+    caption.innerHTML = 'C\'est bientôt terminé'
+    break
   case 100:
-  caption.innerHTML = `Bienvenue`
-  break;
+    caption.innerHTML = 'Bienvenue'
+    break
   default:
-    break;
-}
+    break
+  }
 })
 
 loadingPage.on('complete', () => {
@@ -57,5 +57,5 @@ loadingPage.on('complete', () => {
   setTimeout(() => {
     loadingEl.remove()
   }, 1400)
-  
+
 })

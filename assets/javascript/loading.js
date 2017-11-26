@@ -3,7 +3,7 @@ const axios = require('axios')
 export default class Loader {
   // Create every variable needed
   constructor() {
-    this.srcElements = [].slice.call( document.querySelectorAll('[data-load]') )
+    this.srcElements = [].slice.call(document.querySelectorAll('[data-load]'))
     this.eventsList = ['progress', 'complete']
     this.progressEvents = []
     this.completeEvents = []
@@ -36,7 +36,7 @@ export default class Loader {
   // If all element are loaded, it call the callCompleteEvents() 
   updateRequest(index, percent) {
     this.requests[index].progress = percent
-    const total = this.requests.reduce( (value, request) => value + request.progress, 0 )
+    const total = this.requests.reduce((value, request) => value + request.progress, 0)
 
     this.totalProgress = Math.floor(total / this.requests.length)
 
@@ -49,25 +49,37 @@ export default class Loader {
   }
 
   callProgress() {
-    this.progressEvents.forEach(({ callback }) => { callback(this.totalProgress) })
+    this.progressEvents.forEach(({
+      callback
+    }) => {
+      callback(this.totalProgress)
+    })
   }
 
   callComplete() {
-    this.completeEvents.forEach(({ callback }) => { callback() })
+    this.completeEvents.forEach(({
+      callback
+    }) => {
+      callback()
+    })
   }
 
   on(event, callback) {
     switch (event) {
-    case 'progress':
-      this.progressEvents.push({ callback })
-      break
+      case 'progress':
+        this.progressEvents.push({
+          callback
+        })
+        break
 
-    case 'complete':
-      this.completeEvents.push({ callback })
-      break
+      case 'complete':
+        this.completeEvents.push({
+          callback
+        })
+        break
 
-    default:
-      break
+      default:
+        break
     }
   }
 }

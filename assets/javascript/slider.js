@@ -1,6 +1,6 @@
 const Swiper = require('swiper')
 
-class SwiperSlider {
+export default class SwiperSlider {
   init() {
     new Swiper('.swiper-container', {
       // Optional parameters
@@ -20,5 +20,3 @@ class SwiperSlider {
     })
   }
 }
-
-export default SwiperSlider

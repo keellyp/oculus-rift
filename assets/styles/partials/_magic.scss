@@ -4,46 +4,36 @@
 }
 
 .magic {
-
   @include responsive($sm) {
-
     .magic__image {
       transform: translateX(20rem);
     }
-
   }
-
   @include responsive($md) {
     display: flex;
     flex-direction: row-reverse;
-
     .magic__content {
-      
       h2 {
         font-size: 4rem;
       }
     }
-
     .magic__image {
-      transform: translateX(-$normal-space);
       @include size(100vw, 50rem);
-      
+      transform: translateX(-$normal-space);
     }
   }
-
   @include responsive($lg) {
     .magic__image {
       width: 100vw;
       height: 80vh;
     }
-
     .magic__content {
       margin-right: 10rem;
       h2 {
-        font-size: 5rem;
-        padding-bottom: 4rem;
         width: 40rem;
+        padding-bottom: 4rem;
         line-height: 6rem;
+        font-size: 5rem;
       }
       p {
         width: 37rem;

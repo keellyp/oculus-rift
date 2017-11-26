@@ -1,4 +1,4 @@
-class Hero {
+export default class Hero {
   // Translate background on mousemove
   translate() {
     const hero_image = document.querySelector('.hero__image--background')
@@ -48,5 +48,3 @@ class Hero {
     window.addEventListener('deviceorientation', (e) => handleAccelerometer(e))
   }
 }
-
-export default Hero

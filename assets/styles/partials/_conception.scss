@@ -1,7 +1,6 @@
 .conception {
-  padding-bottom: $sections-space;
   margin-left: $space;
-  
+  padding-bottom: $sections-space;
 }
 
 .conception__image {
@@ -10,7 +9,15 @@
   margin-left: -$space;
 }
 
-.partie1, .partie2, .partie3, .partie4, .partie5, .partie6, .partie7, .partie8, .partie9 {
+.partie1,
+.partie2,
+.partie3,
+.partie4,
+.partie5,
+.partie6,
+.partie7,
+.partie8,
+.partie9 {
   position: absolute;
 }
 
@@ -19,25 +26,21 @@
   flex-direction: column;
   justify-content: space-around;
   height: 16rem;
-
   h3 {
     text-align: center;
   }
 }
 
 @include responsive($lg) {
-
   .conception {
     margin-left: $sections-space;
     padding-bottom: 20rem;
-
     h2 {
-      font-size: 5rem;
-      padding-bottom: 4rem;
       width: 70rem;
+      padding-bottom: 4rem;
       line-height: 6rem;
+      font-size: 5rem;
     }
-  
     p {
       width: 45rem;
     }
@@ -45,13 +48,10 @@
   .conception__image {
     width: 100%;
     transform: translate(25rem, -15rem);
-
     div {
       transition: 3s;
     }
-    
     &:hover {
-
       .partie1 {
         transform: translateX(-10rem);
         transition: 2s;
@@ -89,7 +89,6 @@
         transition: 2s;
       }
     }
-    
   }
   .conception__features {
     display: none;

@@ -1,8 +1,8 @@
 .menu {
-  background-color: $dark;
   position: fixed;
   z-index: 4;
   width: 100vw;
+  background-color: $dark;
 }
 
 .menu__container {
@@ -14,7 +14,6 @@
 .menu__icon {
   flex: 1;
   height: 1.6rem;
-
   &--left {
     text-align: left;
   }

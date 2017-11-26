@@ -10,7 +10,6 @@
 
 .landing__scrollbox {
   height: 4000px;
-
   video {
     position: fixed;
     top: 0;
@@ -19,7 +18,8 @@
     height: 100%;
 
     object-fit: cover;
-  };
+  }
+  ;
 }
 
 .landing__scrollText {
@@ -27,7 +27,6 @@
   bottom: 10%;
   left: 50%;
   transform: translate(-50%, 0%);
-
   &::after {
     position: absolute;
     top: 150%;
