@@ -1,7 +1,7 @@
 <div class="applications">
   <h2 class="container">Applications</h2>
   <div class="aframe">
-    <a-scene embedded style="width: 100vw; height: 600px;">
+    <a-scene embedded style="width: 100vw; height: 60vh;">
       <!-- Assets -->
       <a-assets>
         <!-- Thumbnails + Background -->
@@ -35,7 +35,7 @@
           event-set__2="_event: mouseup; scale: 1.1 1.1 1; color:white" 
           event-set__3="_event: mouseenter; scale: 1.1 1.1 1; color:red" 
           event-set__4="_event: mouseleave; scale: 1 1 1; color:white>" 
-          set-image="on: click; target: #background; src: ${src}"></a-entity>
+          set-image="on: click; target: #background; src: ${src}; dur:5;"></a-entity>
         </script>
       </a-assets>
 
@@ -58,6 +58,20 @@
 
 
       <!-- Cards -->
+      <a-entity class="animationRotation" animation="property: rotation;
+      to: 0 360 0; 
+      easing: linear;
+      dur: 50000; 
+      loop: true; 
+      pauseEvents: rotation-pause; 
+      resumeEvents: rotation-resume;
+      restartEvents: rotation-restart">
+        <!-- <a-animation  attribute="rotation"
+        dur="50000"
+        easing="linear"
+        to="0 360 0"
+        repeat="indefinite"></a-animation> -->
+      
         <!-- Front -->
         <a-entity position="0 2 -35" look-at="[camera]">
           <a-entity id="experiences" layout="type: line; margin: 35" position="-20 0 0">
@@ -86,6 +100,7 @@
             <a-entity template="src: #plane" data-src="#theunspoken-bg" data-thumb="#theunspoken-thumb"></a-entity>
           </a-entity>
         </a-entity>
+      </a-entity>
     </a-scene>
   </div>
 </div>

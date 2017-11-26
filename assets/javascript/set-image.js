@@ -32,9 +32,6 @@ AFRAME.registerComponent('set-image', {
     })
   },
 
-  /**
-   * Setup fade-in + fade-out.
-   */
   setupFadeAnimation: function () {
     var data = this.data
     var targetEl = this.data.target
@@ -56,3 +53,31 @@ AFRAME.registerComponent('set-image', {
     })
   }
 })
+
+// const animStatus = (status) => {
+    
+//   const animation = document.querySelector('.animationRotation')
+
+//   switch (status) {
+//   case 'pause':
+//     console.log('pause')
+//     animation.emit('rotation-pause')
+//     break
+//   case 'resume':
+//     console.log('resume')
+//     animation.emit('rotation-resume')
+//     break
+//   }
+// }
+
+
+// document.addEventListener('mousedown', () => {
+//   if (document.querySelector('body').classList.contains('a-grabbing')) {
+//     console.log('grab')
+//     animStatus('pause')
+//   }
+// })
+
+// document.addEventListener('mouseup', () => {
+//   animStatus('resume')
+// })
