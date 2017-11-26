@@ -1,0 +1,63 @@
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: $light;
+}
+.loading--complete {
+  transform: translateY(-100%);
+  transition: all 0.6s ease-in-out;
+}
+
+.loading__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40%;
+}
+
+.loading__img {
+  width: 30rem;
+  height: auto;
+  margin: auto 0;
+}
+
+.loading__progressBar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.loading__wrapper {
+  position: relative;
+  width: 25rem;
+  height: 0.5rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+  background: $medium-light;
+}
+.loading__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+.loading__progress--fill {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.3s linear;
+  background-color: $main-blue;
+}
+
+.loading__caption {
+  color: $dark;
+  font-size: 0.7em;
+}

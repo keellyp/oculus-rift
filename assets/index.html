@@ -8,7 +8,7 @@
   <title>The new Oculus Rift website</title>
   <meta name="description" content="The Oculus Rift is a virtual reality system that completely immerses you inside virtual worlds. Oculus Rift is available now.">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,900" rel="stylesheet">
-  <link rel="preload" href="css/style.min.css" as="style" onload="this.rel='stylesheet'">
+  <!-- <link rel="preload" href="css/style.min.css" as="style" onload="this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="css/style.min.css" >
   </noscript>
@@ -134,7 +134,8 @@
         }
       }
     }(this));
-  </script>
+  </script> -->
+  <link rel="stylesheet" href="css/style.min.css">
   <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
   <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
   <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
@@ -145,6 +146,8 @@
 </head>
 
 <body>
+  @@include('views/loading.html')
+  @@include('views/header.html')
   @@include('views/header.html')
   @@include('views/landing.html')
   <div class="main__container">
