@@ -56,6 +56,6 @@ loadingPage.on('complete', () => {
   }, 1000)
   setTimeout(() => {
     loadingEl.remove()
-  }, 3000)
+  }, 1400)
   
 })

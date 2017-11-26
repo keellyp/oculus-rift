@@ -10,7 +10,6 @@ export default class Loader {
     this.totalProgress = 0
     this.requests = []
     this.init()
-    console.table(this.requests)
   }
 
   // Init elements
@@ -32,7 +31,6 @@ export default class Loader {
         }
       })
     })
-    console.table(this.requests)
   }
 
   // If all element are loaded, it call the callCompleteEvents() 
