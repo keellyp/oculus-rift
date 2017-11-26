@@ -1,39 +1,68 @@
 .immersive {
+  height: 100vh;
+  margin-bottom: $sections-space*2;
   @include background('../img/immersive-background-small.png', 20%, cover);
-  @include responsive(tablet) {
-    background-image: url('../img/immersive-background-medium.jpg');
+
+  h2 {
+    padding-top: 15rem;
+    text-align: center;
+    width: 27rem;
+    margin:0 auto;
   }
-  @include responsive(desktop) {
-    background-image: url('../img/immersive-background-large.jpg');
+
+  p {
+    padding-top: 20rem;
   }
-  @include size(100vw, 100vh);
-  display: grid;
-  grid-template-rows: 30% 50% auto;
-  grid-template-areas: 'title' 'turtle' 'content';
-}
 
-.immersive__title {
-  align-self: end;
-  grid-area: title;
-  text-align: center;
-}
+  h3 {
+    padding-top: 15rem;
+    text-align: center;
 
-.immersive__turtle {
-  @include background('../img/immersive-turtle.png', 100%, contain);
-  align-self: end;
-  grid-area: turtle;
-  height: 75%;
-}
+    span {
+      display: block;
+      font-weight: 600;
+    }
+  }
 
-.immersive__content {
-  grid-area: content;
-}
+  @include responsive($lg){
+    height: 150vh;
+    h2 {
+      text-align: inherit;
+      width: 60rem;
+      margin: 0;
+      font-size: 5rem;
+      padding-bottom: 4rem;
+      padding-top: 35rem;
+      line-height: 6rem;
+    }
 
-.immersive__slogan {
-  padding: $blocs-space;
-  text-align: center;
+    p {
+      padding-top:0;
+      width: 45rem;
+    }
 
-  span {
-    font-weight: 500;
+    h3 {
+      text-align: inherit;
+      font-weight: 400;
+      padding-top: 20rem;
+
+      span {
+        display: inline-block;
+      }
+    }
+
+    .turtle {
+      @include background('../img/immersive-turtle.png', 100%, cover);
+      width: 68.4rem;
+      height: 60rem;
+      float: right;
+      transform: translateY(-35rem);
+      transition: 2s;
+
+      &:hover {
+        transform: translateY(-40rem);
+        animation: 2s;
+      }
+    }
   }
 }
