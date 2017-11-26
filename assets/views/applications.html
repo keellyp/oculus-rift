@@ -22,14 +22,10 @@
         <img id="theunspoken-bg" src="img/app-theunspoken-bg.jpg" data-load >
         <img id="theunspoken-thumb" src="img/app-theunspoken-thumb.jpg" data-load >
 
-        <!-- Sound -->
-        <audio volume="1" id="click-sound" src="videos/click.wav"></audio data-load >
-
         <!-- Template for cards -->
         <script id="plane" type="text/html">
           <a-entity class="experience" 
-          geometry="primitive: plane; height: 20; width: 30" material="shader: flat; src: ${thumb}" 
-          sound="on: click; src: #click-sound" 
+          geometry="primitive: plane; height: 20; width: 30" material="shader: flat; src: ${thumb}"  
           event-set__1="_event: mousedown; scale: 1 1 1; color:red" 
           event-set__2="_event: mouseup; scale: 1.1 1.1 1; color:white" 
           event-set__3="_event: mouseenter; scale: 1.1 1.1 1; color:red" 
