@@ -2,11 +2,6 @@
   @include background('../img/magic-background.jpg', 0%, cover);
   @include size(100vw, 34rem);
 }
-.magic__content {
-  transform: translateY(-6rem);
-
-  will-change: transform;
-}
 
 .magic {
 
@@ -23,7 +18,7 @@
     flex-direction: row-reverse;
 
     .magic__content {
-      margin-left: $normal-space;
+      
       h2 {
         font-size: 4rem;
       }
@@ -38,12 +33,12 @@
 
   @include responsive($lg) {
     .magic__image {
-      transform: translateX(0);
-      @include size(100vw, 40em);
+      width: 100vw;
+      height: 80vh;
     }
 
     .magic__content {
-      margin-left: $sections-space;
+      margin-right: 10rem;
       h2 {
         font-size: 5rem;
         padding-bottom: 4rem;
