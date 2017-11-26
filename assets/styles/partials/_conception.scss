@@ -45,9 +45,49 @@
   .conception__image {
     width: 100%;
     transform: translate(25rem, -15rem);
-  
-    img {
-      margin-right: 7rem;
+
+    div {
+      transition: 3s;
+    }
+    
+    &:hover {
+
+      .partie1 {
+        transform: translateX(-10rem);
+        transition: 2s;
+      }
+      .partie2 {
+        transform: translateX(-7rem);
+        transition: 2s;
+      }
+      .partie3 {
+        transform: translateX(-5rem);
+        transition: 2s;
+      }
+      .partie4 {
+        transform: translateX(-3rem);
+        transition: 2s;
+      }
+      .partie5 {
+        transform: translateX(-2rem);
+        transition: 2s;
+      }
+      .partie6 {
+        transform: translateX(3rem);
+        transition: 2s;
+      }
+      .partie7 {
+        transform: translateX(10rem);
+        transition: 2s;
+      }
+      .partie8 {
+        transform: translateX(7rem);
+        transition: 2s;
+      }
+      .partie9 {
+        transform: translateX(5rem);
+        transition: 2s;
+      }
     }
     
   }

@@ -61,7 +61,7 @@
 
       &:hover {
         transform: translateY(-40rem);
-        animation: 2s;
+        animation: 2s ease-in-out;
       }
     }
   }
