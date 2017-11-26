@@ -9,9 +9,6 @@ class OculusAnim {
     const maxScroll = $scrollBox.offsetHeight - $oculusIntro.offsetHeight
 
     $oculusIntro.addEventListener('scroll', () => {
-
-      console.log('scroll')
-
       /* Get the current time in terms of scrolling, values between 0 and 1 */
       const relativeCurrentTime = $oculusIntro.scrollTop / maxScroll
 
