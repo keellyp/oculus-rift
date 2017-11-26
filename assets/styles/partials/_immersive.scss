@@ -1,58 +1,68 @@
 .immersive {
+  height: 100vh;
+  margin-bottom: $sections-space*2;
   @include background('../img/immersive-background-small.png', 20%, cover);
-  @include responsive($lg) {
+
+  h2 {
+    padding-top: 15rem;
+    text-align: center;
+    width: 27rem;
+    margin:0 auto;
+  }
+
+  p {
+    padding-top: 20rem;
+  }
+
+  h3 {
+    padding-top: 15rem;
+    text-align: center;
+
+    span {
+      display: block;
+      font-weight: 600;
+    }
+  }
+
+  @include responsive($lg){
     height: 150vh;
     h2 {
+      text-align: inherit;
       width: 60rem;
       margin: 0;
-      padding-top: 35rem;
-      padding-bottom: 4rem;
-      text-align: inherit;
-      line-height: 6rem;
       font-size: 5rem;
+      padding-bottom: 4rem;
+      padding-top: 35rem;
+      line-height: 6rem;
     }
+
     p {
+      padding-top:0;
       width: 45rem;
-      padding-top: 0;
     }
+
     h3 {
-      padding-top: 20rem;
       text-align: inherit;
       font-weight: 400;
+      padding-top: 20rem;
+
       span {
         display: inline-block;
       }
     }
+
     .turtle {
       @include background('../img/immersive-turtle.png', 100%, cover);
-      float: right;
       width: 68.4rem;
       height: 60rem;
+      float: right;
       transform: translateY(-35rem);
       transition: 2s;
+
       &:hover {
         transform: translateY(-40rem);
         animation: 2s ease-in-out;
       }
-    }
-  }
-  height: 100vh;
-  margin-bottom: $sections-space*2;
-  h2 {
-    width: 27rem;
-    margin: 0 auto;
-    padding-top: 15rem;
-    text-align: center;
-  }
-  p {
-    padding-top: 20rem;
-  }
-  h3 {
-    padding-top: 15rem;
-    text-align: center;
-    span {
-      display: block;
-      font-weight: 600;
     }
   }
 }
