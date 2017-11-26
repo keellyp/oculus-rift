@@ -1,4 +1,5 @@
 .hero {
+  margin-top: 5rem;
   padding-bottom: $sections-space;
 }
 
@@ -19,8 +20,8 @@
     @include responsive(desktop) {
       background-image: url('../img/welcome-background-large.jpg');
     }
-    grid-area: 1/1;
     z-index: -1;
+    grid-area: 1/1;
   }
 
   &--eyes {

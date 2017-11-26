@@ -16,6 +16,8 @@ hero.translate()
 hero.accelerometer()
 
 // Landing
-// import './landing'
+import OculusAnim from './landing'
+const oculus = new OculusAnim
+oculus.anim()
 
 require('./set-image')
