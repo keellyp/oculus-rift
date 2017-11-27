@@ -16,9 +16,10 @@ export default class Slider {
   
   dots() {
     this.constructor.isDots = true
-  
+
     const $dots = document.createElement('div')
     $dots.classList.add('dots')
+    
     this.constructor.$slider.appendChild($dots)
   
     const $dotContainer = this.constructor.$slider.querySelector('.dots')
@@ -31,7 +32,16 @@ export default class Slider {
       $dot.dataset.view = i
       $dotContainer.appendChild($dot)
     }
+
     this.constructor.$dots = document.querySelectorAll('.dot')
+
+    this.constructor.$dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        this.constructor.currentView = dot.dataset.view
+        Slider.move(this.constructor.currentView )
+        Slider.moveDots(this.constructor.currentView )
+      })
+    })
   }
    
   /* ARROWS */
@@ -86,28 +96,3 @@ export default class Slider {
     this.$dots[currentView].classList.add('current-dot')
   }
 }
-
-
-
-// const Swiper = require('swiper')
-
-// export default class SwiperSlider {
-//   init() {
-//     new Swiper('.swiper-container', {
-//       // Optional parameters
-//       direction: 'horizontal',
-//       loop: true,
-    
-//       // If we need pagination
-//       pagination: {
-//         el: '.swiper-pagination',
-//       },
-    
-//       // Navigation arrows
-//       navigation: {
-//         nextEl: '.swiper-button-next',
-//         prevEl: '.swiper-button-prev',
-//       },
-//     })
-//   }
-// }
