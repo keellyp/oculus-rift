@@ -1,32 +1,70 @@
 export default class OculusAnim {
+  constructor() {
+    this.$el                 = {}
+    this.$el.container       = document.querySelector('.oculusIntro')
+    this.$el.scrollBox       = this.$el.container.querySelector('.oculusScrollbox')
+    this.$el.oculusVid       = this.$el.scrollBox.querySelector('.oculusScrollbox video')
+    this.$el.siteWrapper     = document.querySelector('.main__container')
+    this.userAgent = navigator.userAgent.toLowerCase()
+  }
+
   // Play the video on scroll
-  anim() {
-    const $oculusIntro = document.querySelector('.oculusIntro')
-    const $scrollBox = $oculusIntro.querySelector('.oculusScrollbox')
-    const $oculus = $scrollBox.querySelector('.oculusScrollbox video')
-    const $mainContainer = document.querySelector('.main__container')
+  scrollAnimChrome() {
 
-    const maxScroll = $scrollBox.offsetHeight - $oculusIntro.offsetHeight
+    const maxScroll = this.$el.scrollBox.offsetHeight - this.$el.container.offsetHeight
 
-    $oculusIntro.addEventListener('mousewheel', () => {
-      /* Get the current time in terms of scrolling, values between 0 and 1 */
-      const relativeCurrentTime = $oculusIntro.scrollTop / maxScroll
+    this.$el.container.addEventListener('scroll', () => {
 
-      /* The more relativeCurrentTime is high, the more the scroll is longer */
-      $oculus.currentTime = relativeCurrentTime * $oculus.duration
+      const relativeCurrentTime = this.$el.container.scrollTop / maxScroll
+      this.$el.oculusVid.currentTime = relativeCurrentTime * this.$el.oculusVid.duration
       
       /* If the scroll >= 90% of the video, reduce opacity */
-      relativeCurrentTime >= 0.9 ? $oculusIntro.style.opacity = (relativeCurrentTime - .9 - .1) * -10 : $oculusIntro.style.opacity = 1
+      relativeCurrentTime >= 0.9 ? this.$el.container.style.opacity = (relativeCurrentTime - .9 - .1) * -10 : this.$el.container.style.opacity = 1
       
       /* If the scroll is done, display none the video */
       if (relativeCurrentTime >= 0.98) {
-        $oculusIntro.style.display = 'none'
-        $mainContainer.style.position = 'fixed'
+        this.$el.container.style.display = 'none'
+        this.$el.siteWrapper.style.position = 'fixed'
         setTimeout(() => {
-          $mainContainer.style.position = 'initial'
-          document.querySelector('body').removeChild($oculusIntro)
+          this.$el.siteWrapper.style.position = 'initial'
+          document.querySelector('body').removeChild(this.$el.container)
         }, 1000)
       }
     })
+  }
+
+  scrollAnimElse() {
+    this.$el.oculusVid.setAttribute('autoplay', 'true')
+    this.$el.container.removeChild(document.querySelector('.landing__scrollText'))
+    this.$el.oculusVid.addEventListener('timeupdate', () => {
+      const relativeCurrentTime = this.$el.oculusVid.currentTime / this.$el.oculusVid.duration
+      relativeCurrentTime >= 0.9 ? this.$el.container.style.opacity = (relativeCurrentTime - .9 - .1) * -10 : this.$el.container.style.opacity = 1
+
+      /* If the scroll is done, display none the video */
+      if (relativeCurrentTime >= 0.98) {
+        this.$el.container.style.display = 'none'
+        setTimeout(() => {
+          this.$el.siteWrapper.style.position = 'initial'
+          document.querySelector('body').removeChild(this.$el.container)
+        }, 1000)
+      }
+      else {
+        this.$el.siteWrapper.style.position = 'fixed'
+      }
+    })
+  }
+
+  autoplayAnim() {
+    if (this.userAgent.indexOf('safari') != -1) {
+      if (this.userAgent.indexOf('chrome') > -1) {
+        this.scrollAnimChrome()
+      } else {
+        this.scrollAnimElse()
+      }
+    }
+
+    if (this.userAgent.indexOf('firefox') > -1) {
+      this.scrollAnimElse()
+    }
   }
 }

@@ -16,7 +16,6 @@ hero.translate()
 hero.accelerometer()
 
 // Menu.js
-
 import Menu from './menu'
 const menu = new Menu()
 menu.show()
@@ -24,7 +23,7 @@ menu.show()
 // Landing
 import OculusAnim from './landing'
 const oculus = new OculusAnim()
-oculus.anim()
+oculus.autoplayAnim()
 
 // Aframe
 require('./set-image')
