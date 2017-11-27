@@ -10,21 +10,14 @@
   
 .magic__image {
   background-size: 100vw auto;
-  
   @include background('../img/magic-background.jpg', left top, contain);
   @include size(100vw, 34rem);
-  @include responsive($sm) {    
-  }
   @include responsive($md) {
-    // position: absolute;
-    // top: 0;
-    // right: 0;
     width: 60vw;
   }
 }
 
 .magic {
-
   @include responsive($md) {
     display: flex;
     flex-direction: row-reverse;
@@ -33,9 +26,6 @@
 
 .magic__content {
   transform: translateY(-8rem);
-  // @include responsive($xs) {
-  //   transform: translateY(0); 
-  // }
   @include responsive($md) {
     position: absolute;
     top: 0;
@@ -45,6 +35,7 @@
     transform: translateY(0); 
   }
 }
+
 .magic__contentTitle {
   font-size: 4rem;
   @include responsive($lg) {
@@ -54,8 +45,8 @@
     line-height: 6rem;
   }
 }
-.magic__contentDescription {
 
+.magic__contentDescription {
   @include responsive($md) {
     width: 45rem;
   }
