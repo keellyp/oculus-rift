@@ -1,6 +1,3 @@
-// Aframe
-require('./set-image')
-
 // Scroll.js
 import RevealOnSroll from './scroll'
 const reveal = new RevealOnSroll()

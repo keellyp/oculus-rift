@@ -30,7 +30,7 @@
           event-set__2="_event: mouseup; scale: 1.1 1.1 1; color:white" 
           event-set__3="_event: mouseenter; scale: 1.1 1.1 1; color:red" 
           event-set__4="_event: mouseleave; scale: 1 1 1; color:white>" 
-          set-image="on: click; target: #background; src: ${src}; dur:5;"></a-entity>
+          set-image="on: click; target: #background; src: ${src}; dur:0;"></a-entity>
         </script>
       </a-assets>
 
@@ -53,19 +53,12 @@
 
 
       <!-- Cards -->
-      <a-entity class="animationRotation" animation="property: rotation;
-      to: 0 360 0; 
-      easing: linear;
-      dur: 50000; 
-      loop: true; 
-      pauseEvents: rotation-pause; 
-      resumeEvents: rotation-resume;
-      restartEvents: rotation-restart">
-        <!-- <a-animation  attribute="rotation"
-        dur="50000"
+      <a-entity class="animationRotation">
+        <a-animation  attribute="rotation"
+        dur="100000"
         easing="linear"
         to="0 360 0"
-        repeat="indefinite"></a-animation> -->
+        repeat="indefinite"></a-animation>
       
         <!-- Front -->
         <a-entity position="0 2 -35" look-at="[camera]">

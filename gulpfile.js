@@ -106,6 +106,27 @@ gulp.task('javascript', () => {
     .pipe(!config.isProd ? gulp_notify('JS for dev done') : gulp_util.noop())
 })
 
+// JS function
+gulp.task('aframe', () => {
+  return (browserify(`${config.js}aframe.js`, {
+      debug: true
+    }).transform(babelify, {
+      presets: [es2015]
+    }).bundle())
+    .on('error', gulp_notify.onError(function (error) {
+      return 'Message to the notifier: ' + error.message
+    }))
+    .pipe(source('aframe.js'))
+    .pipe(buffer())
+    .pipe(gulp_sourcemaps.init())
+    .pipe(config.isProd ? gulp_uglify() : gulp_util.noop())
+    .pipe(gulp_sourcemaps.write())
+    .pipe(gulp_rename('aframe.min.js'))
+    .pipe(gulp.dest(`${config.dist}js`))
+    .pipe(!config.isProd ? gulp_notify('JS for dev done') : gulp_util.noop())
+})
+
+
 // Minifies images
 gulp.task('images', () => {
   return gulp.src(`${config.assets}images/*`)
@@ -136,10 +157,11 @@ gulp.task('fileinclude', function () {
 })
 
 // Watch all my task
-gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {
+gulp.task('watch', ['fileinclude', 'style', 'javascript', 'aframe', 'fonts', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
   gulp.watch(`${config.styles}**/*.scss`, ['style'])
   gulp.watch(`${config.js}**/*.js`, ['javascript'])
+  gulp.watch(`${config.js}**/.js`, ['aframe'])
   gulp.watch(`${config.assets}images/*`, ['images'])
   gulp.watch(`${config.assets}videos/*`, ['videos'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])

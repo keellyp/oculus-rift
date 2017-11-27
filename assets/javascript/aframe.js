@@ -1,8 +1,9 @@
-// require('aframe')
-// require('aframe-layout-component')
-// require('aframe-template-component')
-// require('aframe-event-set-component')
-// require('aframe-look-at-component')
+const AFRAME = require('aframe')
+require('aframe-layout-component')
+require('aframe-template-component')
+require('aframe-event-set-component')
+require('aframe-animation-component')
+require('aframe-look-at-component')
 
 AFRAME.registerComponent('set-image', {
   schema: {
@@ -11,7 +12,7 @@ AFRAME.registerComponent('set-image', {
     src: { type: 'string' },
     dur: {
       type: 'number',
-      default: 300
+      default: 0
     }
   },
 
