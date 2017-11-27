@@ -48,7 +48,7 @@ yarn run build
 To the design team :
 - [Léna Mari](https://www.behance.net/lenammari)
 - [Valentin Martinez](https://www.behance.net/valentinma2045)
-- [Kimberle Busson](https://www.behance.net/kimberlybu7657)
+- [Kimberly Busson](https://www.behance.net/kimberlybu7657)
 
 and the two other developers :
 - [Samuel Mormin](https://github.com/samuelmormin)
