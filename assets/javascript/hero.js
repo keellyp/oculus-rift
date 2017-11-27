@@ -10,6 +10,7 @@ export default class Hero {
       let y = e.clientY
       hero_image.style.transform = `translate(${x/30}px,${y/10}px)`
       hero_eyes.style.transform = `translate(${x/130}px,${y/40}px)`
+      console.log('yeaa')
     }
 
     // Listen to mousemove event and run moveBackground function

@@ -1,19 +1,52 @@
 .gesture {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
   padding: $blocs-space 0 $sections-space 0;
+  @include responsive($sm) {
+    flex-direction: column-reverse;
+  }
 }
 
 .gesture__images {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  grid-template-rows: 22rem;
-  grid-gap: 1rem;
+  display: flex;
+  flex-direction: row;
+
 }
 
-.gesture__image {
-  &--left {
+.gesture__images {
+  &--left  {
+    padding-right: 1rem;
     align-self: start;
   }
+
   &--right {
+    padding: 5rem 0 0 1rem;
     align-self: end;
+  }
+}
+.gesture__imagesLeft {
+  transform: translateX(-4rem) rotateZ(10deg);
+}
+.gesture__imagesRight {
+  transform: translateX(0rem) rotateZ(10deg);
+}
+.gesture__content {
+  width: 100vw;
+  @include responsive($sm) {
+    text-align: center;
+  }
+}
+
+.gesture__contentTitle {
+  @include responsive($sm) {
+    width: 45rem;
+    margin: 0 auto;
+  }
+}
+.gesture__contentDescription {
+  @include responsive($sm) {
+    width: 45rem;
+    margin: 0 auto;
   }
 }
