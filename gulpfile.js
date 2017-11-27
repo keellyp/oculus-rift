@@ -54,7 +54,7 @@ gulp.task('check-scripts', ['javascript'], (done) => {
 gulp.task('default', ['serve', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images'], () => {})
+gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'aframe', 'fonts', 'videos', 'images'], () => {})
 
 // Clean dist 
 gulp.task('clean', () => {
