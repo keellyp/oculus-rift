@@ -1,15 +1,38 @@
 .hero {
+  display: flex;
+  flex-direction: column;
   padding-bottom: $sections-space;
+  @include responsive($sm) {
+    flex-direction: column-reverse;
+  }
+  &--container {
+    @include responsive($sm) {
+      text-align: center;
+    }
+  }
 }
-
 .hero__containerImages {
-  display: grid;
+  width: 100%;
+  position: relative;
   overflow: hidden;
 }
 
+.hero__title {
+  @include responsive($sm) {
+    text-align: center;
+    margin-top: 50px;
+  }
+}
+.hero__paragraph {
+  @include responsive($sm) {
+    text-align: center;
+  }
+}
 .hero__image {
-  @include size(100vw, 50vh);
+  @include size(100vw, auto);
+  font-size: 0;
   &--background {
+    height: 90%;
     @include background('../img/welcome-background-small.jpg', 50%, cover);
     @include responsive(tablet) {
       background-image: url('../img/welcome-background-medium.jpg');
@@ -17,13 +40,17 @@
     @include responsive(desktop) {
       background-image: url('../img/welcome-background-large.jpg');
     }
-    z-index: -1;
-    grid-area: 1/1;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
   }
+
   &--eyes {
-    @include background('../img/welcome-eyes.png',
-    50%,
-    cover);
-    grid-area: 1/1;
+    //@include background('../img/welcome-eyes.png', 50%, cover);
+    //grid-area: 1/1;
+    position: relative;
+    z-index: 2;
+    vertical-align: middle;
   }
 }
