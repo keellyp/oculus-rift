@@ -64,9 +64,6 @@ export default class Slider {
         this.constructor.currentView = 0
       }
       Slider.move(this.constructor.currentView)
-      if (this.constructor.isDots) {
-        Slider.moveDots(this.constructor.currentView)
-      }
     })
   
     $leftArrow.addEventListener('mousedown', () => {
@@ -77,9 +74,37 @@ export default class Slider {
         this.constructor.currentView = this.constructor.viewsNumber - 1
       }
       Slider.move(this.constructor.currentView)
-      if (this.constructor.isDots) {
-        Slider.moveDots(this.constructor.currentView)
+    })
+  }
+
+  touchmoves() {
+    let finger = { xStart: null, xMove: null, xEnd: null }
+
+    this.constructor.$slider.addEventListener('touchstart', (e) => {
+      finger.xStart = e.touches[0].clientX
+      finger.xEnd = finger.xStart 
+      this.constructor.$viewContainer.style.transition = 'transform 0s'
+
+      this.constructor.$slider.addEventListener('touchmove', (e) => {
+        finger.xMove = e.touches[0].clientX
+        this.constructor.$viewContainer.style.transform = `translateX(calc(${this.constructor.currentView * -100}vw + ${+ finger.xMove - finger.xStart}px))`
+        finger.xEnd = finger.xMove
+      })
+    })
+
+    this.constructor.$slider.addEventListener('touchend', () => {
+      this.constructor.$viewContainer.style.transition = 'transform .5s ease-in-out'
+      if (finger.xEnd - finger.xStart >= 50) {
+        if (this.constructor.currentView > 0) {
+          this.constructor.currentView--
+        }
       }
+      else if (finger.xEnd - finger.xStart <= -50) {
+        if (this.constructor.currentView < this.constructor.viewsNumber - 1) {
+          this.constructor.currentView++
+        }
+      }
+      Slider.move(this.constructor.currentView)
     })
   }
   
@@ -87,6 +112,11 @@ export default class Slider {
   
   static move(currentView) {
     this.$viewContainer.style.transform = `translateX(${currentView * -100}vw)`
+    this.currentView = currentView
+
+    if (this.isDots) {
+      Slider.moveDots(this.currentView)
+    }
   }
   
   static moveDots(currentView) {
