@@ -5,6 +5,26 @@
   }
 }
 
+.accessories__wrapper {
+  position: relative;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.accessories__wrapper ul {
+  padding: 0;
+  transition: transform 0.5s ease-in-out;
+  font-size: 0;
+}
+
+.accessories__wrapper ul li {
+  display: inline-block;
+  width: 100vw;
+  height: 100%;
+  color: white;
+  font-size: 1rem;
+}
+
 .accessories__slider {
   display: grid;
   grid-template-rows: 20rem 30rem;
@@ -29,6 +49,46 @@
   text-align: center;
 }
 
-.accessories__sliderIcon {
-  background-size: 1.5rem 2.5rem;
+.accessories__wrapper .arrow {
+  position: absolute;
+  top: 45%;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
+  color: $light;
+  font-size: 24px;
+}
+
+.accessories__wrapper .arrow:hover {
+  transform: scale(1.1);
+}
+
+.accessories__wrapper .arrow-left {
+  left: 30px;
+}
+
+.accessories__wrapper .arrow-right {
+  right: 30px;
+}
+
+.accessories__wrapper .dots {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0;
+}
+
+.accessories__wrapper .dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px;
+  border-radius: 50%;
+  background: $deep-grey;
+  cursor: pointer;
+}
+
+.accessories__wrapper .dots .current-dot {
+  background: $light;
 }

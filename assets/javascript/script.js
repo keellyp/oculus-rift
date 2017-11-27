@@ -1,7 +1,5 @@
-// Slider.js
-// import SwiperSlider from './slider'
-// const slider = new SwiperSlider()
-// slider.init()
+// Aframe
+require('./set-image')
 
 // Scroll.js
 import RevealOnSroll from './scroll'
@@ -25,8 +23,14 @@ import OculusAnim from './landing'
 const oculus = new OculusAnim()
 oculus.autoplayAnim()
 
-// Aframe
-require('./set-image')
+// Slider.js
+import Slider from './slider'
+const slider = new Slider('.accessories__wrapper')
+slider.arrows(
+  '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
+  '<i class="fa fa-chevron-right" aria-hidden="true"></i>'
+)
+slider.dots()
 
 //Loading 
 import Loader from './loading'
