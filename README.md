@@ -1,4 +1,11 @@
 # Oculus Rift
+[![node](https://img.shields.io/badge/Node-%3E%3D8.9.1-brightgreen.svg?style=flat-square)]()
+[![gulp](https://img.shields.io/badge/Gulp%20-%3E%3D3.9.1-blue.svg?style=flat-square)]()
+[![yarn](https://img.shields.io/badge/yarn-%3E%3D1.3.2-ff69b4.svg?style=flat-square)]()
+
+![Oculus Rift](screenshot.png "Oculus Rift")
+
+
 This is a school project based on the Oculus Rift website. It is a front-end development project only built with HTML, CSS and JS. We wanted to create a real experience in our website around the Rift.
 
 [See the demo](https://oculus-rift.netlify.com/)
@@ -28,10 +35,11 @@ yarn run build
 
 
 ## Precisions 
-- We use the [BEM](http://getbem.com/naming/) naming class convention.
-- For the CSS, we add [CSSComb](https://github.com/csscomb/csscomb.js) to format and sort our code.
-- For the Javascript, we use [ESLint](https://github.com/eslint/eslint) and code in ES6. 
-- We like to use [gitmoji](https://github.com/carloscuesta/gitmoji/) when we commit to identify quickly the purpose of the commit 
+- We used the [BEM](http://getbem.com/naming/) naming class convention.
+- For the CSS, we added [CSSComb](https://github.com/csscomb/csscomb.js) to format and sort our code.
+- For the Javascript, we used [ESLint](https://github.com/eslint/eslint) and code in ES6. 
+- We liked to use [gitmoji](https://github.com/carloscuesta/gitmoji/) when we commited to identify quickly the purpose of the commit 
+- Everytime we could, we followed the rules of [FrontEndChecklist](https://frontendchecklist.io/)
 
 
 ## Other
@@ -40,7 +48,7 @@ yarn run build
 To the design team :
 - [Léna Mari](https://www.behance.net/lenammari)
 - [Valentin Martinez](https://www.behance.net/valentinma2045)
-- Kimberley Busson
+- [Kimberle Busson](https://www.behance.net/kimberlybu7657)
 
 and the two other developers :
 - [Samuel Mormin](https://github.com/samuelmormin)
