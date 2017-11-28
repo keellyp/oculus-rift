@@ -4,6 +4,11 @@
   padding-bottom: $sections-space;
   @include responsive($sm) {
     flex-direction: column-reverse;
+    transform: translateY(0px);
+  }
+  @include responsive($md) {
+    transform: translateY(-100px);
+    padding-bottom: 0;
   }
   &--container {
     @include responsive($sm) {
@@ -15,17 +20,32 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  z-index: 0;
 }
 
 .hero__title {
   @include responsive($sm) {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 0;
+    transform: translateY(50px);
+    position: relative;
+  }
+  @include responsive($md) {
+    text-align: center;
+    margin-top: 0;
+    transform: translateY(100px);
+    position: relative;
   }
 }
 .hero__paragraph {
   @include responsive($sm) {
     text-align: center;
+    transform: translateY(50px);
+    position: relative;
+  }
+  @include responsive($md) {
+    transform: translateY(100px);
+    position: relative;
   }
 }
 .hero__image {
