@@ -7,6 +7,11 @@
   height: 100vh;
   overflow: scroll;
   background-color: $light;
+  display: none;
+
+  @include responsive($lg){
+    display: block;
+  }
 }
 
 .landing__scrollbox {

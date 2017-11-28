@@ -1,79 +1,74 @@
 .burger {
+
     background-color: $light;
-    height: 100vh;
+    height: 0;
+    transition: height .5s ease-in-out;
     width: 100vw;
     z-index: 5;
     top:4.8rem;
     position: fixed;
-    display: none;
+    color:$dark;
+    overflow: hidden;
 
-    animation:1s;
-    
-            @keyframes open {
-                0% {transform: translateX(100vh)}
-                100% {transform: translateX(0)}
-            }
-    
-            @keyframes close {
-                0% {transform: translateX(0)}
-                100% {transform: translateX(100vh)}
-            }
-    
-    li {
-        width: 30rem;
-        margin: 0 auto;
-        text-align: center;
+    .burger__link {
 
-            h2 {
-                color:$dark;
-                text-align: center;
-                margin-top:6rem;
-            }
-    }
-
-    .burger__network {
-        width: 80%;
-        margin: 0 auto;
         display: flex;
-        margin-top: 10rem;
-        justify-content: space-between;
-        align-content: center;
-        background:red;
+        justify-content: center;
+
+        @include responsive($lg){
+            margin-top: 5rem;
+        } 
         
-        
-        div {
-            width: 2.6rem;
-            height: auto;
-
-            svg {
-                fill:red;
-            }
-        }
-    }
-
-    @include responsive($lg) {
-
-        animation:1s;
-
-        @keyframes open {
-            0% {transform: translateY(100vh)}
-            100% {transform: translateY(0)}
-        }
-
-        @keyframes close {
-            0% {transform: translateY(0)}
-            100% {transform: translateY(100vh)}
-        }
-
-        h2 {
-            font-weight: 800;
-            margin-top: 8rem;
-        }
-
-        .burger__network {
-            width: 30%;
-            color: $deep-grey;
+        li {
             
+            position: relative;
+            padding: 2%;
+            text-decoration: none;
+            transition: ease .1s;
+            margin-top: 5rem;
+            font-size: 3.2rem;
+            font-weight: 600;
+            line-height: 3.6rem;
+            text-align: center;
+            width: 100%;
+
+            @include responsive($lg){
+
+                font-weight: 800;
+            }
+    
+            &:after {
+                content: '';
+                position: absolute;
+                left:-5%;
+                bottom: 0;
+                width: 110%;
+                height: 0;
+                background:rgba(62, 103, 215, 0.7);
+                transition: ease .1s;
+            
+            }
+    
+            &:hover {
+                &:after {
+                        height: 2rem;
+                    }
+                }
+        }
+    
+    }
+    
+    .burger__network {
+
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 15rem;
+
+        div {
+            width: 2rem;
+            background:$dark;
+            margin: 0 2rem;
         }
     }
 }

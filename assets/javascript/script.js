@@ -14,6 +14,7 @@ hero.accelerometer()
 import Menu from './menu'
 const menu = new Menu()
 menu.show()
+menu.link()
 
 // Landing
 import OculusAnim from './landing'
