@@ -33,6 +33,12 @@ export default class RevealOnSroll {
     })
   }
   conception() {
+    sr.reveal('.conception__gradient', {
+      duration: 1000,
+      origin: 'left',
+      viewFactor: 0.4,
+      reset: true
+    })
     sr.reveal('.conception__image1', {
       duration: 1000,
       origin: 'left',
