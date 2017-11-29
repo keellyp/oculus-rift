@@ -9,15 +9,15 @@
   margin-left: -$space;
 }
 
-.partie1,
-.partie2,
-.partie3,
-.partie4,
-.partie5,
-.partie6,
-.partie7,
-.partie8,
-.partie9 {
+.conception__image1,
+.conception__image2,
+.conception__image3,
+.conception__image4,
+.conception__image5,
+.conception__image6,
+.conception__image7,
+.conception__image8,
+.conception__image9 {
   position: absolute;
 }
 
@@ -51,44 +51,44 @@
     div {
       transition: 3s;
     }
-    &:hover {
-      .partie1 {
-        transform: translateX(-10rem);
-        transition: 2s;
-      }
-      .partie2 {
-        transform: translateX(-7rem);
-        transition: 2s;
-      }
-      .partie3 {
-        transform: translateX(-5rem);
-        transition: 2s;
-      }
-      .partie4 {
-        transform: translateX(-3rem);
-        transition: 2s;
-      }
-      .partie5 {
-        transform: translateX(-2rem);
-        transition: 2s;
-      }
-      .partie6 {
-        transform: translateX(3rem);
-        transition: 2s;
-      }
-      .partie7 {
-        transform: translateX(10rem);
-        transition: 2s;
-      }
-      .partie8 {
-        transform: translateX(7rem);
-        transition: 2s;
-      }
-      .partie9 {
-        transform: translateX(5rem);
-        transition: 2s;
-      }
-    }
+    // &:hover {
+    //   .partie1 {
+    //     transform: translateX(-10rem);
+    //     transition: 2s;
+    //   }
+    //   .partie2 {
+    //     transform: translateX(-7rem);
+    //     transition: 2s;
+    //   }
+    //   .partie3 {
+    //     transform: translateX(-5rem);
+    //     transition: 2s;
+    //   }
+    //   .partie4 {
+    //     transform: translateX(-3rem);
+    //     transition: 2s;
+    //   }
+    //   .partie5 {
+    //     transform: translateX(-2rem);
+    //     transition: 2s;
+    //   }
+    //   .partie6 {
+    //     transform: translateX(3rem);
+    //     transition: 2s;
+    //   }
+    //   .partie7 {
+    //     transform: translateX(10rem);
+    //     transition: 2s;
+    //   }
+    //   .partie8 {
+    //     transform: translateX(7rem);
+    //     transition: 2s;
+    //   }
+    //   .partie9 {
+    //     transform: translateX(5rem);
+    //     transition: 2s;
+    //   }
+    // }
   }
   .conception__features {
     display: none;

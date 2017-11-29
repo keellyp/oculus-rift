@@ -1,70 +1,86 @@
 .immersive {
   position: relative;
   height: 100vh;
-  margin-bottom: $sections-space*2;
+  margin-bottom: $sections-space;
   @include background('../img/immersive-background-small.png', 20%, cover);
-  @include responsive($lg){
+  @include responsive($sm){
     margin-bottom: 0;
+    height: 100vh;
   }
-  h2 {
-    padding-top: 15rem;
-    text-align: center;
-    width: 27rem;
-    margin:0 auto;
-  }
-
-  p {
-    padding-top: 20rem;
-  }
-
-  h3 {
-    padding-top: 15rem;
-    text-align: center;
-
-    span {
-      display: block;
-      font-weight: 600;
-    }
-  }
-
   @include responsive($lg){
     height: 150vh;
-    h2 {
-      text-align: inherit;
-      width: 60rem;
-      margin: 0;
-      font-size: 5rem;
-      padding-bottom: 4rem;
-      padding-top: 35rem;
-      line-height: 6rem;
-    }
-
-    p {
-      padding-top:0;
-      width: 45rem;
-    }
-
-    h3 {
-      text-align: inherit;
-      font-weight: 400;
-      padding-top: 20rem;
-
-      span {
-        display: inline-block;
-      }
-    }
   }
 }
-.turtle {
+.immersive__contentTitle {
+  font-size: 4rem;
+  padding-top: 15rem;
+  text-align: center;
+  width: 27rem;
+  margin:0 auto;
+  @include responsive($sm){
+    text-align: inherit;
+    width: 60rem;
+    margin: 0;
+    padding-bottom: 4rem;
+    padding-top: 20rem;
+    line-height: 6rem;
+  }
+  @include responsive($lg){
+    text-align: inherit;
+    width: 60rem;
+    margin: 0;
+    font-size: 5rem;
+    padding-bottom: 4rem;
+    padding-top: 35rem;
+    line-height: 6rem;
+  }
+}
+.immersive__contentDescription {
+  padding-top: 20rem;
+  @include responsive($sm) {
+    padding-top:0;
+    width: 45rem;
+  }
+}
+.immersive__contentSubtitle {
+  font-size: 3rem;
+  padding-top: 10rem;
+  text-align: center;
+  @include responsive($sm){
+    text-align: inherit;
+    font-weight: 400;
+    padding-top: 10rem;
+  }
+}
+.immersive__contentSubtitle--bold {
+  display: block;
+  font-weight: 600;
+  @include responsive($sm) {
+    display: inline-block;
+  }
+}
+.immersive__contentTurtle {
   position: absolute;
   top: 0;
   right: 0;
-  @include background('../img/immersive-turtle.png', 100%, cover);
-  width: 68.4rem;
-  height: 60rem;
-  transition: .3s;
-}
-
-.turtle--animation {
-  position: fixed;
+  width: 50%;
+  height: 50%;
+  transition: 1s;
+  z-index: 2;
+  margin-top: 40%;
+  @include background('../img/immersive-turtle.png', 100%, contain);
+  @include responsive($sm) {
+    //display: inline-block;
+    width: 60%;
+    height: 60%;
+    margin-top: 0;
+    transition: .3s;
+  }
+  @include responsive($md) {
+    //display: inline-block;
+    width: 60%;
+    height: 60%;
+    margin-top: 20%;
+    transition: .1s;
+  }
 }

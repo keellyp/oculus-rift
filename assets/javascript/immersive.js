@@ -2,7 +2,7 @@ export default class Immersive {
   // Translate background on mousemove
   translate() {
     const immersive = document.querySelector('.immersive')
-    const turtle = document.querySelector('.turtle')
+    const turtle = document.querySelector('.immersive__contentTurtle')
     const gesture = document.querySelector('.gesture')
     const gestureOffset = gesture.offsetTop
     const immersiveOffset = immersive.offsetTop
@@ -20,13 +20,13 @@ export default class Immersive {
 
       // If user is scrolling down, move turtle to bottom on scroll
       if ( z > lastScroll ) {
-        if( window.pageYOffset > immersiveOffset && y <= 260 ) {
-          y += 10
+        if( window.pageYOffset > immersiveOffset && y <= 250 ) {
+          y += 25
           turtle.style.transform = `translateY(${y/10}%)`
         } 
       } else {
         if( y > 0 && window.pageYOffset < gestureOffset ){
-          y -= 10
+          y -= 25
           turtle.style.transform = `translateY(${y/10}%)`
         }
       }

@@ -14,6 +14,7 @@
   @include size(100vw, 34rem);
   @include responsive($md) {
     width: 60vw;
+    @include background('../img/magic-background.png', left top, contain);
   }
 }
 

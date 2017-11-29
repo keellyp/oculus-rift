@@ -4,6 +4,7 @@ const reveal = new RevealOnSroll()
 reveal.magic()
 reveal.gesture()
 reveal.immersive()
+reveal.conception()
 
 // Hero.js
 import Hero from './hero'
