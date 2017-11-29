@@ -75,6 +75,7 @@
   height: 50%;
   z-index: 2;
   margin-top: 40%;
+  transition: transform 2s ease-in-out;
   @include background('../img/immersive-turtle.png', 100%, contain);
   @include responsive($sm) {
     width: 60%;
