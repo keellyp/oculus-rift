@@ -1,17 +1,16 @@
 .landing {
+  @include responsive($lg) {
+    display: block;
+  }
   position: absolute;
   top: 0;
   left: 0;
   z-index: 3;
+  display: none;
   width: 100vw;
   height: 100vh;
   overflow: scroll;
   background-color: $light;
-  display: none;
-
-  @include responsive($lg){
-    display: block;
-  }
 }
 
 .landing__scrollbox {
@@ -20,10 +19,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
+    margin: auto;
 
-    object-fit: cover;
+    object-fit: contain;
   }
   ;
 }

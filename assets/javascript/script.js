@@ -24,9 +24,9 @@ menu.show()
 menu.link()
 
 // Landing
-import OculusAnim from './landing'
-const oculus = new OculusAnim()
-oculus.autoplayAnim()
+// import OculusAnim from './landing'
+// const oculus = new OculusAnim()
+// oculus.autoplayAnim()
 
 // Slider.js
 import Slider from './slider'
