@@ -3,25 +3,41 @@
     margin-bottom: $blocs-space;
     text-align: center;
   }
+
+  @include responsive($lg){
+     h2 {
+      line-height: 6rem;
+      font-size: 5rem;
+      text-align: left;
+     }
+  }
 }
 
 .accessories__wrapper {
   position: relative;
   width: 100vw;
-}
 
-.accessories__wrapper ul {
-  padding: 0;
-  transition: transform 0.5s ease-in-out;
-  font-size: 0;
-}
+  ul {
+    padding: 0;
+    transition: transform 0.5s ease-in-out;
+    font-size: 0;
 
-.accessories__wrapper ul li {
-  display: inline-block;
-  width: 100vw;
-  height: 100%;
-  color: white;
-  font-size: 1rem;
+    li {
+      display: inline-block;
+      width: 100vw;
+      height: 100%;
+      color: white;
+      font-size: 1rem;
+    }
+  }
+
+  @include responsive($lg){
+    width: 90vw;
+    margin: 0 auto;
+    border-top:solid 1px $light;
+    border-bottom:solid 1px $light;
+    margin-bottom: $sections-space;
+  }
 }
 
 .accessories__slider {
@@ -29,6 +45,15 @@
   grid-template-rows: 20rem 30rem;
   grid-template-areas: 'img' 'content';
   grid-row-gap: $space;
+
+  @include responsive($lg) {
+    grid-template-columns:repeat(auto-fill, minmax(50rem, 1fr));;
+    grid-template-rows: inherit;
+    width: 90vw;
+    height: 80vh;
+    padding-bottom: 7rem;
+
+  }
 }
 
 .accessories__img {
@@ -40,12 +65,46 @@
     width: auto;
     height: 100%;
   }
+
+  @include responsive($lg){
+    width: 100%;
+    grid-column: 1 / span 1;
+    height: 100%;
+    text-align: center;
+    
+    img {
+      
+      height: 70%;
+    }
+  }
+
 }
 
 .accessories__content {
   grid-area: content;
   padding: 0 $space;
   text-align: center;
+  height: 100%;
+
+  @include responsive($lg){
+    grid-column: 2 / span 2;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    h4 {
+      text-align: left;
+      padding: 0;
+      margin-bottom:1em;
+      font-size: 2rem;
+    }
+
+    p {
+
+      font-size: 1.6rem;
+    }
+  }
 }
 
 .accessories__wrapper .arrow {

@@ -1,0 +1,11 @@
+.applications {
+
+    @include responsive($lg){
+        h2 {
+            line-height: 6rem;
+            font-size: 5rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+    }
+}
