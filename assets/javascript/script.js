@@ -3,7 +3,6 @@ import RevealOnSroll from './scroll'
 const reveal = new RevealOnSroll()
 reveal.magic()
 reveal.gesture()
-reveal.immersive()
 reveal.conception()
 
 // Hero.js

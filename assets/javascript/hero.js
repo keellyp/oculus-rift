@@ -3,11 +3,13 @@ export default class Hero {
   translate() {
     const hero = document.querySelector('.hero')    
     const hero_image = document.querySelector('.hero__image--background')
-    
+    const hero_eyes = document.querySelector('.hero__image--eyes')
+
     function moveBackground(e) {
       let x = e.clientX
       let y = e.clientY
       hero_image.style.transform = `translate(${x/30}px,${y/10}px)`
+      hero_eyes.style.transform = `translate(${x/130}px,${y/40}px)`
     }
 
     // Listen to mousemove event and run moveBackground function
@@ -41,11 +43,13 @@ export default class Hero {
 
       // Define half of the width and height of the image to move
       // It center the positioning point to the center of the ball
-      hero_image.style.top = `(${maxX} * ${x} / 180 - 500)px`
-      hero_image.style.left = `(${maxY} * ${y} / 180 - 250)px`
+      // hero_image.style.top = `${maxX * x / 180 - 500}px`
+      // hero_image.style.left = `${maxY * y / 180 - 250}px`
+      console.log(`(${maxY * y / 180 - 250})px`)
+      console.log(`(${maxX * x / 180 - 500})px`)
     }
 
     // Listen to deviceOrientation event
-    window.addEventListener('deviceorientation', (e) => handleAccelerometer(e))
+    window.addEventListener('deviceorientation', (e) => {handleAccelerometer(e)} )
   }
 }

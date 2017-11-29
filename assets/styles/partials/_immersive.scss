@@ -12,6 +12,8 @@
   }
 }
 .immersive__contentTitle {
+  position: relative;
+  z-index: 3;
   font-size: 4rem;
   padding-top: 15rem;
   text-align: center;
@@ -36,6 +38,8 @@
   }
 }
 .immersive__contentDescription {
+  position: relative;
+  z-index: 3;
   padding-top: 20rem;
   @include responsive($sm) {
     padding-top:0;
@@ -43,6 +47,8 @@
   }
 }
 .immersive__contentSubtitle {
+  position: relative;
+  z-index: 3;
   font-size: 3rem;
   padding-top: 10rem;
   text-align: center;
@@ -53,6 +59,8 @@
   }
 }
 .immersive__contentSubtitle--bold {
+  position: relative;
+  z-index: 3;
   display: block;
   font-weight: 600;
   @include responsive($sm) {
@@ -65,22 +73,17 @@
   right: 0;
   width: 50%;
   height: 50%;
-  transition: 1s;
   z-index: 2;
   margin-top: 40%;
   @include background('../img/immersive-turtle.png', 100%, contain);
   @include responsive($sm) {
-    //display: inline-block;
-    width: 60%;
-    height: 60%;
-    margin-top: 0;
-    transition: .3s;
-  }
-  @include responsive($md) {
-    //display: inline-block;
     width: 60%;
     height: 60%;
     margin-top: 20%;
-    transition: .1s;
+  }
+  @include responsive($md) {
+    width: 60%;
+    height: 60%;
+    margin-top: 20%;
   }
 }

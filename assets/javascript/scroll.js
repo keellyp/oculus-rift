@@ -32,14 +32,6 @@ export default class RevealOnSroll {
       scale: 0.9
     })
   }
-  immersive() {
-    sr.reveal('.immersive__contentTurtle', {
-      duration: 1000,
-      origin: 'bottom',
-      viewFactor: 0.4,
-      reset: false
-    })
-  }
   conception() {
     sr.reveal('.conception__image1', {
       duration: 1000,

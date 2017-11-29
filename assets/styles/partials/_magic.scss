@@ -1,32 +1,26 @@
 .magic {
   width: 100vw;
   height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
   @include responsive($md) {
-    display: flex;
     flex-direction: row-reverse;
-    position: relative;
+    height: 40vw;
+    align-items: center;
   }
 }
   
 .magic__image {
   background-size: 100vw auto;
-  @include background('../img/magic-background.jpg', left top, contain);
-  @include size(100vw, 34rem);
+  @include size(100vw, auto);
   @include responsive($md) {
     width: 60vw;
-    @include background('../img/magic-background.png', left top, contain);
-  }
-}
-
-.magic {
-  @include responsive($md) {
-    display: flex;
-    flex-direction: row-reverse;
+    height: 40vw;
   }
 }
 
 .magic__content {
-  transform: translateY(-8rem);
   @include responsive($md) {
     position: absolute;
     top: 0;
