@@ -10,9 +10,11 @@
 
   .conception__gradient {
 
-    width: 50%;
-    height: 50%;
     position: absolute;
+    @include responsive($lg) {
+      width: 50%;
+      height: 50%;
+    }
   }
 }
 
