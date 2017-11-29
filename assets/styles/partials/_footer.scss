@@ -9,7 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 10rem;
-  color: $deep-grey;
+  color: rgba(255,255,255,.6);
 }
 
 .footer__copyright {
@@ -21,7 +21,7 @@
 .footer__links {
   display: flex;
   justify-content: space-around;
-  font-size: 0.7em;
+  font-size: 0.9em;
   font-weight: 500;
 }
 

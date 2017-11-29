@@ -38,6 +38,12 @@
   h3 {
     text-align: center;
   }
+
+  @include responsive($lg){
+   
+      display: none;
+    
+  }
 }
 
 @include responsive($lg) {
@@ -60,8 +66,5 @@
     div {
       transition: 3s;
     }
-  }
-  .conception__features {
-    display: none;
   }
 }
