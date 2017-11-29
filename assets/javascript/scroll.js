@@ -32,4 +32,12 @@ export default class RevealOnSroll {
       scale: 0.9
     })
   }
+  immersive() {
+    sr.reveal('.turtle', {
+      duration: 1000,
+      origin: 'bottom',
+      viewFactor: 0.4,
+      reset: false
+    })
+  }
 }

@@ -3,12 +3,18 @@ import RevealOnSroll from './scroll'
 const reveal = new RevealOnSroll()
 reveal.magic()
 reveal.gesture()
+reveal.immersive()
 
 // Hero.js
 import Hero from './hero'
 const hero = new Hero()
 hero.translate()
 hero.accelerometer()
+
+// Immersive.js
+import Immersive from './immersive'
+const immersive = new Immersive()
+immersive.translate()
 
 // Menu.js
 import Menu from './menu'
