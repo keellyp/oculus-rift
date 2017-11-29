@@ -9,7 +9,6 @@ reveal.conception()
 import Hero from './hero'
 const hero = new Hero()
 hero.translate()
-hero.accelerometer()
 
 // Immersive.js
 import Immersive from './immersive'
