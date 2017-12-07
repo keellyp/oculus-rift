@@ -1,5 +1,11 @@
 dist/
-assets/images/*
+assets/images/*.png
+assets/images/*.jpg
+assets/images/*.jpeg
+assets/images/*.tiff
+assets/images/*.webp
+assets/images/*.gif
+
 
 # Created by https://www.gitignore.io/api/node,macos,windows
 
