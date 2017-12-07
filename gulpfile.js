@@ -33,7 +33,7 @@ gulp.task('clean', () => {
 // CSS function : Handle Sass, autoprefix, minify, sourcemaps
 gulp.task('style', () => {
   gulp
-    .src(`${config.assets}/scss/*.scss`)
+    .src(`${config.assets}/styles/*.scss`)
     .pipe(plugin.plumber({
       errorHandler: plugin.notify.onError('SASS Error <%= error.message %>')
     }))
@@ -48,7 +48,7 @@ gulp.task('style', () => {
     }))
     .pipe(plugin.csscomb())
     .pipe(config.isProd ? plugin.cssnano() : plugin.util.noop())
-    .pipe(!config.isProd ? plugin.sourcemaps.write() : plugin.util.noop())
+    .pipe(config.isProd ? plugin.sourcemaps.write() : plugin.util.noop())
     .pipe(plugin.rename('style.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
@@ -76,19 +76,23 @@ gulp.task('javascript', () => {
 
 // Create different size for images 
 gulp.task('srcset', () => {
-  return gulp.src(`${config.assets}images/src/*.{png, jpg}`)
+  return gulp.src(`${config.assets}images/src/*.{jpg,jpeg,png,tiff,webp,gif}`)
     .pipe(plugin.responsive({
       '*': [
-        { width: 350, rename: { suffix: '@350w' }, },
-        { width: 560, rename: { suffix: '@560w' }, },
-        { width: 720, rename: { suffix: '@720w' }, },
-        { width: 1280, rename: { suffix: '@1280w' }, },
-        { width: 1920, rename: { suffix: '@1920w' }, },
+        { width: 350, rename: { suffix: '@350w' }},
+        { width: 560, rename: { suffix: '@560w' }},
+        { width: 720, rename: { suffix: '@720w' }},
+        { width: 1280, rename: { suffix: '@1280w' }},
+        { width: 1920, rename: { suffix: '@1920w' }},
         { rename: { suffix: '-full' }, }], 
       }, {
-      quality: 70,
-      progressive: true,
+      passThroughUnsed: false,
+      quality: 80,
+      compressionLevel: 8,
+      withoutEnlargement: true,
       withMetadata: false,
+      errorOnEnlargement: false,
+      max: true,
       }))
     .pipe(gulp.dest(`${config.assets}images`));
 });
@@ -96,8 +100,8 @@ gulp.task('srcset', () => {
 // Image optimisation
 gulp.task('images', () => {
   gulp
-    .src(`${config.assets}images/*.{png, jpg, svg, gif}`)
-    .pipe(!config.isProd ? plugin.imagemin([
+    .src(`${config.assets}images/*.{jpg,jpeg,png,tiff,webp,gif}`)
+    .pipe(config.isProd ? plugin.imagemin([
       plugin.imagemin.gifsicle({interlaced: true}),
       plugin.imagemin.jpegtran({progressive: true}),
       plugin.imagemin.optipng({optimizationLevel: 5}),
@@ -140,9 +144,10 @@ gulp.task('fileinclude', function () {
 // Watch all my task
 gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
-  gulp.watch(`${config.assets}scss/**/*.scss`, ['style'])
+  gulp.watch(`${config.assets}styles/**/*.scss`, ['style'])
   gulp.watch(`${config.assets}javascript/**/*.js`, ['javascript'])
-  gulp.watch(`${config.assets}images/**/*`, ['images'])
+  gulp.watch(`${config.assets}images/*`, ['images'])
+  gulp.watch(`${config.assets}images/src/*.{jpg,jpeg,png,tiff,webp,gif}`, ['srcset'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])
 })
 
@@ -150,4 +155,4 @@ gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], ()
 gulp.task('default', ['browserSync', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {})
+gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'srcset', 'images'], () => {})
