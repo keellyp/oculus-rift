@@ -1,51 +1,23 @@
 .magic {
-  width: 100vw;
-  height: auto;
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  @include responsive($md) {
-    flex-direction: row-reverse;
-    height: 40vw;
-    align-items: center;
-  }
+  margin-bottom: 0;
 }
-  
+
 .magic__image {
-  background-size: 100vw auto;
-  @include size(100vw, auto);
-  @include responsive($md) {
-    width: 60vw;
-    height: 40vw;
+  @include size(100vw, 32rem);
+  @include background('../img/magic-background@350w.png', 0%, cover);
+  @include responsive($xs) {
+    background-image: url('../img/magic-background@560w.png');
   }
-}
-
-.magic__content {
-  @include responsive($md) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 1;
-    transform: translateY(0); 
+  @include responsive($sm) {
+    background-image: url('../img/magic-background@720w.png');
   }
-}
-
-.magic__contentTitle {
-  font-size: 4rem;
-  @include responsive($lg) {
-    width: 60rem;
-    font-size: 5rem;
-    padding-bottom: 4rem;
-    line-height: 6rem;
-  }
-}
-
-.magic__contentDescription {
   @include responsive($md) {
-    width: 45rem;
+    background-image: url('../img/magic-background@1280w.png');
   }
   @include responsive($lg) {
-    width: 45rem;
+    background-image: url('../img/magic-background@1920w.png');
+  }
+  @include responsive($xl) {
+    background-image: url('../img/magic-background-full.png');
   }
 }

@@ -6,11 +6,11 @@ $light: #ffffff;
 $medium-light: #bebebe;
 
 // Breakpoints
-$xs: 520px;
-$sm: 768px;
-$md: 960px;
-$lg: 1080px;
-$xl: 1400px;
+$xs: 350px;
+$sm: 560px;
+$md: 720px;
+$lg: 1280px;
+$xl: 1920px;
 
 // Mixins
 @mixin background($url, $position, $size) {

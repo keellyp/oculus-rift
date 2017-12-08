@@ -1,15 +1,17 @@
-<div class="hero" id="hero">
-  <div class="hero__containerImages">
-      <img class="hero__image hero__image--eyes" src="img/welcome-eyes.png"
-           srcset="img/welcome-eyes-mobile.png 320w,
-           img/welcome-eyes-tablette.png 600w,
-           img/welcome-eyes.png 1000w"
-           sizes="100vw"
-           alt="Déplacez le curseur"> 
+<section class="hero">
+  <div class="hero__images">
     <div class="hero__image hero__image--background"></div>
+    <picture>
+      <source srcset="img/welcome-eyes@350w.png" media="(max-width:350px)">
+      <source srcset="img/welcome-eyes@560w.png" media="(max-width:560px)">
+      <source srcset="img/welcome-eyes@720w.png" media="(max-width:720px)">
+      <source srcset="img/welcome-eyes@1280w.png" media="(max-width:1280px)">
+      <source srcset="img/welcome-eyes@1920w.png" media="(max-width:1920px)">
+      <img src="img/welcome-eyes-full.png" alt="Découvrez l'oculus" class="hero__image--eyes">
+    </picture>
   </div>
   <div class="hero__content container">
-    <h1 class="hero__title">Bienvenue<br>dans l'Oculus Rift</h1>
-    <p class="hero__paragraph">Plongez dans le Rift et profitez des meilleurs jeux en réalité virtuelle, pour seulement 449€.</p>
+    <h1>Bienvenue dans l'Oculus Rift</h1>
+    <p>Plongez dans le Rift et profitez des meilleurs jeux en réalité virtuelle, pour seulement 449€.</p>
   </div>
-</div>
+</section>

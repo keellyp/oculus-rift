@@ -1,70 +1,13 @@
-.conception {
-  margin-left: $space;
-  padding-bottom: $sections-space;
-}
-
 .conception__image {
-  width: 100%;
-  height: 60vh;
-  margin-left: -$space;
-
-  .conception__gradient {
-
-    position: absolute;
-    @include responsive($lg) {
-      width: 50%;
-      height: 50%;
-    }
-  }
+  position: relative;
+  height: 30rem;
+  background: radial-gradient(ellipse at center, rgba(172, 172, 172, 0.38), rgba(0, 0, 0, 0));
 }
-
-.conception__image1,
-.conception__image2,
-.conception__image3,
-.conception__image4,
-.conception__image5,
-.conception__image6,
-.conception__image7,
-.conception__image8,
-.conception__image9 {
+.conception__part {
   position: absolute;
+  top: 0;
+  left: 0;
 }
-
-.conception__features {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 16rem;
-  h3 {
-    text-align: center;
-  }
-
-  @include responsive($lg){
-   
-      display: none;
-    
-  }
-}
-
-@include responsive($lg) {
-  .conception {
-    margin-left: $sections-space;
-    padding-bottom: 20rem;
-    h2 {
-      width: 70rem;
-      padding-bottom: 4rem;
-      line-height: 6rem;
-      font-size: 5rem;
-    }
-    p {
-      width: 45rem;
-    }
-  }
-  .conception__image {
-    width: 100%;
-    transform: translate(25rem, -15rem);
-    div {
-      transition: 3s;
-    }
-  }
+.conception__content {
+  text-align: right;
 }

@@ -1,90 +1,39 @@
 .immersive {
-  position: relative;
-  height: 100vh;
-  margin-bottom: $sections-space;
-  @include background('../img/immersive-background-small.png', 20%, cover);
-  @include responsive($sm){
-    margin-bottom: 0;
-    height: 100vh;
-  }
-  @include responsive($lg){
-    height: 150vh;
-  }
+  margin: 0;
 }
-.immersive__contentTitle {
-  position: relative;
-  z-index: 3;
-  font-size: 4rem;
-  padding-top: 15rem;
-  text-align: center;
-  width: 27rem;
-  margin:0 auto;
-  @include responsive($sm){
-    text-align: inherit;
-    width: 60rem;
-    margin: 0;
-    padding-bottom: 4rem;
-    padding-top: 20rem;
-    line-height: 6rem;
+
+.immersive__background {
+  @include background('../img/immersive-background@350w.png', 50%, cover);
+  @include responsive($xs) {
+    background-image: url('../img/immersive-background@560w.png');
   }
-  @include responsive($lg){
-    text-align: inherit;
-    width: 60rem;
-    margin: 0;
-    font-size: 5rem;
-    padding-bottom: 4rem;
-    padding-top: 35rem;
-    line-height: 6rem;
-  }
-}
-.immersive__contentDescription {
-  position: relative;
-  z-index: 3;
-  padding-top: 20rem;
   @include responsive($sm) {
-    padding-top:0;
-    width: 45rem;
-  }
-}
-.immersive__contentSubtitle {
-  position: relative;
-  z-index: 3;
-  font-size: 3rem;
-  padding-top: 10rem;
-  text-align: center;
-  @include responsive($sm){
-    text-align: inherit;
-    font-weight: 400;
-    padding-top: 10rem;
-  }
-}
-.immersive__contentSubtitle--bold {
-  position: relative;
-  z-index: 3;
-  display: block;
-  font-weight: 600;
-  @include responsive($sm) {
-    display: inline-block;
-  }
-}
-.immersive__contentTurtle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 50%;
-  z-index: 2;
-  margin-top: 40%;
-  transition: transform 2s ease-in-out;
-  @include background('../img/immersive-turtle.png', 100%, contain);
-  @include responsive($sm) {
-    width: 60%;
-    height: 60%;
-    margin-top: 20%;
+    background-image: url('../img/immersive-background@720w.png');
   }
   @include responsive($md) {
-    width: 60%;
-    height: 60%;
-    margin-top: 20%;
+    background-image: url('../img/immersive-background@1280w.png');
+  }
+  @include responsive($lg) {
+    background-image: url('../img/immersive-background@1920w.png');
+  }
+  @include responsive($xl) {
+    background-image: url('../img/immersive-background-full.png');
+  }
+  @include size(100vw, 140vh);
+  position: relative;
+}
+
+.immersive__content {
+  position: relative;
+  padding-top: 24rem;
+
+  h3 {
+    margin-top: 28rem;
   }
 }
+
+.immersive__turtle {
+  position: absolute;
+  right: 5%;
+  bottom: 24%;
+}   

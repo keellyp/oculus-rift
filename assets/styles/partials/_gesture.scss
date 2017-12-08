@@ -1,56 +1,15 @@
 .gesture {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  padding: $blocs-space 0 $sections-space 0;
-  @include responsive($sm) {
-    flex-direction: column-reverse;
-  }
+  margin-top: 0;
 }
 
 .gesture__images {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  padding-bottom: $normal-space;
 
-}
-
-.gesture__images {
-  &--left  {
-    padding-right: 1rem;
-    align-self: start;
-  }
-
+  &--left,
   &--right {
-    padding: 5rem 0 0 1rem;
-    align-self: end;
-  }
-}
-
-.gesture__imagesLeft {
-  transform: translateX(-4rem) rotateZ(10deg);
-}
-
-.gesture__imagesRight {
-  transform: translateX(0rem) rotateZ(10deg);
-}
-
-.gesture__content {
-  width: 100vw;
-  @include responsive($sm) {
+    flex: 1;
     text-align: center;
-  }
-}
-
-.gesture__contentTitle {
-  @include responsive($sm) {
-    width: 45rem;
-    margin: 0 auto;
-  }
-}
-.gesture__contentDescription {
-  @include responsive($sm) {
-    width: 45rem;
-    margin: 0 auto;
   }
 }

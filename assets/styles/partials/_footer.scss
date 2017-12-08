@@ -1,18 +1,5 @@
 .footer {
-  width: 80%;
-  margin: auto;
-  padding: $sections-space 0 $blocs-space 0;
-}
-
-.footer__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 10rem;
-  color: rgba(255,255,255,.6);
-}
-
-.footer__copyright {
+  margin-bottom: $sections-space;
   text-align: center;
   font-size: 0.8em;
   font-weight: 600;
@@ -21,6 +8,7 @@
 .footer__links {
   display: flex;
   justify-content: space-around;
+  margin: $space 0;
   font-size: 0.9em;
   font-weight: 500;
 }

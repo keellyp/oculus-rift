@@ -1,17 +1,25 @@
-<div class="gesture">
-  <div class="gesture__images container">
-    <div class="gesture__images--left">
-      <img class="gesture__imagesLeft" src="img/gesture-left.png" alt="Touch controller left">
-    </div>
-    <div class="gesture__images--right">
-      <img class="gesture__imagesRight" src="img/gesture-right.png" alt="Touch controller right">
-    </div>
+<section class="gesture">
+  <div class="gesture__images">
+    <picture class='gesture__images--left'>
+      <source srcset='img/gesture-left@350w.png' media='(max-width:350px)'>
+      <source srcset='img/gesture-left@560w.png' media='(max-width:560px)'>
+      <source srcset='img/gesture-left@720w.png' media='(max-width:720px)'>
+      <source srcset='img/gesture-left@1280w.png' media='(max-width:1280px)'>
+      <source srcset='img/gesture-left@1920w.png' media='(max-width:1920px)'>
+      <img src='img/gesture-left-full.png' width='90%' alt='Left touch controller'>
+    </picture>
+    <picture class='gesture__images--right'>
+      <source srcset='img/gesture-right@350w.png' media='(max-width:350px)'>
+      <source srcset='img/gesture-right@560w.png' media='(max-width:560px)'>
+      <source srcset='img/gesture-right@720w.png' media='(max-width:720px)'>
+      <source srcset='img/gesture-right@1280w.png' media='(max-width:1280px)'>
+      <source srcset='img/gesture-right@1920w.png' media='(max-width:1920px)'>
+      <img src='img/gesture-right-full.png' width='90%' alt='Right touch controller'>
+    </picture>
   </div>
-  <div class="gesture__content">
-    <div class="container">
-      <h2 class="gesture__contentTitle">Des gestes et des mouvements naturels</h2>
-      <p class="gesture__contentDescription">Avant même d’avoir saisi une paire de manettes Touch, vous savez déjà comment les utiliser. Les actions intuitives en VR paraissent aussi naturelles que l’utilisation de vos propres mains.</p>
-      <a href="#" title="Add to shopping bag" class="btn--buy">Ajouter au panier</a>
-    </div>
+  <div class="container">
+    <h2>Des gestes et des mouvements naturels</h2>
+    <p>Avant même d’avoir saisi une paire de manettes Touch, vous savez déjà comment les utiliser. Les actions intuitives en VR paraissent aussi naturelles que l’utilisation de vos propres mains.</p>
+    <a href="#" title="Add to shopping bag" class="btn--buy">Ajouter au panier</a>
   </div>
-</div>
+</section>

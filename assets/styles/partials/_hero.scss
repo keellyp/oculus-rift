@@ -1,44 +1,45 @@
 .hero {
-  @include responsive($sm) {
-    flex-direction: column-reverse;
-    margin-top: $sections-space;
-    text-align: center;
-  }
-  display: flex;
-  flex-direction: column;
   margin-top: $space;
-  padding-bottom: $sections-space;
 }
 
-.hero__containerImages {
+.hero__images {
   position: relative;
-  z-index: 0;
-  width: 100%;
-  overflow: hidden;
-  cursor: move;
+
+  picture {
+    position: inherit;
+  }
 }
 
-.hero__image {
-  @include size(100vw, auto);
-  font-size: 0;
-  &--background {
-    @include background('../img/welcome-background-small.jpg', 50%, cover);
-    @include responsive(tablet) {
-      background-image: url('../img/welcome-background-medium.jpg');
-    }
-    @include responsive(desktop) {
-      background-image: url('../img/welcome-background-large.jpg');
-    }
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    height: 90%;
-  }
+.hero__image--eyes {
+  width: 100%;
+  height: 32rem;
 
-  &--eyes {
-    position: relative;
-    z-index: 2;
-    vertical-align: middle;
+  object-fit: cover;
+}
+
+.hero__image--background {
+  @include size(100%, 90%);
+  @include background('../img/welcome-background@350w.jpg', 50%, cover);
+  @include responsive($xs) {
+    background-image: url('../img/welcome-background@560w.jpg');
   }
+  @include responsive($sm) {
+    background-image: url('../img/welcome-background@720w.jpg');
+  }
+  @include responsive($md) {
+    background-image: url('../img/welcome-background@1280w.jpg');
+  }
+  @include responsive($lg) {
+    background-image: url('../img/welcome-background@1920w.jpg');
+  }
+  @include responsive($xl) {
+    background-image: url('../img/welcome-background-full.jpg');
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero__content {
+  transform: translateY(-15%);
 }
