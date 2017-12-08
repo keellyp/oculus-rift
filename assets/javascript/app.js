@@ -26,15 +26,15 @@
 // const oculus = new OculusAnim()
 // oculus.autoplayAnim()
 
-// // Slider.js
-// import Slider from './slider'
-// const slider = new Slider('.accessories__wrapper')
-// slider.arrows(
-//   '<i class="fa fa-chevron-left" aria-hidden="true"></i>',
-//   '<i class="fa fa-chevron-right" aria-hidden="true"></i>'
-// )
-// slider.touchmoves()
-// slider.dots()
+// Slider.js
+import Slider from './slider'
+const slider = new Slider('.accessories__wrapper')
+slider.arrows(
+  "<img src='img/icon_back.svg' alt='Back' class='arrow arrow-left'>",
+  "<img src='img/icon_next.svg' alt='Next' class='arrow arrow-right'>"
+)
+slider.touchmoves()
+slider.dots()
 
 // //Loading 
 // import Loader from './loading'
