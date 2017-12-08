@@ -5,7 +5,11 @@ const gulp    = require('gulp'),
   babelify    = require('babelify'),
   buffer      = require('vinyl-buffer'),
   source      = require('vinyl-source-stream'),
-  env         = require('babel-preset-env')
+  env         = require('babel-preset-env'),
+  gifsicle    = require('imagemin-gifsicle'),
+  jpegtran    = require('imagemin-jpegtran'),
+  optipng     = require('imagemin-optipng'),
+  svgo        = require('imagemin-svgo') 
 
 // Get all gulp dependencies 
 const plugin = require('gulp-load-plugins')();
@@ -76,7 +80,7 @@ gulp.task('javascript', () => {
 
 // Create different size for images 
 gulp.task('srcset', () => {
-  return gulp.src(`${config.assets}images/src/*.{jpg,jpeg,png,tiff,webp,gif}`)
+  return gulp.src(`${config.assets}images/src/*.{jpg,jpeg,png}`)
     .pipe(plugin.responsive({
       '*': [
         { width: 350, rename: { suffix: '@350w' }},
@@ -100,12 +104,12 @@ gulp.task('srcset', () => {
 // Image optimisation
 gulp.task('images', () => {
   gulp
-    .src(`${config.assets}images/*.{jpg,jpeg,png,tiff,webp,gif}`)
+    .src(`${config.assets}images/*.*`)
     .pipe(config.isProd ? plugin.imagemin([
-      plugin.imagemin.gifsicle({interlaced: true}),
-      plugin.imagemin.jpegtran({progressive: true}),
-      plugin.imagemin.optipng({optimizationLevel: 5}),
-      plugin.imagemin.svgo({
+      gifsicle({interlaced: true}),
+      jpegtran({progressive: true}),
+      optipng({optimizationLevel: 5}),
+      svgo({
         plugins: [
           {removeViewBox: true},
           {cleanupIDs: false}
@@ -115,7 +119,6 @@ gulp.task('images', () => {
       verbose: true
     }) : plugin.util.noop())
     .pipe(gulp.dest(`${config.dist}img`))
-    .pipe(browserSync.stream())
     plugin.util.log(plugin.util.colors.green('Images is done'))    
 })
 
@@ -155,4 +158,4 @@ gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], ()
 gulp.task('default', ['browserSync', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'srcset', 'images'], () => {})
+gulp.task('build', ['clean', 'fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {})
