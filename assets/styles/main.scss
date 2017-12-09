@@ -6,6 +6,7 @@
 @import 'components/_variables.scss';
 @import 'components/_fonts.scss';
 @import 'components/_buttons.scss';
+@import 'components/_base.scss';
 
 // Import partials stylesheet
 @import 'partials/_loading.scss';
@@ -21,31 +22,3 @@
 @import 'partials/_stand.scss';
 @import 'partials/_footer.scss';
 @import 'partials/_applications.scss';
-
-// Base
-html {
-  font-size: 62.5%;
-}
-
-html,
-body {
-  overflow-x: hidden;
-}
-
-body {
-  min-width: 32rem;
-  background-color: $dark;
-}
-
-.container {
-  width: 90%;
-  margin: auto;
-}
-
-section {
-  margin: $sections-space 0;
-}
-
-.aframe {
-  user-select: none;
-}

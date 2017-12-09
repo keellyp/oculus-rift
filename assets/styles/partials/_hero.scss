@@ -1,24 +1,44 @@
 .hero {
-  margin-top: $space;
+  @include responsive($md) {
+    display: flex;
+    flex-direction: column-reverse;
+    padding-top: $sections-space;
+  }
+  margin: $space 0;
 }
 
 .hero__images {
+  @include responsive($sm) {
+    height: 55vh;
+  }
+  @include responsive($md) {
+    height: 70vh;
+  }
+  @include responsive ($lg) {
+    width: 100%;
+    max-width: 168rem;
+    margin: 0 auto;
+  }
   position: relative;
-
+  height: 30vh;
   picture {
-    position: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 
 .hero__image--eyes {
   width: 100%;
-  height: 32rem;
+  height: 100%;
 
   object-fit: cover;
 }
 
 .hero__image--background {
-  @include size(100%, 90%);
+  @include size(100%, 100%);
   @include background('../img/welcome-background@350w.jpg', 50%, cover);
   @include responsive($xs) {
     background-image: url('../img/welcome-background@560w.jpg');
@@ -35,11 +55,12 @@
   @include responsive($xl) {
     background-image: url('../img/welcome-background-full.jpg');
   }
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 .hero__content {
+  @include responsive($md) {
+    transform: initial;
+    text-align: center;
+  }
   transform: translateY(-15%);
 }

@@ -1,10 +1,14 @@
 .magic {
+  @include responsive ($md) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: $sections-space;
+  }
   margin-bottom: 0;
 }
 
 .magic__image {
-  @include size(100vw, 32rem);
-  @include background('../img/magic-background@350w.png', 0%, cover);
+  @include background('../img/magic-background@350w.png', right, contain);
   @include responsive($xs) {
     background-image: url('../img/magic-background@560w.png');
   }
@@ -12,12 +16,25 @@
     background-image: url('../img/magic-background@720w.png');
   }
   @include responsive($md) {
+    height: 45vh;
     background-image: url('../img/magic-background@1280w.png');
+    background-size: cover;
   }
   @include responsive($lg) {
+    height: 70vh;
     background-image: url('../img/magic-background@1920w.png');
   }
   @include responsive($xl) {
     background-image: url('../img/magic-background-full.png');
+  }
+  width: 100%;
+  min-height: 42rem;
+}
+
+.magic__content {
+  @include responsive($md) {
+    align-self: center;
+    grid-row: 1;
+    margin-left: 20%;
   }
 }

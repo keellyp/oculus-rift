@@ -1,0 +1,24 @@
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  min-width: 32rem;
+  background-color: $dark;
+}
+
+.container {
+  @include responsive($lg) {
+    width: 80%;
+  }
+  width: 90%;
+  margin: auto;
+}
+.aframe {
+  user-select: none;
+}

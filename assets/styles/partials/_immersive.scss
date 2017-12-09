@@ -17,23 +17,62 @@
     background-image: url('../img/immersive-background@1920w.png');
   }
   @include responsive($xl) {
+    height: 130vh;
     background-image: url('../img/immersive-background-full.png');
   }
-  @include size(100vw, 140vh);
+  @include size(100%, 100vh);
   position: relative;
+  min-height: 80rem;
 }
 
 .immersive__content {
+  @include responsive($md) {
+    justify-content: center;
+    height: 60%;
+    padding-top: 32rem;
+  }
   position: relative;
-  padding-top: 24rem;
+  height: 100%;
+  padding-top: 21rem;
+}
 
+.immersive__wrapper {
+  @include responsive($md) {
+    max-width: 50%;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+
+  p {
+    @include responsive($md) {
+      margin-bottom: initial;
+    }
+    margin-bottom: auto;
+  }
   h3 {
-    margin-top: 28rem;
+    @include responsive($md) {
+      margin: 4rem 0 0 0;
+      text-align: left;
+    }
+    margin-bottom: 12rem;
+    text-align: center;
   }
 }
 
 .immersive__turtle {
+  @include responsive($sm) {
+    bottom: 12%;
+  }
+  @include responsive($md) {
+    right: -5%;
+  }
+  @include responsive($lg) {
+    right: 10%;
+  }
   position: absolute;
   right: 5%;
-  bottom: 24%;
+  bottom: 20%;
+  max-width: 50rem;
 }   

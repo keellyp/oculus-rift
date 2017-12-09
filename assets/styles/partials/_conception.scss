@@ -1,13 +1,29 @@
+.conception {
+  margin: $sections-space 0;
+}
+
+.conception__content {
+  max-width: 70%;
+}
+
 .conception__image {
   position: relative;
-  height: 30rem;
-  background: radial-gradient(ellipse at center, rgba(172, 172, 172, 0.38), rgba(0, 0, 0, 0));
+  max-width: 700px;
+  height: 82vw;
+  max-height: 600px;
+  margin: 0 auto;
+  background: radial-gradient(ellipse at center, rgba(172,172,172,0.38), rgba(172,172,172,0.2), rgb(1,1,1), rgb(1,1,1));
 }
+
 .conception__part {
   position: absolute;
   top: 0;
   left: 0;
 }
-.conception__content {
+
+.conception__words {
+  @include responsive($md) {
+    transform: translateY(-16rem);
+  }
   text-align: right;
 }
