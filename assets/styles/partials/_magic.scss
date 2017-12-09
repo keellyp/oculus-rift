@@ -2,6 +2,8 @@
   @include responsive ($md) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  @include responsive($lg) {
     margin-top: $sections-space;
   }
   margin-bottom: 0;
@@ -21,20 +23,28 @@
     background-size: cover;
   }
   @include responsive($lg) {
-    height: 70vh;
+    height: 75vh;
     background-image: url('../img/magic-background@1920w.png');
   }
   @include responsive($xl) {
     background-image: url('../img/magic-background-full.png');
   }
-  width: 100%;
-  min-height: 42rem;
+  width: auto;
+  height: 45rem;
 }
 
 .magic__content {
   @include responsive($md) {
     align-self: center;
     grid-row: 1;
-    margin-left: 20%;
+
+    .container {
+      width: 80%;
+    }
+  }
+  @include responsive($lg) {
+    .container {
+      width: 60%;
+    }
   }
 }

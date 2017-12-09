@@ -62,5 +62,8 @@
     transform: initial;
     text-align: center;
   }
+  @include responsive($md) {
+    transform: translateY(35%);
+  }
   transform: translateY(-15%);
 }
