@@ -1,7 +1,4 @@
 .landing {
-  @include responsive($lg) {
-    display: block;
-  }
   position: absolute;
   top: 0;
   left: 0;

@@ -1,5 +1,13 @@
 .hero {
   margin-top: $space;
+  display: flex;
+  flex-direction: column;
+
+  @include responsive($md) {
+    flex-direction: column-reverse;
+    text-align: center;
+    margin-top: 12rem;
+  }
 }
 
 .hero__images {
@@ -12,8 +20,7 @@
 
 .hero__image--eyes {
   width: 100%;
-  height: 32rem;
-
+  height: 70vh;
   object-fit: cover;
 }
 
@@ -41,5 +48,9 @@
 }
 
 .hero__content {
+  will-change: transform;
   transform: translateY(-15%);
+  @include responsive($md) {
+    transform: translateY(35%);
+  }
 }

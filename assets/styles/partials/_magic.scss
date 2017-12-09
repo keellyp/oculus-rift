@@ -3,17 +3,22 @@
 }
 
 .magic__image {
-  @include size(100vw, 32rem);
-  @include background('../img/magic-background@350w.png', 0%, cover);
+  @include size(100vw, 42rem);
+  @include background('../img/magic-background@350w.png', left, cover);
   @include responsive($xs) {
     background-image: url('../img/magic-background@560w.png');
   }
   @include responsive($sm) {
     background-image: url('../img/magic-background@720w.png');
   }
+
   @include responsive($md) {
-    background-image: url('../img/magic-background@1280w.png');
+    display: none;
   }
+}
+
+.magic__content {
+  @include background('../img/magic-background@1280w.png', right, contain);
   @include responsive($lg) {
     background-image: url('../img/magic-background@1920w.png');
   }
