@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Get dependencies 
 const gulp    = require('gulp'),
   browserSync = require('browser-sync').create(),
@@ -12,7 +14,7 @@ const gulp    = require('gulp'),
   svgo        = require('imagemin-svgo') 
 
 // Get all gulp dependencies 
-const plugin = require('gulp-load-plugins')();
+const plugin = require('gulp-load-plugins')()
 
 // Variables
 const config = {
@@ -45,7 +47,7 @@ gulp.task('style', () => {
     .pipe(plugin.sass({
       outputStyle: 'compressed'
     })
-    .on('error', plugin.sass.logError))
+      .on('error', plugin.sass.logError))
     .pipe(plugin.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
@@ -56,7 +58,7 @@ gulp.task('style', () => {
     .pipe(plugin.rename('style.min.css'))
     .pipe(gulp.dest(`${config.dist}css`))
     .pipe(browserSync.stream())
-    plugin.util.log(plugin.util.colors.green('Style is done'))
+  plugin.util.log(plugin.util.colors.green('Style is done'))
 })
 
 // JS function : Browserify, Minify, Sourcemaps
@@ -64,17 +66,17 @@ gulp.task('javascript', () => {
   let bundler = browserify({
     entries: `${config.assets}/javascript/app.js`,
     debug: true
-  }).transform(babelify, {presets: [env]});
+  }).transform(babelify, {presets: [env]})
   
   return bundler.bundle()
-  .pipe(source('app.js'))
-  .pipe(buffer())
-  .pipe(plugin.plumber({errorHandler: plugin.notify.onError("Error: <%= error.message %>")}))
-  .pipe(plugin.sourcemaps.init({loadMaps: true}))
-  .pipe(config.isProd ? plugin.streamify(plugin.uglify()) : plugin.util.noop())
-  .pipe(plugin.rename('app.min.js'))
-  .pipe(gulp.dest(`${config.dist}js`))
-  .pipe(browserSync.stream())
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(plugin.plumber({errorHandler: plugin.notify.onError('Error: <%= error.message %>')}))
+    .pipe(plugin.sourcemaps.init({loadMaps: true}))
+    .pipe(config.isProd ? plugin.streamify(plugin.uglify()) : plugin.util.noop())
+    .pipe(plugin.rename('app.min.js'))
+    .pipe(gulp.dest(`${config.dist}js`))
+    .pipe(browserSync.stream())
   plugin.util.log(plugin.util.colors.green('JS is done'))    
 })
 
@@ -89,7 +91,7 @@ gulp.task('srcset', () => {
         { width: 1280, rename: { suffix: '@1280w' }},
         { width: 1920, rename: { suffix: '@1920w' }},
         { rename: { suffix: '-full' }, }], 
-      }, {
+    }, {
       passThroughUnsed: false,
       quality: 80,
       compressionLevel: 8,
@@ -97,9 +99,9 @@ gulp.task('srcset', () => {
       withMetadata: false,
       errorOnEnlargement: false,
       max: true,
-      }))
-    .pipe(gulp.dest(`${config.assets}images`));
-});
+    }))
+    .pipe(gulp.dest(`${config.assets}images`))
+})
 
 // Image optimisation
 gulp.task('images', () => {
@@ -119,7 +121,7 @@ gulp.task('images', () => {
       verbose: true
     }) : plugin.util.noop())
     .pipe(gulp.dest(`${config.dist}img`))
-    plugin.util.log(plugin.util.colors.green('Images is done'))    
+  plugin.util.log(plugin.util.colors.green('Images is done'))    
 })
 
 // Replace font into dist folder
@@ -128,7 +130,7 @@ gulp.task('fonts', () => {
     .src(`${config.assets}fonts/*`)
     .pipe(gulp.dest(`${config.dist}fonts`))
     .pipe(browserSync.stream())
-    plugin.util.log(plugin.util.colors.green('Fonts has been move'))
+  plugin.util.log(plugin.util.colors.green('Fonts has been move'))
 })
 
 // Include HTML files into dist folder under the name of index.html 
@@ -141,7 +143,7 @@ gulp.task('fileinclude', function () {
     }))
     .pipe(gulp.dest(`${config.dist}`))
     .pipe(browserSync.stream())
-    plugin.util.log(plugin.util.colors.green('File has been included'))    
+  plugin.util.log(plugin.util.colors.green('File has been included'))    
 })
 
 // Watch all my task
