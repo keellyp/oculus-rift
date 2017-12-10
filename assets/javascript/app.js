@@ -1,3 +1,21 @@
+// Import
+import Menu from './components/menu'
+import Slider from './components/slider'
+
+// Menu.js
+const menu = new Menu()
+menu.show()
+
+// Slider.js
+const slider = new Slider('.accessories__wrapper')
+slider.arrows(
+  "<img src='img/icon_back.svg' alt='Back' class='arrow arrow-left'>",
+  "<img src='img/icon_next.svg' alt='Next' class='arrow arrow-right'>"
+)
+slider.touchmoves()
+slider.dots()
+
+
 // // Scroll.js
 // // import RevealOnSroll from './scroll'
 // const reveal = new RevealOnSroll()
@@ -15,26 +33,10 @@
 // const immersive = new Immersive()
 // immersive.translate()
 
-// // Menu.js
-// import Menu from './menu'
-// const menu = new Menu()
-// menu.show()
-// menu.link()
-
 // // Landing
 // import OculusAnim from './landing'
 // const oculus = new OculusAnim()
 // oculus.autoplayAnim()
-
-// Slider.js
-import Slider from './slider'
-const slider = new Slider('.accessories__wrapper')
-slider.arrows(
-  "<img src='img/icon_back.svg' alt='Back' class='arrow arrow-left'>",
-  "<img src='img/icon_next.svg' alt='Next' class='arrow arrow-right'>"
-)
-slider.touchmoves()
-slider.dots()
 
 // //Loading 
 // import Loader from './loading'
