@@ -3,7 +3,9 @@
 }
 
 .conception__content {
-  max-width: 70%;
+  @include responsive($md) {
+    max-width: 70%;
+  }
 }
 
 .conception__image {

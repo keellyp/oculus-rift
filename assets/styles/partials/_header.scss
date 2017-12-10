@@ -2,18 +2,20 @@
   position: fixed;
   z-index: 4;
   width: 100vw;
+  padding: 1rem;
+  border-bottom: 1px solid #222222;
   background-color: $dark;
 }
 
 .menu__container {
   display: flex;
   align-items: center;
-  height: 4.8rem;
+  height: 4rem;
 }
 
 .menu__icon {
   flex: 1;
-  height: 1.6rem;
+  height: 60%;
   cursor: pointer;
   &--left {
     text-align: left;

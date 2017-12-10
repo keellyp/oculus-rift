@@ -1,5 +1,9 @@
 .accessories {
+  margin-bottom: $sections-space;
   h2 {
+    @include responsive($md) {
+      text-align: left;
+    }
     text-align: center;
   }
 }
@@ -11,52 +15,69 @@
   ul {
     padding: 0;
     transition: transform 0.5s ease-in-out;
-    font-size: 0;
     text-align: center;
+    font-size: 0;
 
     li {
       display: inline-block;
       width: 100vw;
       height: 100%;
       color: white;
-      font-size: 1rem;
+      font-size: 1.6rem;
+
+      p {
+        font-size: 0.875em;
+      }
     }
   }
 }
 
 .accessories__slider {
-  display: grid;
-  grid-template-rows: 20rem auto;
-  grid-template-areas: 'img' 'content';
-  grid-row-gap: $space;
+  @include responsive($md) {
+    align-items: center;
+    flex-direction: row;
+    border-top: 1px solid $light;
+    border-bottom: 1px solid $light;
+  }
+  display: flex;
+  flex-direction: column;
 }
 
 .accessories__img {
-  align-self: end;
-  justify-self: center;
-  grid-area: img;
-  height: 90%;
+  @include responsive($md) {
+    width: 40%;
+    height: 48rem;
+    margin-bottom: 5rem;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30rem;
+  margin-bottom: 1rem;
   img {
     width: auto;
-    height: 100%;
+    height: 70%;
   }
 }
 
 .accessories__content {
-  grid-area: content;
-  padding: 0 $normal-space;
-  text-align: center;
+  @include responsive($md) {
+    margin: 0;
+    text-align: left;
+  }
+  max-width: 50rem;
   height: 100%;
+  padding: 0 $space;
+  text-align: center;
 }
 
 .accessories__wrapper .arrow {
   position: absolute;
   top: 45%;
+  width: 20px;
   transition: transform 0.2s ease-in-out;
   cursor: pointer;
   color: $light;
-  width: 20px;
-
 }
 
 .accessories__wrapper .arrow:hover {
@@ -72,6 +93,9 @@
 }
 
 .accessories__wrapper .dots {
+  @include responsive($md) {
+    top: 90%;
+  }
   position: absolute;
   top: 100%;
   width: 100%;

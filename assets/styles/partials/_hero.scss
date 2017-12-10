@@ -4,7 +4,7 @@
     flex-direction: column-reverse;
     padding-top: $sections-space;
   }
-  margin: $space 0;
+  margin: $sections-space 0 $space 0;
 }
 
 .hero__images {
