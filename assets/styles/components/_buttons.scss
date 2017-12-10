@@ -2,15 +2,15 @@
   display: inline-block;
   margin: 3.2rem 0;
   padding: 1rem 2rem;
+  transition: all 0.2s ease-in-out;
   border-radius: 40px;
   background-color: $main-blue;
   color: $light;
   font-size: 1.4rem;
   font-weight: 400;
-  transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: $dark-blue;
     transition: all 0.2s ease-in-out;
+    background-color: $light-blue;
   }
 }

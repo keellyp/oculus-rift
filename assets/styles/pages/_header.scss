@@ -30,12 +30,15 @@
 }
 
 .menu__burger {
-  position: fixed;
-  top: 6rem;
+  position: absolute;
+  top: 100%;
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 90vh;
+  height: 80vh;
+  padding-top: 4rem;
+  transform: translateY(-120%);
+  transition: transform 0.4s cubic-bezier(0.01, 0.74, 0.46, 1.04);
   background-color: $light;
 }
 
@@ -54,21 +57,52 @@
     }
   }
 }
+
 .menu__link {
+  position: relative;
+  z-index: 1;
   line-height: 3.6rem;
   color: $dark;
   font-size: 3.2rem;
-  position: relative;
   font-weight: 600;
-  z-index: 1;
 
   &:before {
     position: absolute;
-    bottom: 0px;
-    left: 0;
-    height: 36%;
-    width: 100%;
+    bottom: -5%;
+    left: 50%;
+    z-index: -1;
+    width: 110%;
+    height: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background-color: $light-blue;
     content: '';
-    background-color: $main-blue;
+
+    will-change: transform;
+  }
+  &:hover::before {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
+
+.menu__socials {
+  @include responsive($md) {
+    width: 60%;
+    margin-top: 10rem;
+  }
+  display: flex;
+  align-content: center;
+  margin-top: 5rem;
+}
+
+.menuBurger__ic {
+  flex: 1;
+  text-align: center;
+
+  a:hover {
+    .icon {
+      fill: $main-blue;
+    }
   }
 }

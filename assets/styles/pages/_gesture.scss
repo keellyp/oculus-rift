@@ -24,6 +24,8 @@
 }
 
 .gesture__content {
-  max-width: 60%;
-  text-align: center;
+  @include responsive($md) {
+    max-width: 60%;
+    text-align: center;
+  }
 }
