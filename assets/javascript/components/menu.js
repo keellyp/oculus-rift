@@ -3,7 +3,7 @@ export default class Menu {
     const burgerButton = document.querySelector('.burger__button')
     const burgerMenu = document.querySelector('.menu__burger')
     const burgerLinks = document.querySelectorAll('.menu__link')
-    let isShown = false;
+    let isShown = false
 
     burgerButton.addEventListener('mousedown', () => {
       let translate 

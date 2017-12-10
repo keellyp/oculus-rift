@@ -1,6 +1,7 @@
 // Import
 import Menu from './components/menu'
 import Slider from './components/slider'
+import Move from './components/move'
 
 // Menu.js
 const menu = new Menu()
@@ -9,12 +10,15 @@ menu.show()
 // Slider.js
 const slider = new Slider('.accessories__wrapper')
 slider.arrows(
-  "<img src='img/icon_back.svg' alt='Back' class='arrow arrow-left'>",
-  "<img src='img/icon_next.svg' alt='Next' class='arrow arrow-right'>"
+  `<img src='img/icon_back.svg' alt='Back' class='arrow arrow-left'>`,
+  `<img src='img/icon_next.svg' alt='Next' class='arrow arrow-right'>`
 )
 slider.touchmoves()
 slider.dots()
 
+// Hero.js
+const moveHero = new Move('.hero__image--eyes')
+moveHero.translate()
 
 // // Scroll.js
 // // import RevealOnSroll from './scroll'
@@ -22,11 +26,6 @@ slider.dots()
 // reveal.magic()
 // reveal.gesture()
 // reveal.conception()
-
-// // Hero.js
-// import Hero from './hero'
-// const hero = new Hero()
-// hero.translate()
 
 // // Immersive.js
 // import Immersive from './immersive'
