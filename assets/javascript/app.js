@@ -1,13 +1,15 @@
 // Import
+import 'intersection-observer'
 import Menu from './components/menu'
 import Slider from './components/slider'
 import Move from './components/move'
+import Observer from './components/intersectionObserver'
 
-// Menu.js
+// Burger menu
 const menu = new Menu()
 menu.show()
 
-// Slider.js
+// Accessories slider
 const slider = new Slider('.accessories__wrapper')
 slider.arrows(
   `<img src='img/icon_back.svg' alt='Back' class='arrow arrow-left'>`,
@@ -16,9 +18,11 @@ slider.arrows(
 slider.touchmoves()
 slider.dots()
 
-// Hero.js
-const moveHero = new Move('.hero__image--eyes')
-moveHero.translate()
+// Translate on mouse
+const moveHero = new Move('.hero__image--background')
+moveHero.translate(5)
+
+// Intersection observer
 
 // // Scroll.js
 // // import RevealOnSroll from './scroll'
