@@ -47,7 +47,7 @@ gulp.task('style', () => {
     .pipe(plugin.sass({
       outputStyle: 'compressed'
     })
-      .on('error', plugin.sass.logError))
+    .on('error', plugin.sass.logError))
     .pipe(plugin.autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
@@ -66,12 +66,17 @@ gulp.task('javascript', () => {
   let bundler = browserify({
     entries: `${config.assets}/javascript/app.js`,
     debug: true
-  }).transform(babelify, {presets: [env]})
+  })
+  .transform(babelify, {presets: [env]})
   
   return bundler.bundle()
+    .on('error', function(err){
+      plugin.util.log(plugin.util.colors.red(err.stack))
+      plugin.notify('Error')
+      this.emit('end');
+    })
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(plugin.plumber({errorHandler: plugin.notify.onError('Error: <%= error.message %>')}))
     .pipe(plugin.sourcemaps.init({loadMaps: true}))
     .pipe(config.isProd ? plugin.streamify(plugin.uglify()) : plugin.util.noop())
     .pipe(plugin.rename('app.min.js'))
@@ -98,10 +103,17 @@ gulp.task('srcset', () => {
       withoutEnlargement: true,
       withMetadata: false,
       errorOnEnlargement: false,
+      skipOnEnlargement: true,
       max: true,
     }))
     .pipe(gulp.dest(`${config.assets}images`))
 })
+
+gulp.task('otherSrc', () => {
+  return gulp.src(`${config.assets}images/src/*.svg`)
+    .pipe(gulp.dest(`${config.assets}images`))
+})
+
 
 // Image optimisation
 gulp.task('images', () => {
