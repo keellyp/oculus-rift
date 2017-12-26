@@ -22,7 +22,7 @@
   position: relative;
   height: 30vh;
   overflow: hidden;
-  cursor: move;
+  cursor: grab;
   picture {
     position: absolute;
     top: 0;
@@ -57,6 +57,7 @@
   @include responsive($xl) {
     background-image: url('../img/welcome-background-full.jpg');
   }
+  transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .hero__content {
