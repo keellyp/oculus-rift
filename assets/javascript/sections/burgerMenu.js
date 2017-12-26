@@ -1,4 +1,4 @@
-export default class Menu {
+class Menu {
   show() {
     const burgerButton = document.querySelector('.burger__button')
     const burgerMenu = document.querySelector('.menu__burger')
@@ -24,3 +24,6 @@ export default class Menu {
     }, false) 
   }
 }
+
+const menu = new Menu()
+menu.show()

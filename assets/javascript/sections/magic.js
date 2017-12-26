@@ -1,7 +1,7 @@
-import revealOnScroll from '../components/intersectionObserver'
+import {intersectionObserver} from '../components/intersectionObserver'
+import Reveal from '../components/scrolling'
 
-const $section = document.querySelector('.magic__image')
-
-revealOnScroll($section, () => {
+intersectionObserver(document.querySelector('.magic__image'), () => {
   console.log('ok')
+  sr.reveal('.animation-top', Reveal.top)
 })

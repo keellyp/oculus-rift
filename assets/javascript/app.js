@@ -1,26 +1,10 @@
-// Import
 import 'intersection-observer'
-import Menu from './components/menu'
-import Slider from './components/slider'
-import Move from './components/move'
-import Observer from './components/intersectionObserver'
+import './sections/burgerMenu'
+import './sections/hero'
+import './sections/magic'
+import './sections/gamepad'
+import './sections/accessories'
 
-// Burger menu
-const menu = new Menu()
-menu.show()
-
-// Accessories slider
-const slider = new Slider('.accessories__wrapper')
-slider.arrows(
-  `<img src='img/icon_back.svg' alt='Back' class='arrow arrow-left'>`,
-  `<img src='img/icon_next.svg' alt='Next' class='arrow arrow-right'>`
-)
-slider.touchmoves()
-slider.dots()
-
-// Translate on mouse
-const moveHero = new Move('.hero__image--background')
-moveHero.translate(5)
 
 // Intersection observer
 
