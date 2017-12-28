@@ -1,9 +1,9 @@
 import 'intersection-observer'
-import './sections/burgerMenu'
 import './sections/hero'
 import './sections/magic'
 import './sections/gamepad'
 import './sections/accessories'
+import './sections/burgerMenu'
 
 
 // Intersection observer

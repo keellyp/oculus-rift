@@ -1,7 +1,4 @@
-import {intersectionObserver} from '../components/intersectionObserver'
-import Reveal from '../components/scrolling'
+import { intersectionObserver } from '../components/intersectionObserver'
+import reveal from 'scrollreveal'
 
-intersectionObserver(document.querySelector('.magic__image'), () => {
-  console.log('ok')
-  sr.reveal('.animation-top', Reveal.top)
-})
+sr.reveal('.magic__image', reveal.top);
