@@ -1,14 +1,14 @@
 const intersectionObserver = (el, callback) => {
-  const observer = new IntersectionObserver( observables => {
+  const observer = new IntersectionObserver(observables => {
     observables.forEach(observable => {
-      if (observable.intersectionRatio <= 0.5) return
+      if (observable.intersectionRatio <= 0.3) return
       callback()
-      observer.disconnect()
+      observer.unobserve(el)
     })
-  },{
-    threshold: [0.5]
+  }, {
+    threshold: [0.3]
   })
   observer.observe(el)
 }
 
-export {intersectionObserver}
+export { intersectionObserver }
