@@ -4,7 +4,10 @@ window.sr = ScrollReveal()
 const reveal = {}
 reveal.top = {
   scale: 1,
-  distance: '50px',
+  distance: '20rem',
+  origin: 'bottom',
+  viewFactor: 0.5,
+  reset: true
 }
 reveal.left = {
   scale: 1,
