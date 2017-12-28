@@ -10,7 +10,7 @@
 }
 
 .magic__image {
-  @include background('../img/magic-background@350w.png', right, contain);
+  @include background('../img/magic-background@350w.png', 0, contain);
   @include responsive($xs) {
     background-image: url('../img/magic-background@560w.png');
   }
