@@ -1,10 +1,13 @@
 // Typography
 body {
-  line-height: 2.1rem;
+  line-height: 150%;
   color: $medium-light;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.6em;
+  font-size: 1.8em;
   font-weight: 300;
+  @include responsive($xs) {
+    font-size: 1.6em;
+  }
 }
 
 h1,
@@ -16,27 +19,30 @@ h4 {
 
 h1 {
   padding-bottom: 2.4rem;
-  line-height: 4.4rem;
-  font-size: 4rem;
+  line-height: 120%;
+  font-size: 3.4em;
   font-weight: 800;
+  @include responsive($xs) {
+    font-size: 2.6em;
+  }
 }
 
 h2 {
   padding-bottom: 1.6rem;
-  line-height: 3.6rem;
-  font-size: 3.2rem;
+  line-height: 120%;
+  font-size: 2em;
   font-weight: 600;
 }
 
 h3 {
-  line-height: 3.8rem;
-  font-size: 2.8rem;
+  line-height: 150%;
+  font-size: 1.5em;
   font-weight: 300;
 }
 
 h4 {
   padding: 1.6rem 0;
   line-height: 2.4rem;
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-size: 1.4em;
+  font-weight: 700;
 }
