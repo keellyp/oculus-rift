@@ -145,6 +145,15 @@ gulp.task('fonts', () => {
   plugin.util.log(plugin.util.colors.green('Fonts has been move'))
 })
 
+// Replace videos into dist folder
+gulp.task('videos', () => {
+  gulp
+    .src(`${config.assets}videos/*`)
+    .pipe(gulp.dest(`${config.dist}videos`))
+    .pipe(browserSync.stream())
+  plugin.util.log(plugin.util.colors.green('Videos has been move'))
+})
+
 // Include HTML files into dist folder under the name of index.html 
 gulp.task('fileinclude', function () {
   gulp
@@ -159,17 +168,18 @@ gulp.task('fileinclude', function () {
 })
 
 // Watch all my task
-gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {
+gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
   gulp.watch(`${config.assets}styles/**/*.scss`, ['style'])
   gulp.watch(`${config.assets}javascript/**/*.js`, ['javascript'])
   gulp.watch(`${config.assets}images/*`, ['images'])
   gulp.watch(`${config.assets}images/src/*.{jpg,jpeg,png,tiff,webp,gif}`, ['srcset'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])
+  gulp.watch(`${config.assets}videos/*`, ['videos'])
 })
 
 // Default task 
 gulp.task('default', ['browserSync', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['fileinclude', 'style', 'javascript', 'fonts', 'images'], () => {})
+gulp.task('build', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images'], () => {})
