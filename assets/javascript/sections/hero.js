@@ -1,13 +1,19 @@
 import { intersectionObserver } from '../components/intersectionObserver'
-import * as Scrolling from '../components/revealOnScroll'
 import Move from '../components/move'
+import * as Scrolling from '../components/revealOnScroll'
+import * as lazyload from '../components/lazyLoad'
 
-const moveHero = new Move('.hero__image--background')
+/**
+ * Allows to translate background on mouse move
+ */
+const moveHero = new Move('.hero__images--background')
 moveHero.translate(5)
 
+/**
+ * Intersection observer 
+ */
 const $section = document.querySelector('.hero')
-const $sectionTitle = document.querySelector('.hero__content')
-
 intersectionObserver($section, () => {
-  sr.reveal($section, Scrolling.reveal.opacity)
+  sr.reveal(document.querySelector('.hero__content'), Scrolling.reveal.opacity)
+  lazyload.observer.triggerLoad(document.querySelector('.hero__images--eyes'))
 })

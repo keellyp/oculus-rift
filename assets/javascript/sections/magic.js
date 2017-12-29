@@ -1,7 +1,6 @@
 import { intersectionObserver } from '../components/intersectionObserver'
 import * as Scrolling from '../components/revealOnScroll'
+import * as lazyload from '../components/lazyLoad'
 
-const $section = document.querySelector('.magic')
-
-sr.reveal('.magic__image', Scrolling.reveal.top);
-sr.reveal('.magic__content', Scrolling.reveal.opacity);
+sr.reveal('.magic__image', Scrolling.reveal.top)
+sr.reveal('.magic__content', Scrolling.reveal.opacity)

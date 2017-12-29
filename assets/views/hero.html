@@ -1,19 +1,18 @@
 <section class="hero" id="hero">
   <div class="hero__images">
-    <div class="hero__image hero__image--background animation-opacity"></div>
-    <picture>
-      <source srcset="img/welcome-eyes@350w.png" media="(max-width:350px)">
-      <source srcset="img/welcome-eyes@560w.png" media="(max-width:560px)">
-      <source srcset="img/welcome-eyes@720w.png" media="(max-width:720px)">
-      <source srcset="img/welcome-eyes@1280w.png" media="(max-width:1280px)">
-      <source srcset="img/welcome-eyes@1920w.png" media="(max-width:1920px)">
-      <img data-src="img/welcome-eyes-full.png" alt="Découvrez l'oculus" class="hero__image--eyes lozad">
-    </picture>
+    <div class="hero__images--background animation-opacity"></div>
+    <img alt="Découvrez l'oculus" class="hero__images--eyes lozad" 
+      data-src="img/welcome-eyes-full.png" 
+      data-srcset="
+        img/welcome-eyes@350w.png 350w,
+        img/welcome-eyes@560w.png 560w,
+        img/welcome-eyes@720w.png 720w,
+        img/welcome-eyes@1280w.png 1280w, " />
   </div>
   <div class="hero__content">
     <div class="container">
       <h1>Bienvenue dans l'Oculus Rift</h1>
       <p>Plongez dans le Rift et profitez des meilleurs jeux en réalité virtuelle, pour seulement 449€.</p>
     </div>
-</div>
+  </div>
 </section>

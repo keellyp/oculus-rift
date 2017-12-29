@@ -1,13 +1,12 @@
 <section class="immersive">
   <div class="immersive__background">
-    <picture>
-      <source srcset='img/immersive-turtle@350w.png' media='(max-width:350px)'>
-      <source srcset='img/immersive-turtle@560w.png' media='(max-width:560px)'>
-      <source srcset='img/immersive-turtle@720w.png' media='(max-width:720px)'>
-      <source srcset='img/immersive-turtle@1280w.png' media='(max-width:1280px)'>
-      <source srcset='img/immersive-turtle@1920w.png' media='(max-width:1920px)'>
-      <img data-src='img/immersive-turtle-full.png' width='60%' alt='Turtle' class="lozad rellax immersive__turtle" data-rellax-speed="5">
-    </picture>
+    <img alt='Turtle' class="lozad rellax immersive__turtle"
+    data-rellax-speed="5" 
+    data-src='img/immersive-turtle-full.png'
+    data-srcset="
+      img/immersive-turtle@350w.png 350w,
+      img/immersive-turtle@560w.png 560w,
+      img/immersive-turtle@720w.png 720w " />
     <div class="container immersive__content rellax" data-rellax-speed="-1">
       <div class="immersive__wrapper">
         <h2>Plongez dans le Rift</h2>
