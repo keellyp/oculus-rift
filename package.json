@@ -50,6 +50,7 @@
   "dependencies": {
     "intersection-observer": "^0.5.0",
     "lozad": "^1.0.9",
+    "rellax": "^1.4.0",
     "scrollreveal": "^3.3.6"
   }
 }
