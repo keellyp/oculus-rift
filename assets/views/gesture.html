@@ -1,21 +1,15 @@
 <section class="gesture">
   <div class="gesture__images">
-    <picture class='gesture__images--left'>
-      <source srcset='img/gesture-left@350w.png' media='(max-width:350px)'>
-      <source srcset='img/gesture-left@560w.png' media='(max-width:560px)'>
-      <source srcset='img/gesture-left@720w.png' media='(max-width:720px)'>
-      <source srcset='img/gesture-left@1280w.png' media='(max-width:1280px)'>
-      <source srcset='img/gesture-left@1920w.png' media='(max-width:1920px)'>
-      <img src='img/gesture-left-full.png' width='90%' alt='Left touch controller'>
-    </picture>
-    <picture class='gesture__images--right'>
-      <source srcset='img/gesture-right@350w.png' media='(max-width:350px)'>
-      <source srcset='img/gesture-right@560w.png' media='(max-width:560px)'>
-      <source srcset='img/gesture-right@720w.png' media='(max-width:720px)'>
-      <source srcset='img/gesture-right@1280w.png' media='(max-width:1280px)'>
-      <source srcset='img/gesture-right@1920w.png' media='(max-width:1920px)'>
-      <img src='img/gesture-right-full.png' width='90%' alt='Right touch controller'>
-    </picture>
+    <img alt='Left touch controller' class="lozad gesture__images--left" 
+      data-src="img/gesture-left-full.png" 
+      data-srcset="
+        img/gesture-left@350w.png 350w,
+        img/gesture-left@560w.png 560w, " />
+    <img alt='Right touch controller' class="lozad gesture__images--right"
+      data-src="img/gesture-right-full.png"
+      data-srcset="
+        img/gesture-right@350w.png 350w,
+        img/gesture-right@560w.png 560w, " />
   </div>
   <div class="container gesture__content">
     <h2>Des gestes et des mouvements naturels</h2>

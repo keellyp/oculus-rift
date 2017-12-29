@@ -29,11 +29,10 @@
   @include responsive($md) {
     justify-content: center;
     height: 60%;
-    padding-top: 32rem;
   }
   position: relative;
   height: 100%;
-  padding-top: 21rem;
+  padding-top: 16rem;
 }
 
 .immersive__wrapper {
@@ -62,9 +61,6 @@
 }
 
 .immersive__turtle {
-  @include responsive($sm) {
-    bottom: 12%;
-  }
   @include responsive($md) {
     right: -5%;
   }
@@ -73,6 +69,6 @@
   }
   position: absolute;
   right: 5%;
-  bottom: 20%;
+  bottom: -60%;
   max-width: 50rem;
 }   
