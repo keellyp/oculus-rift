@@ -3,7 +3,8 @@
  */
 
 import ScrollReveal from 'scrollreveal'
-window.sr = ScrollReveal()
+
+const sr = window.sr = ScrollReveal()
 
 const reveal = {}
 reveal.top = {

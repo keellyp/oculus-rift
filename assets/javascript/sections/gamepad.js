@@ -14,9 +14,9 @@ rightPad.rotate(6)
 /**
  * Scroll reveal animations
  */
-sr.reveal('.gesture__content', Scrolling.reveal.opacity);
-sr.reveal('.gesture__images--left', Scrolling.reveal.left);
-sr.reveal('.gesture__images--right', Scrolling.reveal.right);
+sr.reveal('.gesture__content', Scrolling.reveal.opacity)
+sr.reveal('.gesture__images--left', Scrolling.reveal.left)
+sr.reveal('.gesture__images--right', Scrolling.reveal.right)
 
 /**
  * Intersection observer

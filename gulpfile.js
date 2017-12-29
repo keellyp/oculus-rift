@@ -73,7 +73,7 @@ gulp.task('javascript', () => {
     .on('error', function(err){
       plugin.util.log(plugin.util.colors.red(err.stack))
       plugin.notify('Error')
-      this.emit('end');
+      this.emit('end')
     })
     .pipe(source('app.js'))
     .pipe(buffer())
