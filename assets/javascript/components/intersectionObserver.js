@@ -3,7 +3,7 @@ const intersectionObserver = (el, callback) => {
     observables.forEach(observable => {
       if (observable.intersectionRatio <= 0.3) return
       callback()
-      observer.unobserve(el)
+      observer.disconnect()
     })
   }, {
     threshold: [0.3]
