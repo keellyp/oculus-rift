@@ -1,4 +1,7 @@
 import { intersectionObserver } from '../components/intersectionObserver'
-import reveal from 'scrollreveal'
+import * as Scrolling from '../components/revealOnScroll'
 
-sr.reveal('.magic__image', reveal.top);
+const $section = document.querySelector('.magic')
+
+sr.reveal('.magic__image', Scrolling.reveal.top);
+sr.reveal('.magic__content', Scrolling.reveal.opacity);

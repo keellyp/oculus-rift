@@ -3,7 +3,6 @@ export default class Move {
   constructor($_el) {
     this.$el = document.querySelector($_el)
     this.$parent = this.$el.parentElement
-    console.log(this.$el, this.$parent)
   }
 
   translate(speed) {

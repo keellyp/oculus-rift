@@ -1,5 +1,5 @@
 import { intersectionObserver } from '../components/intersectionObserver'
-import reveal from '../components/scrolling'
+import * as Scrolling from '../components/revealOnScroll'
 import Move from '../components/move'
 
 const moveHero = new Move('.hero__image--background')
@@ -9,9 +9,5 @@ const $section = document.querySelector('.hero')
 const $sectionTitle = document.querySelector('.hero__content')
 
 intersectionObserver($section, () => {
-  sr.reveal($section, reveal.opacity)
+  sr.reveal($section, Scrolling.reveal.opacity)
 })
-
-
-
-

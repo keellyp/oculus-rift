@@ -1,3 +1,7 @@
+/**
+ * Burger menu
+ */
+
 class Menu {
   show() {
     const burgerButton = document.querySelector('.burger__button')

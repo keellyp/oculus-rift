@@ -1,4 +1,6 @@
+import { intersectionObserver } from '../components/intersectionObserver'
 import Slider from '../components/slider'
+import * as lazyload from '../components/lazyLoad'
 
 const slider = new Slider('.accessories__wrapper')
 slider.arrows(
@@ -7,3 +9,7 @@ slider.arrows(
 )
 slider.touchmoves()
 slider.dots()
+
+intersectionObserver(document.querySelector('.accessories'), () => {
+  lazyload.observer.triggerLoad(document.querySelector('.accessories__img img'))
+})
