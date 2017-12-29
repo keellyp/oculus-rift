@@ -1,3 +1,9 @@
+/**
+ * Class that move elements depending on mouse move event
+ * 
+ * @export
+ * @class Move
+ */
 export default class Move {
 
   constructor($_el) {

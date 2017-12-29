@@ -1,7 +1,10 @@
-import { intersectionObserver } from '../components/intersectionObserver'
 import * as Scrolling from '../components/revealOnScroll'
+import { intersectionObserver } from '../components/intersectionObserver'
 import * as lazyload from '../components/lazyLoad'
 
+/**
+ * Animation on conception parts
+ */
 sr.reveal('.conception__part--1', {
   delay: 200,
   duration: 1000,
@@ -70,6 +73,9 @@ sr.reveal('.conception__words', Scrolling.reveal.top)
 sr.reveal('.conception__image', Scrolling.reveal.opacity)
 sr.reveal('.conception__content', Scrolling.reveal.opacity)
 
+/**
+ * Intersection observer
+ */
 intersectionObserver(document.querySelector('.conception__image'), () => {
   lazyload.observer.triggerLoad(document.querySelector('.conception__image img'))
 })

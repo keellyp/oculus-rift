@@ -1,3 +1,7 @@
+/**
+ * Use Lozad to load ressources depending on intersection observer
+*/
+
 import lozad from 'lozad'
 
 const observer = lozad('.lozad', {

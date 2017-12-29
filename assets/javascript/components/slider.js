@@ -1,3 +1,9 @@
+/**
+ * Slider
+ * 
+ * @export
+ * @class Slider
+ */
 export default class Slider {
   
   constructor($_slider) {

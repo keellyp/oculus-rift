@@ -1,5 +1,5 @@
-import { intersectionObserver } from '../components/intersectionObserver'
 import Move from '../components/move'
+import { intersectionObserver } from '../components/intersectionObserver'
 import * as Scrolling from '../components/revealOnScroll'
 import * as lazyload from '../components/lazyLoad'
 

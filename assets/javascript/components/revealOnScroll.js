@@ -1,3 +1,7 @@
+/**
+ * Scroll reveal parameters to animate the site
+ */
+
 import ScrollReveal from 'scrollreveal'
 window.sr = ScrollReveal()
 
