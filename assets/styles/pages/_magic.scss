@@ -15,21 +15,14 @@
     height: 30rem;
     background-image: url('../img/magic-background@560w.png');
   }
-  @include responsive($sm) {
-    background-image: url('../img/magic-background@720w.png');
-  }
   @include responsive($md) {
     height: 45vh;
-    background-image: url('../img/magic-background@1280w.png');
     background-size: cover;
     background-position: 0%;
+    background-image: url('../img/magic-background-full.png');
   }
   @include responsive($lg) {
     height: 75vh;
-    background-image: url('../img/magic-background@1920w.png');
-  }
-  @include responsive($xl) {
-    background-image: url('../img/magic-background-full.png');
   }
   width: auto;
   height: 45rem;

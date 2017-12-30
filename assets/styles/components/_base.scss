@@ -20,6 +20,12 @@ body {
   max-width: 132rem;
   margin: 0 auto;
 }
-.aframe {
-  user-select: none;
+
+// .aframe {
+//   user-select: none;
+// }
+
+a-scene {
+  height: 300px;
+  width: 600px;
 }

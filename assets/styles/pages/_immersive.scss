@@ -67,6 +67,7 @@
   }
   @include responsive($md) {
     right: -5%;
+    max-width: 50rem;
   }
   @include responsive($lg) {
     right: 10%;

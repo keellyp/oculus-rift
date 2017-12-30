@@ -6,9 +6,8 @@
 @import 'components/_base.scss';
 
 // Import partials stylesheet
-// @import 'partials/_loading.scss';
+@import 'pages/_loading.scss';
 @import 'pages/_header.scss';
-// @import 'partials/_landing.scss';
 @import 'pages/_hero.scss';
 @import 'pages/_magic.scss';
 @import 'pages/_immersive.scss';
