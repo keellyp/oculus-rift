@@ -145,6 +145,15 @@ gulp.task('fonts', () => {
   plugin.util.log(plugin.util.colors.green('Fonts has been move'))
 })
 
+// Replace font into dist folder
+gulp.task('favicons', () => {
+  gulp
+    .src(`${config.assets}favicons/*`)
+    .pipe(gulp.dest(`${config.dist}favicons`))
+    .pipe(browserSync.stream())
+  plugin.util.log(plugin.util.colors.green('Favicons has been move'))
+})
+
 // Replace videos into dist folder
 gulp.task('videos', () => {
   gulp
@@ -182,4 +191,4 @@ gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'im
 gulp.task('default', ['browserSync', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images'], () => {})
+gulp.task('build', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images', 'favicons'], () => {})
