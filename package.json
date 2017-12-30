@@ -48,6 +48,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "intersection-observer": "^0.5.0",
     "lozad": "^1.0.9",
     "rellax": "^1.4.0",
