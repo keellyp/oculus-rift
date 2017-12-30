@@ -3,10 +3,10 @@
  [![Gulp](https://img.shields.io/badge/Gulp%20-%3E%3D3.9.1-blue.svg?style=flat-square)]()
  [![Yarn](https://img.shields.io/badge/yarn-%3E%3D1.3.2-ff69b4.svg?style=flat-square)]()
  
-  
+
 ![Oculus Rift](screenshot.png "Oculus Rift")
   
-This is a school project based on the Oculus Rift website. It is a front-end dev
+This is a school project based on the Oculus Rift website. I don't own any rights.
   
 [See the demo](https://oculus-rift.netlify.com/)
 
@@ -40,25 +40,20 @@ yarn run build
 
 
 ## Precisions 📝
-- We used the [BEM](http://getbem.com/naming/) naming class convention.
-- For the CSS, we added [CSSComb](https://github.com/csscomb/csscomb.js) to format and sort our code.
-- For the Javascript, we used [ESLint](https://github.com/eslint/eslint) and code in ES6. 
-- We liked to use [gitmoji](https://github.com/carloscuesta/gitmoji/) when we commited to identify quickly the purpose of the commit 
-- Everytime we could, we followed the rules of [FrontEndChecklist](https://frontendchecklist.io/)
+- I used the [BEM](http://getbem.com/naming/) naming class convention.
+- For the CSS, I added [CSSComb](https://github.com/csscomb/csscomb.js) to format and sort our code.
+- For the Javascript, I used [ESLint](https://github.com/eslint/eslint) and code in ES6. 
+- I liked to use [gitmoji](https://github.com/carloscuesta/gitmoji/) when I commited to identify quickly the purpose of the commit 
+- Everytime I could, I followed the rules of [FrontEndChecklist](https://frontendchecklist.io/)
 
 
 ## Other 🔎 
   
 ### Thanks 👥
 
-To the design team :
-- [Léna Mari](https://www.behance.net/lenammari)
-- [Valentin Martinez](https://www.behance.net/valentinma2045)
-- [Kimberly Busson](https://www.behance.net/kimberlybu7657)
- 
-and the two other developers :
-- [Samuel Mormin](https://github.com/samuelmormin)
-- [Rayan Aït-Tayeb](https://github.com/Rayan94)
+To [Léna Mari](https://www.behance.net/lenammari) and [Valentin Martinez](https://www.behance.net/valentinma2045) for the design. 
+
+To [Samuel Mormin](https://github.com/samuelmormin) for the help.
   
 ### Licence 📄
 This repository is under MIT Licence.
