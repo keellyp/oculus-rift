@@ -32,7 +32,7 @@
   }
   position: relative;
   height: 100%;
-  padding-top: 16rem;
+  padding-top: 12rem;
 }
 
 .immersive__wrapper {
@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100%;
+  height: 95%;
 
   p {
     @include responsive($md) {
@@ -61,6 +61,10 @@
 }
 
 .immersive__turtle {
+  @include responsive($xs) {
+    top: 170%;
+    right: -5%;
+  }
   @include responsive($md) {
     right: -5%;
   }
@@ -70,5 +74,5 @@
   position: absolute;
   right: 5%;
   bottom: -60%;
-  max-width: 50rem;
+  max-width: 30rem;
 }   

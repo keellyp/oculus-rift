@@ -10,8 +10,9 @@
 }
 
 .magic__image {
-  @include background('../img/magic-background@350w.png', 0, contain);
+  @include background('../img/magic-background@350w.png', 100%, contain);
   @include responsive($xs) {
+    height: 30rem;
     background-image: url('../img/magic-background@560w.png');
   }
   @include responsive($sm) {
@@ -21,6 +22,7 @@
     height: 45vh;
     background-image: url('../img/magic-background@1280w.png');
     background-size: cover;
+    background-position: 0%;
   }
   @include responsive($lg) {
     height: 75vh;
