@@ -1,26 +1,128 @@
 <div class="applications" id="applications">
   <h2 class="container">Applications</h2>
-  <div class="aframe">
-    <a-scene embedded style="width: 100vw; height: 60vh;">
-      <!-- Assets -->
+    <a-scene embedded style="width: 800px; height: 400px;">
       <a-assets>
         <!-- Thumbnails + Background -->
-        <img id="aircar-bg" src="img/app-aircar-bg.jpg" data-load >
-        <img id="aircar-thumb" src="img/app-aircar-thumb.jpg" data-load >
-        <img id="deadandburied-bg" src="img/app-deadandburied-bg.jpg" data-load >
-        <img id="deadandburied-thumb" src="img/app-deadandburied-thumb.jpg" data-load >
-        <img id="hawaiihappen-bg" src="img/app-hawaiihappen-bg.jpg" data-load >
-        <img id="hawaiihappen-thumb" src="img/app-hawaiihappen-thumb.jpg" data-load >
-        <img id="ripcoil-bg" src="img/app-ripcoil-bg.jpg" data-load >
-        <img id="ripcoil-thumb" src="img/app-ripcoil-thumb.jpg" data-load >
-        <img id="roborecall-bg" src="img/app-roborecall-bg.jpg" data-load >
-        <img id="roborecall-thumb" src="img/app-roborecall-thumb.jpg" data-load >
-        <img id="sportschallenge-bg" src="img/app-sportschallenge-bg.jpg" data-load >
-        <img id="sportschallenge-thumb" src="img/app-sportschallenge-thumb.jpg" data-load >
-        <img id="theclimb-bg" src="img/app-theclimb-bg.jpg" data-load >
-        <img id="theclimb-thumb" src="img/app-theclimb-thumb.jpg" data-load >
-        <img id="theunspoken-bg" src="img/app-theunspoken-bg.jpg" data-load >
-        <img id="theunspoken-thumb" src="img/app-theunspoken-thumb.jpg" data-load >
+        <img alt='Aircar' id="aircar-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-aircar-bg-full.jpg" 
+          data-srcset="
+            img/app-aircar-bg@350w.jpg 350w,
+            img/app-aircar-bg@560w.jpg 560w,
+            img/app-aircar-bg@720w.jpg 720w,
+            img/app-aircar-bg@1280w.jpg 1280w, "
+        />
+        <img alt='Aircar thumb' id="aircar-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-aircar-thumb-full.jpg" 
+          data-srcset="
+            img/app-aircar-thumb@350w.jpg 350w,
+            img/app-aircar-thumb@560w.jpg 560w,
+            img/app-aircar-thumb@720w.jpg 720w, "
+        />
+        <img alt='Dead and buried' id="deadandburied-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-deadandburied-bg-full.jpg" 
+          data-srcset="
+            img/app-deadandburied-bg@350w.jpg 350w,
+            img/app-deadandburied-bg@560w.jpg 560w,
+            img/app-deadandburied-bg@720w.jpg 720w, 
+            img/app-deadandburied-bg@1280w.jpg 1280w, "
+        />
+        <img alt='Dead and buried' id="deadandburied-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-deadandburied-thumb-full.jpg" 
+          data-srcset="
+            img/app-deadandburied-thumb@350w.jpg 350w,
+            img/app-deadandburied-thumb@560w.jpg 560w,
+            img/app-deadandburied-thumb@720w.jpg 720w, "
+        />
+        <img alt='Hawaii Happen' id="hawaiihappen-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-hawaiihappen-bg-full.jpg" 
+          data-srcset="
+            img/app-hawaiihappen-bg@350w.jpg 350w,
+            img/app-hawaiihappen-bg@560w.jpg 560w,
+            img/app-hawaiihappen-bg@720w.jpg 720w,
+            img/app-hawaiihappen-bg@1280w.jpg 1280w, "
+        />
+        <img alt='Hawaii Happen' id="hawaiihappen-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-hawaiihappen-thumb-full.jpg" 
+          data-srcset="
+            img/app-hawaiihappen-thumb@350w.jpg 350w,
+            img/app-hawaiihappen-thumb@560w.jpg 560w,
+            img/app-hawaiihappen-thumb@720w.jpg 720w, "
+        />
+        <img alt='Ripcoil' id="ripcoil-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-ripcoil-bg-full.jpg" 
+          data-srcset="
+            img/app-ripcoil-bg@350w.jpg 350w,
+            img/app-ripcoil-bg@560w.jpg 560w,
+            img/app-ripcoil-bg@720w.jpg 720w,
+            img/app-ripcoil-bg@1280w.jpg 1280w, "
+        />
+        <img alt='Ripcoil' id="ripcoil-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-ripcoil-thumb-full.jpg" 
+          data-srcset="
+            img/app-ripcoil-thumb@350w.jpg 350w,
+            img/app-ripcoil-thumb@560w.jpg 560w,
+            img/app-ripcoil-thumb@720w.jpg 720w, "
+        />
+        <img alt='Robo recall' id="roborecall-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-roborecall-bg-full.jpg" 
+          data-srcset="
+            img/app-roborecall-bg@350w.jpg 350w,
+            img/app-roborecall-bg@560w.jpg 560w,
+            img/app-roborecall-bg@720w.jpg 720w,
+            img/app-roborecall-bg@1280w.jpg 1280w, "
+        />
+        <img alt='Robo recall' id="roborecall-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-roborecall-thumb-full.jpg" 
+          data-srcset="
+            img/app-roborecall-thumb@350w.jpg 350w,
+            img/app-roborecall-thumb@560w.jpg 560w,
+            img/app-roborecall-thumb@720w.jpg 720w, "
+        />
+        <img alt='Sports Challenge' id="sportschallenge-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-sportschallenge-bg-full.jpg" 
+          data-srcset="
+            img/app-sportschallenge-bg@350w.jpg 350w,
+            img/app-sportschallenge-bg@560w.jpg 560w,
+            img/app-sportschallenge-bg@720w.jpg 720w,
+            img/app-sportschallenge-bg@1280w.jpg 1280w, "
+        />
+        <img alt='Sports Challenge' id="sportschallenge-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-sportschallenge-thumb-full.jpg" 
+          data-srcset="
+            img/app-sportschallenge-thumb@350w.jpg 350w,
+            img/app-sportschallenge-thumb@560w.jpg 560w,
+            img/app-sportschallenge-thumb@720w.jpg 720w, "
+        />
+        <img alt='The Climb' id="theclimb-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-theclimb-bg-full.jpg" 
+          data-srcset="
+            img/app-theclimb-bg@350w.jpg 350w,
+            img/app-theclimb-bg@560w.jpg 560w,
+            img/app-theclimb-bg@720w.jpg 720w,
+            img/app-theclimb-bg@1280w.jpg 1280w, "
+        />
+        <img alt='The Climb' id="theclimb-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-theclimb-thumb-full.jpg" 
+          data-srcset="
+            img/app-theclimb-thumb@350w.jpg 350w,
+            img/app-theclimb-thumb@560w.jpg 560w,
+            img/app-theclimb-thumb@720w.jpg 720w, "
+        />
+        <img alt='The Unspoken' id="theunspoken-bg" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-theunspoken-bg-full.jpg" 
+          data-srcset="
+            img/app-theunspoken-bg@350w.jpg 350w,
+            img/app-theunspoken-bg@560w.jpg 560w,
+            img/app-theunspoken-bg@720w.jpg 720w,
+            img/app-theunspoken-bg@1280w.jpg 1280w, "
+        />
+        <img alt='The Unspoken' id="theunspoken-thumb" class="lozad" crossorigin="anonymous" 
+          data-src="img/app-theunspoken-thumb-full.jpg" 
+          data-srcset="
+            img/app-theunspoken-thumb@350w.jpg 350w,
+            img/app-theunspoken-thumb@560w.jpg 560w,
+            img/app-theunspoken-thumb@720w.jpg 720w, "
+        />
 
         <!-- Template for cards -->
         <script id="plane" type="text/html">
@@ -34,10 +136,8 @@
         </script>
       </a-assets>
 
-      <!-- Background -->
       <a-sky id="background" src="#aircar-bg"></a-sky>
 
-      <!-- Camera + Cursor -->
       <a-entity position="0 0 0">
         <a-camera>
           <a-cursor id="cursor" color="white"
@@ -51,8 +151,6 @@
         </a-camera>
       </a-entity>
 
-
-      <!-- Cards -->
       <a-entity class="animationRotation">
         <a-animation  attribute="rotation"
         dur="100000"
@@ -90,5 +188,4 @@
         </a-entity>
       </a-entity>
     </a-scene>
-  </div>
 </div>
