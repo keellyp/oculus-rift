@@ -10,7 +10,6 @@ export default class Loader {
     this.totalProgress = 0
     this.requests = []
     this.init()
-    console.log(this.srcElements)
   }
 
   // Init elements
@@ -68,20 +67,18 @@ export default class Loader {
 
   on(event, callback) {
     switch (event) {
-      case 'progress':
-        this.progressEvents.push({
-          callback
-        })
-        break
-
-      case 'complete':
-        this.completeEvents.push({
-          callback
-        })
-        break
-
-      default:
-        break
+    case 'progress':
+      this.progressEvents.push({
+        callback
+      })
+      break
+    case 'complete':
+      this.completeEvents.push({
+        callback
+      })
+      break
+    default:
+      break
     }
   }
 }
