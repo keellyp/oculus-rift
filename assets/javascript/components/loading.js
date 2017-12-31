@@ -10,6 +10,7 @@ export default class Loader {
     this.totalProgress = 0
     this.requests = []
     this.init()
+    console.log(this.srcElements)
   }
 
   // Init elements
@@ -22,6 +23,7 @@ export default class Loader {
         progress: 0
       })
     })
+    console.log(this.requests)
 
     // For each element, calculate the loaded percentage
     this.requests.forEach((request, index) => {
