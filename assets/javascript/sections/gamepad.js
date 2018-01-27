@@ -8,15 +8,13 @@ import * as lazyload from '../components/lazyLoad'
  */
 const leftPad = new Move('.gesture__images--left')
 const rightPad = new Move('.gesture__images--right')
-leftPad.rotate(6)
-rightPad.rotate(6)
+leftPad.rotate(5)
+rightPad.rotate(5)
 
 /**
  * Scroll reveal animations
  */
 sr.reveal('.gesture__content', Scrolling.reveal.opacity)
-sr.reveal('.gesture__images--left', Scrolling.reveal.left)
-sr.reveal('.gesture__images--right', Scrolling.reveal.right)
 
 /**
  * Intersection observer
