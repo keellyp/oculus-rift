@@ -85,6 +85,29 @@ gulp.task('javascript', () => {
   plugin.util.log(plugin.util.colors.green('JS is done'))    
 })
 
+gulp.task('aframe', () => {
+  let bundler = browserify({
+    entries: `${config.assets}/javascript/components/aframe.js`,
+    debug: true
+  })
+  .transform(babelify, {presets: [env]})
+  
+  return bundler.bundle()
+    .on('error', function(err){
+      plugin.util.log(plugin.util.colors.red(err.stack))
+      plugin.notify('Error')
+      this.emit('end')
+    })
+    .pipe(source('aframe.js'))
+    .pipe(buffer())
+    .pipe(plugin.sourcemaps.init({loadMaps: true}))
+    .pipe(config.isProd ? plugin.streamify(plugin.uglify()) : plugin.util.noop())
+    .pipe(plugin.rename('aframe.min.js'))
+    .pipe(gulp.dest(`${config.dist}js`))
+    .pipe(browserSync.stream())
+  plugin.util.log(plugin.util.colors.green('JS is done'))    
+})
+
 // Create different size for images 
 gulp.task('srcset', () => {
   return gulp.src(`${config.assets}images/src/*.{jpg,jpeg,png}`)
@@ -177,10 +200,11 @@ gulp.task('fileinclude', function () {
 })
 
 // Watch all my task
-gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images'], () => {
+gulp.task('watch', ['fileinclude', 'style', 'javascript', 'aframe', 'fonts', 'videos', 'images'], () => {
   gulp.watch(`${config.assets}**/*.html`, ['fileinclude'])
   gulp.watch(`${config.assets}styles/**/*.scss`, ['style'])
   gulp.watch(`${config.assets}javascript/**/*.js`, ['javascript'])
+  gulp.watch(`${config.assets}javascript/**/*.js`, ['aframe'])
   gulp.watch(`${config.assets}images/*`, ['images'])
   gulp.watch(`${config.assets}images/src/*.{jpg,jpeg,png,tiff,webp,gif}`, ['srcset'])
   gulp.watch(`${config.assets}fonts/*`, ['fonts'])
@@ -191,4 +215,4 @@ gulp.task('watch', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'im
 gulp.task('default', ['browserSync', 'watch'], () => {})
 
 // Build task
-gulp.task('build', ['fileinclude', 'style', 'javascript', 'fonts', 'videos', 'images', 'favicons'], () => {})
+gulp.task('build', ['fileinclude', 'style', 'javascript', 'aframe', 'fonts', 'videos', 'images', 'favicons'], () => {})
