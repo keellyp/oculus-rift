@@ -41,22 +41,6 @@
 
 .hero__images--background {
   @include size(100%, 100%);
-  @include background('../img/welcome-background@350w.jpg', 50%, cover);
-  @include responsive($xs) {
-    background-image: url('../img/welcome-background@560w.jpg');
-  }
-  @include responsive($sm) {
-    background-image: url('../img/welcome-background@720w.jpg');
-  }
-  @include responsive($md) {
-    background-image: url('../img/welcome-background@1280w.jpg');
-  }
-  @include responsive($lg) {
-    background-image: url('../img/welcome-background@1920w.jpg');
-  }
-  @include responsive($xl) {
-    background-image: url('../img/welcome-background-full.jpg');
-  }
   transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
