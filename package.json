@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp clean && yarn run src && NODE_ENV=production gulp build",
+    "build": "gulp clean && gulp run src && NODE_ENV=production gulp build",
     "src": "gulp srcset && gulp otherSrc"
   },
   "devDependencies": {
