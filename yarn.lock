@@ -66,16 +66,6 @@ acorn@^4.0.3:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
-aframe-animation-component@^4.0.0-beta9:
-  version "4.0.0-beta9"
-  resolved "https://registry.yarnpkg.com/aframe-animation-component/-/aframe-animation-component-4.0.0-beta9.tgz#b95ce7bdab041e9916062a3d83162af6c881f871"
-  dependencies:
-    animejs "2.2.0"
-
-aframe-event-set-component@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/aframe-event-set-component/-/aframe-event-set-component-4.0.1.tgz#a0ba58d527f506d6e75ce7c77671001fc6f4fe8b"
-
 aframe-layout-component@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/aframe-layout-component/-/aframe-layout-component-4.3.1.tgz#2ffe7c3338837dd3fc824f3bb739e10053b121a2"
@@ -144,10 +134,6 @@ amdefine@>=0.0.4:
 an-array@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/an-array/-/an-array-1.0.0.tgz#c125a5bb8257778e35f4b4f6aa9c7d0fa9e42665"
-
-animejs@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/animejs/-/animejs-2.2.0.tgz#35eefdfc535b81949c9cb06f0b3e60c02e6fdc80"
 
 ansi-colors@^1.0.1:
   version "1.0.1"
